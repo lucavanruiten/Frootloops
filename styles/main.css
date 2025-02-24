@@ -1,0 +1,580 @@
+/*
+  o                                                                                           o__ __o                       o     o                             
+ <|>                                                                                         <|     v\                    _<|>_  <|>                            
+ / \                                                                                         / \     <\                          < >                            
+ \o/           o       o       __o__    o__ __o/       o      o     o__ __o/  \o__ __o       \o/     o/       o       o     o     |        o__  __o   \o__ __o  
+  |           <|>     <|>     />  \    /v     |       <|>    <|>   /v     |    |     |>       |__  _<|       <|>     <|>   <|>    o__/_   /v      |>   |     |> 
+ / \          < >     < >   o/        />     / \      < >    < >  />     / \  / \   / \       |       \      < >     < >   / \    |      />      //   / \   / \ 
+ \o/           |       |   <|         \      \o/       \o    o/   \      \o/  \o/   \o/      <o>       \o     |       |    \o/    |      \o    o/     \o/   \o/ 
+  |            o       o    \\         o      |         v\  /v     o      |    |     |        |         v\    o       o     |     o       v\  /v __o   |     |  
+ / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \ 
+ */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Roboto mono;
+    font-weight: 400;
+}
+p {
+    font-size: 14pt;
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+#background-container {
+    padding: 5px;
+    width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: alternate;
+}
+
+.parent {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.div1 {
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    background-image: url('../images/index_animations/image1.jpg');
+    background-size: contain;
+    animation-name: background_change;
+    filter: blur(50px);
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+}
+
+.logo_box {
+    margin: 0;
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    background-size: contain;
+    background-position: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-size: 80%;
+    background-image: url('../images/Rotatinglogo-ezgif.com-optimize.gif');
+    filter: none;
+    animation: alternate 15s infinite ease-in-out hop;
+    padding: 0;
+    opacity: 0.9;
+}
+
+#name_box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 15px 0;
+    font-family: VT323;
+}
+
+.color_btn {
+    float: left;
+    padding: 20px;
+    bottom: 0;
+    position: absolute;
+    z-index: 2;
+}
+
+.color_btn > a {
+    text-decoration: none;
+    color: black;
+    border: black 1px solid;
+    font-size: 10px;
+    user-select: none;
+    padding: 5px;
+}
+
+.color_btn > a:hover {
+    background-color: rgb(98, 0, 255);
+    cursor: pointer;
+}
+
+#container_grid {
+    justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh;
+    align-items: center;
+}
+
+#body_port {
+    width: 100%;
+    height: 100%;
+    background-color: #6a03f2;
+}
+
+.portfolio_grid {
+    display: flex;
+    box-sizing: border-box;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.portfolio_grid > div {
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 30vw;
+}
+
+.portfolio_grid > div > p {
+    color: white;
+}
+
+.portfolio_grid  > div > img {
+    transition: all .4s ease;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    transform: scale(.9);
+}
+
+.portfolio_grid > div > img:hover {
+    cursor: pointer;
+    transform: scale(1);
+}
+
+#photo_page {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    display: none;
+    top: 0;
+    position: absolute;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#back_btn:hover {
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    color: white;
+}
+
+#photo_holder {
+    height: 100%;
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#photo_holder > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    max-width: 40vw;
+    box-sizing: border-box;
+}
+
+#text_holder {
+    --padding: 20px;
+    padding: var(--padding);
+    padding-top: calc(var(--padding) * 4);
+    width: 50%;
+}
+
+#text_holder p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#text_holder h1 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+    .div1:nth-child(1) { grid-area: 1 / 1 / 3 / 6; animation-delay: 0;}
+    .div1:nth-child(2) { grid-area: 2 / 2 / 4 / 4; animation-delay: 1s; animation-direction: alternate-reverse;}
+    .div1:nth-child(3) { grid-area: 3 / 3 / 5 / 6; animation-delay: 0.2s;}
+    .div1:nth-child(4) { grid-area: 3 / 1 / 6 / 2; animation-delay: 0s; animation-direction: alternate-reverse;}
+    .div1:nth-child(5) { grid-area: 4 / 2 / 6 / 4; animation-delay: 2.4s;}
+    .div1:nth-child(6) { grid-area: 5 / 4 / 6 / 6; animation-delay: 0.5s;animation-direction: alternate-reverse;}
+
+.content {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+#menu {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    font-family: VT323;
+}
+
+.home_btn {
+    height: 64px;
+    float: left;
+    box-sizing: border-box;
+    transition: all .4s ease-in-out;
+    padding: 0;
+    border: 2px solid rgb(255, 255, 255);
+    mix-blend-mode: exclusion;
+}
+
+.home_btn:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+#home_btn_white_pages {
+    border: black 2px solid;
+}
+
+#home_btn_white_pages:hover {
+    border: black 2px solid;
+    background-color: black;
+}
+
+.menu_btn {
+    padding: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+    font-size:40px;
+    float: left;
+    transition: all .4s ease-in-out;
+}
+
+.menu_btn:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#port_btn {
+    color: white;
+    border: 2px solid white;
+}
+
+#port_btn:hover {
+    background-color: white;
+    color: black;
+}
+
+#my_name {
+    margin: 0;
+    padding-bottom: 5px;
+    font-size: 40px;
+}
+
+/* collections pages */
+
+.container_collections_grid {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:stretch;
+    justify-content: space-around;
+    padding-top: 150px;
+    gap: 20px;
+}
+
+.text_in_flexbox {
+    max-width: 30vw;
+    height: fit-content;
+    font-weight: 700;
+}
+
+.container_collections_grid > img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    opacity: 1;
+    transition: .4s all ease-in-out;
+}
+
+.container_collections_grid > img:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+.container_collections_grid > div {
+    flex-basis: content;
+    padding: 20px;
+    padding-top: 0;
+    box-sizing: border-box;
+}
+
+.container_collections_grid > div:last-of-type {
+    margin-top: auto;
+  }
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    font-family: VT323;
+}
+
+.footer > img {
+    width: 100px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.intro_text_container {
+    max-width: 40vw;
+}
+
+.intro_text {
+    font-size: 35px;
+}
+
+/* ESCAPE THE SKINNER BOX :) */
+
+#escape_s_b_info_grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    padding: 20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.info_box {
+    flex-shrink: 0;
+    max-width: 45vw;
+}
+
+.info_box:nth-child(3) {
+    max-width: 90vw;
+}
+
+.info_box > img {
+    width: 100%;
+}
+
+/* messy grid LOVE */
+
+#messy_grid {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 150px;
+    gap: 20px;
+}
+
+#messy_grid > div > img {
+    max-width: 90vw;
+    max-height: 110vh;
+    object-fit: contain;
+    opacity: 1;
+    transition: .4s all ease-in-out;
+
+}
+
+#messy_grid > div > img:hover {
+    opacity: .8;
+    cursor: pointer;
+}
+
+/* about me pagina WOOOOOP WOOP */
+
+#about_container {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 150px;
+    justify-content: center;
+    color: white;
+}
+
+#about_text {
+    width: 50%;
+}
+
+#about_photo_holder {
+    box-sizing: border-box;
+}
+
+#about_photo_holder > img {
+    max-height: 80vh;
+}
+
+/* animations */
+
+@keyframes background_change {
+    1% {background-image: url('../images/index_animations/image1.jpg'); filter: blur(50px); background-position: center;}
+    40% {background-image: url('../images/index_animations/image4.jpg'); filter: blur(35px); background-position: left;}
+    60% {background-image: url('../images/index_animations/image6.jpg'); filter: blur(50px); background-position: right;}
+    80% {background-image: url('../images/index_animations/image9.jpg'); filter: blur(40px); background-position: bottom;}
+    100% {background-image: url('../images/index_animations/image1.jpg'); filter: blur(25px); background-position: center;}
+}
+
+@keyframes hop {
+    0% {background-position: center; background-size: 100%;}
+    25% {background-position: center; background-size: 100%;}
+    50% {background-position: center; background-size: 500%;}
+    75% {background-position: center; background-size: 5%;}
+    100% {background-position: center; background-size: 50%;}
+}
+
+@keyframes rainbow_flip {
+    0% {background-color: red;}
+    20% {background-color: orange;}
+    40% {background-color: yellow;}
+    60% {background-color: green;}
+    80% {background-color: blue;}
+    100% {background-color: purple;}
+}
+
+/* RESPONSIVE SECTION */
+
+@media only screen and (max-width: 1025px) {
+    .intro_text {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .container_collections_grid {
+        --gap: 35px;
+        --num_columns: 2;
+        --row_height: 1fr;
+    }
+
+    .portfolio_grid {
+        flex-direction: column;
+    }
+
+    .portfolio_grid > div {
+        padding: 5px;
+        max-width: 50vw;
+    }
+
+    .portfolio_grid > div > p {
+        font-size: 10px;
+    }
+
+    #menu > a {
+        padding: 5px;
+        text-decoration: none;
+        border-width: 1px;
+        font-size: 20px;
+        border-width: 1px;
+    }
+
+    .footer {
+        padding: 1px;
+        background-color: rgba(255, 255, 255, 0.477);
+        text-align: center;
+        font-size: 5px;
+    }
+
+    #collection_list {
+        position: absolute;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgb(255, 0, 0);
+    }
+    
+    #collection_list > a {
+        font-size: 15px;
+    }
+    .home_btn {
+        height: 36px;
+        border: 1px solid rgb(255, 255, 255);
+    }
+
+    #book_holder > div {
+        width: 350px;
+        height: 400px;
+    }
+
+    .container_collections_grid > div {
+        padding: 5px;
+        max-width: 60vw;
+    }
+
+    .container_collections_grid > div > h1 {
+        font-size: 16px;
+    }
+
+    #about_text {
+        width: 80%;
+    }
+
+    #about_text > p {
+        font-size: 12px;
+    }
+    #about_photo_holder > img {
+        max-height: 50vh;
+    }
+
+    #about_container {
+        justify-content: left;
+        padding-top: 70px;
+        padding-bottom: 70px;
+        flex-direction: column-reverse;
+    }
+    .intro_text {
+        font-size: inherit;
+    }
+
+    .intro_text_container {
+        max-width: 80vw;
+    }
+    #name_box {
+        display: none;
+    }
+    #home_btn_white_pages {
+        border-width: 1px;
+    }
+
+    #escape_s_b_info_grid {
+        flex-direction: column;
+    }
+
+    .info_box {
+        max-width: 80vw;
+    }
+
+    .contact_info {
+        font-size: 12px;
+    }
+  }

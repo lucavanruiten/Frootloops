@@ -1,0 +1,86 @@
+<!--
+  o                                                                                           o__ __o                       o     o                             
+ <|>                                                                                         <|     v\                    _<|>_  <|>                            
+ / \                                                                                         / \     <\                          < >                            
+ \o/           o       o       __o__    o__ __o/       o      o     o__ __o/  \o__ __o       \o/     o/       o       o     o     |        o__  __o   \o__ __o  
+  |           <|>     <|>     />  \    /v     |       <|>    <|>   /v     |    |     |>       |__  _<|       <|>     <|>   <|>    o__/_   /v      |>   |     |> 
+ / \          < >     < >   o/        />     / \      < >    < >  />     / \  / \   / \       |       \      < >     < >   / \    |      />      //   / \   / \ 
+ \o/           |       |   <|         \      \o/       \o    o/   \      \o/  \o/   \o/      <o>       \o     |       |    \o/    |      \o    o/     \o/   \o/ 
+  |            o       o    \\         o      |         v\  /v     o      |    |     |        |         v\    o       o     |     o       v\  /v __o   |     |  
+ / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \ 
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo_small-ezgif.com-optimize.gif" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400..700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background_rnd: #000000;
+        }
+    </style>
+</head>
+<body style="color: white;">
+    <div id="menu">
+        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
+        <a id="port_btn" class="menu_btn" href="about.html">About</a>
+        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </div>
+    <div id="name_box">
+        <h1 id="my_name">Luca van Ruiten</h1>
+        <h2 style="margin: 0;">Photographer</h2>
+        <h3 style="margin: 0;">graphic-designer</h3>
+        <p style="margin: 0;">creative coder</p>
+    </div>
+    <div id="background-container">
+        <div class="parent">
+            <div class="div1" style="display: none;"></div>
+            <div class="div1" style="display: none;"></div>
+            <div class="div1" style="display: none;"></div>
+            <div class="div1" style="display: none;"></div>
+            <div class="div1" style="display: none;"></div>
+            <div class="div1" style="display: none;"></div>
+        </div>
+    </div>
+    <div class="logo_box"></div>
+    <div class="color_btn">
+        <a onclick="setrandomColor()">I hate the background color</a>
+        <a onclick="rainbowflip()">RAINBOW</a>
+    </div>
+    <div class="footer" style="background-color: #00000000; color: white;">
+        <p>© 2025 Portfolio Luca van Ruiten</p>
+    </div>
+</body>
+<script>
+    var backdrop = document.getElementById("background-container");
+    var colors = ['#f84d1f', '#6d87cd', '#fb5543', '#bb7e', '#42e158', '#ff63cb', '#0e11c7', '#c70e45', '#325c00'];
+    var i = Math.floor(Math.random() * colors.length);
+    var r = colors[i];
+
+    function setrandomColor() {
+        if (backdrop.style.animationName == "rainbow_flip") {
+            backdrop.style.animationName = "none";
+        }
+        let i = Math.floor(Math.random() * colors.length);
+        let r = colors[i];
+        backdrop.style.backgroundColor = r;
+    }
+    setrandomColor();
+
+    console.log(r);
+
+    function rainbowflip() {
+        if (backdrop.style.animationName == "rainbow_flip") {
+            backdrop.style.animationName = "none";
+        } else
+        backdrop.style.animationName = "rainbow_flip";
+    }
+</script>
+</html>
