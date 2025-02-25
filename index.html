@@ -26,31 +26,6 @@
             --background_rnd: #000000;
         }
     </style>
-    <script>
-        var backdrop = document.getElementById("background-container");
-        var colors = ['#f84d1f', '#6d87cd', '#fb5543', '#bb7e', '#42e158', '#ff63cb', '#0e11c7', '#c70e45', '#325c00'];
-        var i = Math.floor(Math.random() * colors.length);
-        var r = colors[i];
-    
-        function setrandomColor() {
-            if (backdrop.style.animationName == "rainbow_flip") {
-                backdrop.style.animationName = "none";
-            }
-            let i = Math.floor(Math.random() * colors.length);
-            let r = colors[i];
-            backdrop.style.backgroundColor = r;
-        }
-        setrandomColor();
-    
-        console.log(r);
-    
-        function rainbowflip() {
-            if (backdrop.style.animationName == "rainbow_flip") {
-                backdrop.style.animationName = "none";
-            } else
-            backdrop.style.animationName = "rainbow_flip";
-        }
-    </script>
 </head>
 <body style="color: white;">
     <div id="menu">
@@ -82,5 +57,30 @@
     <div class="footer" style="background-color: #00000000; color: white;">
         <p>© 2025 Portfolio Luca van Ruiten</p>
     </div>
+    <script>
+        var backdrop = document.getElementById("background-container");
+        var colors = ['#f84d1f', '#6d87cd', '#fb5543', '#bb7e', '#42e158', '#ff63cb', '#0e11c7', '#c70e45', '#325c00'];
+        var i = Math.floor(Math.random() * colors.length);
+        var r = colors[i];
+    
+        function setrandomColor() {
+            if (backdrop.style.animationName == "rainbow_flip") {
+                backdrop.style.animationName = "none";
+            }
+            let i = Math.floor(Math.random() * colors.length);
+            let r = colors[i];
+            backdrop.style.backgroundColor = r;
+        }
+        setrandomColor();
+    
+        console.log(r);
+    
+        function rainbowflip() {
+            if (backdrop.style.animationName == "rainbow_flip") {
+                backdrop.style.animationName = "none";
+            } else
+            backdrop.style.animationName = "rainbow_flip";
+        }
+    </script>
 </body>
 </html>
