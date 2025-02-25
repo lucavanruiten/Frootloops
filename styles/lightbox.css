@@ -173,10 +173,8 @@ body.lb-disable-scrolling {
 }
 
 .lb-data .lb-close {
-  display:block;
-  position:absolute;
-  right:50px;
-  top:5px;
+  display: block;
+  float: right;
   width: 30px;
   height: 30px;
   background: url(../images/lightbox/close.png) top right no-repeat;
@@ -192,4 +190,8 @@ body.lb-disable-scrolling {
 .lb-data .lb-close:hover {
   cursor: pointer;
   opacity: 1;
+}
+
+@media only screen and (max-width: 800px) {
+  
 }
