@@ -75,7 +75,7 @@ h1 {
     background-size: 80%;
     background-image: url('../images/Rotatinglogo-ezgif.com-optimize.gif');
     filter: none;
-    animation: alternate 15s infinite ease-in-out hop;
+    animation: alternate 15s infinite ease-in-out hop_2;
     padding: 0;
     opacity: 0.9;
 }
@@ -301,7 +301,8 @@ h1 {
 }
 
 .text_in_flexbox {
-    max-width: 30vw;
+    font-size: 24px;
+    max-width: 40vw;
     height: fit-content;
     font-weight: 700;
 }
@@ -351,6 +352,7 @@ h1 {
 
 .intro_text_container {
     max-width: 40vw;
+    font-weight: 700;
 }
 
 .intro_text {
@@ -452,6 +454,14 @@ h1 {
     50% {background-position: center; background-size: 500%;}
     75% {background-position: center; background-size: 5%;}
     100% {background-position: center; background-size: 50%;}
+}
+
+@keyframes hop_2 {
+    0% {background-size: 100%;}
+    25% { background-size: 100%;}
+    40% { background-size: 500%;}
+    75% { background-size: 5%;}
+    100% { background-size: 50%;}
 }
 
 @keyframes rainbow_flip {
