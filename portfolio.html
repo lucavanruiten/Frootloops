@@ -47,26 +47,4 @@
         <img src="images/logo_small-ezgif.com-optimize.gif">
     </div>
 </body>
-<script>
-    const photo_page = document.getElementById("photo_page");
-    const photo_holder = document.getElementById("photo_holder");
-    const showcase_jpg = document.getElementById("showcase_jpg");
-
-    function close_screen() {
-        photo_page.style.display = "none";
-        document.getElementsByTagName("html")[0].style.overflow = "auto";
-    }
-
-    function openPhoto(img) {
-        const imgSrc = img.src;
-        const description = img.getAttribute('data-description');
-        const title_description = img.getAttribute('title-description');
-        showcase_jpg.src = imgSrc;
-        photo_page.style.display = "flex";
-        text_holder.querySelector('p').textContent = description;
-        text_holder.querySelector('h1').textContent = title_description;
-        document.getElementsByTagName("html")[0].style.overflow = "hidden";
-        window.scrollTo(0, 0);
-    }
-</script>
 </html>
