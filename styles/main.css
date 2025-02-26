@@ -299,6 +299,7 @@ h1 {
     justify-content: space-around;
     padding-top: 150px;
     gap: 20px;
+    padding-bottom: 50px;
 }
 
 .text_in_flexbox {
@@ -399,6 +400,7 @@ h1 {
     justify-content: space-around;
     padding-top: 150px;
     gap: 20px;
+    padding-bottom: 50px;
 }
 
 #messy_grid > div > img {
@@ -427,6 +429,7 @@ h1 {
 
 #about_text {
     width: 90%;
+    max-width: 1000px;
     color: black;
     text-align: left;
     margin: 0 auto;
@@ -521,7 +524,7 @@ h1 {
 
     .footer {
         padding: 1px;
-        background-color: rgba(255, 255, 255, 0.477);
+        background-color: rgb(0, 0, 0);
         text-align: center;
         font-size: 5px;
     }
@@ -573,11 +576,15 @@ h1 {
         flex-direction: column-reverse;
     }
     .intro_text {
-        font-size: inherit;
+        font-size: 14px;
+    }
+
+    .text_in_flexbox {
+        font-size: 12px;
     }
 
     .intro_text_container {
-        max-width: 80vw;
+        max-width: 90vw;
     }
     #name_box {
         display: none;
