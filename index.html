@@ -50,24 +50,15 @@
             <div class="div1" style="display: none;"></div>
         </div>
     </div>
-    <div class="logo_box"></div>
-    <div class="color_btn">
-        <a onclick="setrandomColor()">I hate the background color</a>
-        <a onclick="rainbowflip()">RAINBOW</a>
-    </div>
+    <div class="logo_box" onclick="setrandomColor()"></div>
     <div class="footer" style="background-color: #00000000; color: white;">
         <p>© 2025 Portfolio Luca van Ruiten</p>
     </div>
     <script>
         var backdrop = document.getElementById("background-container");
-        var colors = ['#f84d1f', '#6d87cd', '#fb5543', '#bb7e', '#42e158', '#ff63cb', '#0e11c7', '#c70e45', '#325c00'];
-        var i = Math.floor(Math.random() * colors.length);
-        var r = colors[i];
+        var colors = ['#fb5543', '#0e11c7', '#C7150E', '#2E2F72', '#C42F72'];
     
         function setrandomColor() {
-            if (backdrop.style.animationName == "rainbow_flip") {
-                backdrop.style.animationName = "none";
-            }
             let i = Math.floor(Math.random() * colors.length);
             let r = colors[i];
             backdrop.style.backgroundColor = r;
