@@ -63,10 +63,9 @@
             let i = Math.floor(Math.random() * colors.length);
             let r = colors[i];
             backdrop.style.backgroundColor = r;
+            console.log(r);
         }
         setrandomColor();
-    
-        console.log(r);
     
         function rainbowflip() {
             if (backdrop.style.animationName == "rainbow_flip") {
