@@ -94,9 +94,10 @@ h1 {
     top: 0;
     background-position: center;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     mix-blend-mode:soft-light;
     animation: hop 30s infinite alternate;
+    background-size: cover;
     opacity: 0.8;
 }
 
