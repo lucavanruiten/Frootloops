@@ -91,6 +91,7 @@ h1 {
 #texture_layer {
     background-image: url('../images/texture_layer.jpg');
     position: absolute;
+    top: 0;
     background-position: center;
     width: 100vw;
     height: 100vh;
