@@ -585,7 +585,7 @@ h1 {
     }
 
     .info_box {
-        max-width: 80vw;
+        max-width: 100%;
     }
 
     .contact_info {
