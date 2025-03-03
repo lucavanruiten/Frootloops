@@ -188,7 +188,7 @@ body.lb-disable-scrolling {
 }
 
 .lb-data .lb-close:hover {
-  cursor: pointer;
+  cursor: url('../images/cursor_states/pointer.png') 25 15, auto;
   opacity: 1;
 }
 
