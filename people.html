@@ -9,7 +9,7 @@
  / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \  -->
 
 <!DOCTYPE html>
-<html lang="en" style="background-color: rgb(236, 231, 217);">
+<html id="html_messy_grid" lang="en" style="background-color: white">
 <head>
     <link rel="stylesheet" href="styles/main.css">
     <meta charset="UTF-8">
@@ -25,10 +25,13 @@
 </head>
 <body>
     <div id="menu">
-        <img id="home_btn_white_pages" class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
-        <a class="menu_btn" href="portfolio.html">Projects</a>
-        <a class="menu_btn" href="about.html">About</a>
-        <a class="menu_btn" href="messy_grid.html">Visual diary</a>
+        <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
+        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
+        <a id="port_btn" class="menu_btn" href="about.html">About</a>
+        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </div>
+    <div id="theme_toggle">
+        <div id="circle_btn" onclick="change_bck()">Change theme</div>
     </div>
     <div class="container_collections_grid">
         <div class="intro_text_container"><p class="intro_text">My photography involves people most of the time, this is a collection of images that showcase my ability and broad interest in portraiture.</p></div>
@@ -41,7 +44,7 @@
         <a href="images/people/UNCOMPRESSED/7.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><image style="width: 40vw;" src="images/people/COMOPRESSED/7.jpg" id="img-6" class="collection_image"></image></a>
         <a href="images/people/UNCOMPRESSED/8.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><image style="width: 20vw;" src="images/people/COMOPRESSED/8.jpg" id="img-7" class="collection_image"></image></a>
         <a href="images/people/UNCOMPRESSED/9.jpg" data-lightbox="people" data-title="2024, Robin Meulens"><image style="width: 30vw;" src="images/people/COMOPRESSED/9.jpg" id="img-8" class="collection_image"></image></a>
-        <div><p class="text_in_flexbox">Methods I use vary from person to person. I like collaborating with my models and collaboratively capturing their personalities and aesthetics.</p></div>
+        <div class="text_box_flexbox"><p class="text_in_flexbox">Methods I use vary from person to person. I like collaborating with my models and collaboratively capturing their personalities and aesthetics.</p></div>
         <a href="images/people/UNCOMPRESSED/10.jpg" data-lightbox="people" data-title="2024, Eva Verwijs"><image style="width: 20vw;" src="images/people/COMOPRESSED/10.jpg" id="img-9" class="collection_image"></image></a>
         <a href="images/people/UNCOMPRESSED/11.jpg" data-lightbox="people" data-title="2024, Roos Glorius"><image style="width: 20vw;" src="images/people/COMOPRESSED/11.jpg" id="img-10" class="collection_image"></image></a>
         <a href="images/people/UNCOMPRESSED/12.jpg" data-lightbox="people" data-title="2024, Mher, Kristupas Vabalas"><image style="width: 30vw;" src="images/people/COMOPRESSED/12.jpg" id="img-11" class="collection_image"></image></a>
@@ -53,5 +56,16 @@
         <img src="images/logo_small-ezgif.com-optimize.gif">
     </div>
     <script src="scripts/lightbox.js"></script>
+    <script>
+        var backdrop = document.getElementById("html_messy_grid");
+
+        function change_bck() {
+            if (backdrop.style.backgroundColor == 'black') {
+                backdrop.style.backgroundColor = 'white';
+            } else {
+                backdrop.style.backgroundColor = 'black';
+            }
+        }
+    </script>
 </body>
 </html>

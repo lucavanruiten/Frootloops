@@ -10,7 +10,7 @@
  
 
 <!DOCTYPE html>
-<html lang="en" style="background-color: rgb(236, 231, 217);">
+<html lang="en" id="html_messy_grid" style="background-color: white;">
 <head>
     <link rel="stylesheet" href="styles/main.css">
     <meta charset="UTF-8">
@@ -26,10 +26,13 @@
 </head>
 <body>
     <div id="menu">
-        <img id="home_btn_white_pages" class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
-        <a class="menu_btn" href="portfolio.html">Projects</a>
-        <a class="menu_btn" href="about.html">About</a>
-        <a class="menu_btn" href="messy_grid.html">Visual diary</a>
+        <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
+        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
+        <a id="port_btn" class="menu_btn" href="about.html">About</a>
+        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </div>
+    <div id="theme_toggle">
+        <div id="circle_btn" onclick="change_bck()">Change theme</div>
     </div>
     <div id="messy_grid">
         <div><a href="images/messy grid/UNCOMPRESSED/1.jpg" data-lightbox="messy_grid" data-title="2024, Bali Indonesia"><img style="width: 35vw" class="messy_grid_img" src="images/messy grid/COMPRESSED/1.jpg"></a></div>
@@ -58,5 +61,16 @@
         <img src="images/logo_small-ezgif.com-optimize.gif">
     </div>
     <script src="scripts/lightbox.js"></script>
+    <script>
+        var backdrop = document.getElementById("html_messy_grid");
+
+        function change_bck() {
+            if (backdrop.style.backgroundColor == 'black') {
+                backdrop.style.backgroundColor = 'white';
+            } else {
+                backdrop.style.backgroundColor = 'black';
+            }
+        }
+    </script>
 </body>
 </html>

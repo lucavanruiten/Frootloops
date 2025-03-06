@@ -134,6 +134,7 @@ a:hover {
 
 .portfolio_grid > div {
     box-sizing: border-box;
+    mix-blend-mode: exclusion;
     padding: 20px;
     max-width: 30vw;
 }
@@ -214,64 +215,45 @@ a:hover {
 
 #menu {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     right: 0;
     padding: 20px;
     font-family: VT323;
+    mix-blend-mode: exclusion;
 }
 
 .home_btn {
     height: 64px;
     float: left;
-    box-sizing: border-box;
-    transition: all .4s ease-in-out;
+    /* transition: all .3s ease; */
     padding: 0;
-    border: 2px solid rgb(255, 255, 255);
-    border-radius: 10px;
+    z-index: 1000;
 }
 
 .home_btn:hover {
     cursor: url('../images/cursor_states/pointer.png') 25 15, auto;
-    background-color: white;
-    transform: translateY(3px);
-}
-
-#home_btn_white_pages {
-    border: black 2px solid;
-}
-
-#home_btn_white_pages:hover {
-    border: black 2px solid;
-    background-color: black;
+    border-bottom: 3px rgb(0, 255, 0) solid;
 }
 
 .menu_btn {
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 3px;
     margin-left: 10px;
     text-decoration: none;
-    color: black;
-    border: 2px solid rgb(0, 0, 0);
-    font-size:40px;
+    font-size: 50px;
     float: left;
-    border-radius: 10px;
-    transition: all .4s ease-in-out;
+    color: white;
+    /* transition: all .3s ease; */
+    /* border-bottom: 2px white solid; */
 }
 
 .menu_btn:hover {
-    background-color: rgb(0, 0, 0);
-    color: white;
-    transform: translateY(3px);
-}
-
-#port_btn {
-    color: white;
-    border: 2px solid white;
-}
-
-#port_btn:hover {
-    background-color: white;
-    color: black;
+    /* background-color: rgb(0, 0, 0); */
+    color: rgb(0, 255, 0);
+    border-bottom: 3px solid rgb(0, 255, 0);
 }
 
 #my_name {
@@ -297,7 +279,14 @@ a:hover {
 .text_in_flexbox {
     font-size: 24px;
     max-width: 40vw;
-    height: fit-content;
+    color: white;
+}
+
+.text_box_flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mix-blend-mode: exclusion;
 }
 
 .container_collections_grid > img {
@@ -345,6 +334,8 @@ a:hover {
 }
 
 .intro_text_container {
+    mix-blend-mode: exclusion;
+    color: white;
     max-width: 40vw;
     font-weight: 300;
 }
@@ -408,6 +399,33 @@ a:hover {
     cursor: url('../images/cursor_states/pointer.png') 25 15, auto;
 }
 
+#theme_toggle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    mix-blend-mode: exclusion;
+}
+
+#circle_btn {
+    border-radius: 0;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+    font-family: VT323;
+    box-sizing: border-box;
+    border: 1px black solid;
+    font-size: 50px;
+    user-select: none;
+}
+
+#circle_btn:hover {
+    cursor: url('../images/cursor_states/pointer.png') 25 15, auto;
+    border: 1px white solid;
+    background-color: white;
+    color: black;
+}
+
 /* about me pagina WOOOOOP WOOP */
 
 #about_container {
@@ -416,12 +434,12 @@ a:hover {
     padding-top: 150px;
     justify-content: center;
     color: white;
-    background-color: rgb(236, 231, 217);
+    background-color: rgb(255, 255, 255);
 }
 
 #about_text {
     width: 90%;
-    max-width: 1000px;
+    max-width: 800px;
     color: black;
     text-align: left;
     margin: 0 auto;
@@ -519,20 +537,15 @@ a:hover {
         border-width: 1px;
         font-size: 20px;
         border-width: 1px;
-        border-radius: 5px;
     }
 
     .footer {
-        padding: 1px;
-        background-color: rgb(0, 0, 0);
-        text-align: center;
-        font-size: 5px;
+        display: none;
     }
 
     .home_btn {
         height: 36px;
-        border: 1px solid rgb(255, 255, 255);
-        border-radius: 5px;
+        border-width: 1px;
     }
 
     #book_holder > div {
@@ -594,5 +607,22 @@ a:hover {
 
     .contact_info {
         font-size: 12px;
+    }
+    #theme_toggle {
+        padding: 20px;
+        bottom: 0;
+        top: inherit;
+    }
+    #circle_btn {
+        background-color: white;
+        color: black;
+        font-size: 14px;
+    }
+
+    #messy_grid {
+        padding-top: 100px;
+    }
+    .container_collections_grid {
+        padding-top: 100px;
     }
   }
