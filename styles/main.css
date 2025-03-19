@@ -311,7 +311,7 @@ a:hover {
 
 .container_collections_grid > div:last-of-type {
     margin-top: auto;
-  }
+}
 
 
 .footer {
@@ -444,6 +444,7 @@ a:hover {
     color: black;
     text-align: left;
     margin: 0 auto;
+    text-align: justify;
 }
 
 #about_text > p {
@@ -570,6 +571,7 @@ a:hover {
     #about_text > p {
         font-size: 12px;
     }
+
     #about_photo_holder > img {
         max-height: 50vh;
     }
@@ -580,6 +582,7 @@ a:hover {
         padding-bottom: 70px;
         flex-direction: column-reverse;
     }
+
     .intro_text {
         font-size: 14px;
     }
@@ -591,9 +594,11 @@ a:hover {
     .intro_text_container {
         max-width: 90vw;
     }
+
     #name_box {
         display: none;
     }
+
     #home_btn_white_pages {
         border-width: 1px;
     }
@@ -609,11 +614,13 @@ a:hover {
     .contact_info {
         font-size: 12px;
     }
+
     #theme_toggle {
         padding: 20px;
         bottom: 0;
         top: inherit;
     }
+
     #circle_btn {
         background-color: white;
         color: black;
@@ -623,6 +630,7 @@ a:hover {
     #messy_grid {
         padding-top: 100px;
     }
+
     .container_collections_grid {
         padding-top: 100px;
     }
