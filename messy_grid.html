@@ -24,6 +24,29 @@
     <link href="styles/lightbox.css" rel="stylesheet" />
     <script src="scripts/jquiry.js"></script>
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const container = document.querySelector("#messy_grid");
+  const items = Array.from(container.children);
+
+  // Shuffle array using Fisher–Yates shuffle
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+
+  // Append shuffled items back into container
+  items.forEach(item => {
+    // Random width between 20vw and 60vw
+    const randomWidth = Math.random() * (60 - 20) + 20; 
+    const img = item.querySelector("img");
+    if (img) {
+      img.style.width = randomWidth + "vw";
+    }
+    container.appendChild(item);
+  });
+});
+</script>
 <body>
     <div id="menu">
         <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
@@ -55,6 +78,10 @@
         <div><a href="images/messy grid/UNCOMPRESSED/18.jpg" data-lightbox="messy_grid" data-title="2024"><img style="width: 30vw" class="messy_grid_img" src="images/messy grid/COMPRESSED/18.jpg"></a></div>
         <div><a href="images/messy grid/UNCOMPRESSED/19.jpg" data-lightbox="messy_grid" data-title="2025"><img style="width: 30vw" class="messy_grid_img" src="images/messy grid/COMPRESSED/19.jpg"></a></div>
         <div><a href="images/messy grid/UNCOMPRESSED/20.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Netherlands (self portrait)"><img style="width: 30vw" class="messy_grid_img" src="images/messy grid/COMPRESSED/20.jpg"></a></div>
+        
+        <div><a href="images/messy grid/UNCOMPRESSED/21.jpg" data-lightbox="messy_grid" data-title="2025, Crete Greece (Jop Dekker)"><img style="width: 50vw" class="messy_grid_img" src="images/messy grid/COMPRESSED/21.jpg"></a></div>
+        <div><a href="images/messy grid/UNCOMPRESSED/22.jpg" data-lightbox="messy_grid" data-title="2025, Crete Greece"><img style="width: 40vw" class="messy_grid_img" src="images/messy grid/COMPRESSED/22.jpg"></a></div>
+        <div><a href="images/messy grid/UNCOMPRESSED/23.jpg" data-lightbox="messy_grid" data-title="2025, Crete Greece"><img style="width: 30vw" class="messy_grid_img" src="images/messy grid/COMPRESSED/23.jpg"></a></div>
     </div>  
     <div class="footer">
         <p>© 2025 Portfolio Luca van Ruiten</p>
