@@ -338,10 +338,6 @@ a:hover {
     font-weight: 300;
 }
 
-.intro_text {
-    font-size: 35px;
-}
-
 /* ESCAPE THE SKINNER BOX :) */
 
 #escape_s_b_info_grid {
@@ -496,10 +492,6 @@ a:hover {
 /* RESPONSIVE SECTION cuz people be lookin on phones these days*/
 
 @media only screen and (max-width: 1025px) {
-    .intro_text {
-        font-size: 30px;
-    }
-
     body, html {
     height: 100%;
     overflow: auto;
@@ -579,10 +571,6 @@ a:hover {
         padding-top: 70px;
         padding-bottom: 70px;
         flex-direction: column-reverse;
-    }
-
-    .intro_text {
-        font-size: 14px;
     }
 
     .text_in_flexbox {
