@@ -376,9 +376,14 @@ a:hover {
     padding-bottom: 50px;
 }
 
+#messy_grid > div {
+    display: flex;
+    align-items: center;
+}
+
 #messy_grid > div > img {
     max-width: 90vw;
-    max-height: 110vh;
+    max-height: 100vh;
     object-fit: contain;
     opacity: 1;
     transition: .4s all ease-in-out;

@@ -38,10 +38,12 @@ document.addEventListener("DOMContentLoaded", function() {
   // Append shuffled items back into container
   items.forEach(item => {
     // Random width between 20vw and 60vw
-    const randomWidth = Math.random() * (60 - 20) + 20; 
+    const randomWidth = Math.random() * (5 - 3) + 3; 
     const img = item.querySelector("img");
     if (img) {
       img.style.width = randomWidth + "vw";
+      img.style.minWidth = "150px";
+      console.log(randomWidth);
     }
     container.appendChild(item);
   });
