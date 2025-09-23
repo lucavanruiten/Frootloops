@@ -28,6 +28,7 @@ body, html {
     font-family: montserrat;
     font-weight: 400;
     cursor: url("../images/cursor_states/default.png") 25 15, auto;
+    scroll-behavior: smooth;
 }
 
 p {
@@ -67,18 +68,18 @@ a:hover {
 
 .logo_box {
     margin: 0;
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 50%;
     position: absolute;
     background-size: contain;
     background-position: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%;
     background-size: 80%;
     background-image: url('../images/Rotatinglogo-ezgif.com-optimize.gif');
-    animation: alternate 15s infinite ease-in-out hop_2;
+    /* background-image: url('../images/messy\ grid/UNCOMPRESSED/5.jpg'); */
+    animation: alternate 20s infinite ease-in-out images_move;
     padding: 0;
 }
 
@@ -313,24 +314,28 @@ a:hover {
 
 .footer {
     position: fixed;
+    border-radius: 10px;
     bottom: 0;
-    width: 100%;
-    padding: 6px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    width: auto;
+    padding: 10px;
     box-sizing: border-box;
-    color: white;
-    background-color: black;
+    color: black;
+    background-color: white;
     text-align: center;
     font-family: VT323;
+    mix-blend-mode: exclusion;
 }
 
-.footer > img {
-    width: 100px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
+.footer > p {
+    font-size: 8pt;
 }
 
 .intro_text_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 40vw;
     font-weight: 300;
 }
@@ -409,6 +414,7 @@ a:hover {
     padding: 10px;
     margin-top: 10px;
     color: white;
+    border-radius: 50%;
     font-family: VT323;
     box-sizing: border-box;
     border: 1px black solid;
@@ -431,7 +437,7 @@ a:hover {
     padding-top: 150px;
     justify-content: center;
     color: white;
-    background-color: rgb(255, 255, 255);
+    background-color: #FAF9F6;
 }
 
 #about_text {
@@ -462,24 +468,33 @@ a:hover {
 /* animations (I'm so thirsty) */
 
 @keyframes background_change {
-    1% {background-image: url('../images/index_animations/image1.jpg'); filter: blur(50px); background-position: center;}
-    40% {background-image: url('../images/index_animations/image4.jpg'); filter: blur(35px); background-position: left;}
-    60% {background-image: url('../images/index_animations/image6.jpg'); filter: blur(50px); background-position: right;}
-    80% {background-image: url('../images/index_animations/image9.jpg'); filter: blur(40px); background-position: bottom;}
-    100% {background-image: url('../images/index_animations/image1.jpg'); filter: blur(25px); background-position: center;}
+    1% {background-image: url('../images/index_animations/image1.jpg'); filter: blur(50px);}
+    40% {background-image: url('../images/index_animations/image4.jpg'); filter: blur(35px);}
+    60% {background-image: url('../images/index_animations/image6.jpg'); filter: blur(50px);}
+    80% {background-image: url('../images/index_animations/image9.jpg'); filter: blur(40px);}
+    100% {background-image: url('../images/index_animations/image1.jpg'); filter: blur(25px);}
 }
 
 @keyframes hop {
     0% {background-size: 100%;}
-    100% {background-size: 50%;}
+    50% { background-size: 200%;}
+    100% {background-size: 10%;}
 }
 
 @keyframes hop_2 {
-    0% {background-size: 100%;}
-    25% { background-size: 100%;}
+    0% {background-size: 80%;}
+    25% { background-size: 80%;}
     40% { background-size: 500%;}
     75% { background-size: 5%;}
     100% { background-size: 50%;}
+}
+
+@keyframes images_move {
+    0% {background-size: 40%;}
+    25% {background-size: 10%; width: 10%; height: 50%;}
+    50% {background-size: 50%; width: 100%; height: 100%;}
+    75% {background-size: 200%;}
+    100% {background-size: 50%; width: 0; height: 0;}
 }
 
 @keyframes rainbow_flip {

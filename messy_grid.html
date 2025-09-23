@@ -10,7 +10,7 @@
  
 
 <!DOCTYPE html>
-<html lang="en" id="html_messy_grid" style="background-color: white;">
+<html lang="en" id="html_messy_grid" style="background-color: #FAF9F6;">
 <head>
     <link rel="stylesheet" href="styles/main.css">
     <meta charset="UTF-8">
@@ -38,11 +38,12 @@ document.addEventListener("DOMContentLoaded", function() {
   // Append shuffled items back into container
   items.forEach(item => {
     // Random width between 20vw and 60vw
-    const randomWidth = Math.random() * (5 - 3) + 3; 
+    const randomWidth = Math.random() * (20 - 4) + 4; 
     const img = item.querySelector("img");
     if (img) {
       img.style.width = randomWidth + "vw";
-      img.style.minWidth = "150px";
+      img.style.maxWidth = "300px";
+      img.style.minWidth = "140px";
       console.log(randomWidth);
     }
     container.appendChild(item);
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
     </div>
     <div id="theme_toggle">
-        <div id="circle_btn" onclick="change_bck()">Change theme</div>
+        <div id="circle_btn" onclick="change_bck()">***</div>
     </div>
     <div id="messy_grid">
         <div><a href="images/messy grid/UNCOMPRESSED/1.jpg" data-lightbox="messy_grid" data-title="2024, Bali Indonesia"><img style="width: 35vw" class="messy_grid_img" src="images/messy grid/COMPRESSED/1.jpg"></a></div>
@@ -89,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>  
     <div class="footer">
         <p>© 2025 Portfolio Luca van Ruiten</p>
-        <img src="images/logo_small-ezgif.com-optimize.gif">
     </div>
     <script src="scripts/lightbox.js"></script>
     <script>
