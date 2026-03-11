@@ -34,16 +34,19 @@
         <a id="port_btn" class="menu_btn" href="about.html">About</a>
         <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
     </div>
-    <div id="name_box">
-        <h1 id="my_name">Luca van Ruiten</h1>
+    <div id="name_box_side">
         <h2 style="margin: 0;">Photographer</h2>
         <h2 style="margin: 0;">graphic-designer</h2>
         <h2 style="margin: 0;">creative coder</h2>
     </div>
+    <div id="name_box">
+        <h1 id="my_name">Luca van Ruiten</h1>
+    </div>
     <div id="background-container">
     </div>
-    <div class="logo_box"></div>
-    <div id="texture_layer" onclick="setrandomColor()"></div>
+    <div id="photo_reveal"></div>
+    <!-- <div class="logo_box"></div>
+    <div id="texture_layer" onclick="setrandomColor()"></div> -->
     <div class="footer">
         <p>© 2025 Portfolio Luca van Ruiten</p>
     </div>
@@ -57,7 +60,84 @@
             backdrop.style.backgroundColor = r;
             console.log(r);
         }
-        setrandomColor();
+        // setrandomColor();
+
+        const photoReveal = document.getElementById("photo_reveal");
+
+        const images = [
+        // "images/messy%20grid/COMPRESSED/1.jpg",
+        // "images/messy%20grid/COMPRESSED/2.jpg",
+        // "images/messy%20grid/COMPRESSED/3.jpg",
+        // "images/messy%20grid/COMPRESSED/4.jpg",
+        // "images/messy%20grid/COMPRESSED/5.jpg",
+        // "images/messy%20grid/COMPRESSED/6.jpg",
+        // "images/messy%20grid/COMPRESSED/7.jpg",
+        // "images/messy%20grid/COMPRESSED/8.jpg",
+        // "images/messy%20grid/COMPRESSED/9.jpg",
+        // "images/messy%20grid/COMPRESSED/10.jpg",
+        // "images/messy%20grid/COMPRESSED/11.jpg",
+        // "images/messy%20grid/COMPRESSED/12.jpg",
+        // "images/messy%20grid/COMPRESSED/13.jpg",
+        // "images/messy%20grid/COMPRESSED/14.jpg",
+        // "images/messy%20grid/COMPRESSED/15.jpg",
+        // "images/messy%20grid/COMPRESSED/16.jpg",
+        // "images/messy%20grid/COMPRESSED/17.jpg",
+        // "images/messy%20grid/COMPRESSED/18.jpg",
+        // "images/messy%20grid/COMPRESSED/19.jpg",
+        // "images/messy%20grid/COMPRESSED/20.jpg",
+        // "images/messy%20grid/COMPRESSED/21.jpg",
+        // "images/messy%20grid/COMPRESSED/22.jpg",
+        // "images/messy%20grid/COMPRESSED/23.jpg",
+        // "images/messy%20grid/COMPRESSED/24.jpg"
+        "images/queens/compressed/1.jpg",
+        "images/queens/compressed/2.jpg",
+        "images/queens/compressed/3.jpg",
+        "images/queens/compressed/4.jpg",
+        "images/queens/compressed/5.jpg",
+        "images/queens/compressed/6.jpg",
+        "images/queens/compressed/7.jpg",
+        "images/queens/compressed/8.jpg",
+        "images/queens/compressed/9.jpg",
+        "images/queens/compressed/10.jpg",
+        "images/queens/compressed/11.jpg",
+        "images/queens/compressed/12.jpg",
+        "images/queens/compressed/13.jpg",
+        "images/queens/compressed/14.jpg",
+        "images/queens/compressed/15.jpg",
+        "images/queens/compressed/16.jpg",
+        "images/queens/compressed/17.jpg",
+        "images/queens/compressed/18.jpg",
+        "images/queens/compressed/19.jpg",
+        "images/queens/compressed/16.jpg",
+        "images/queens/compressed/17.jpg",
+        "images/queens/compressed/18.jpg",
+        "images/queens/compressed/19.jpg",
+        "images/queens/compressed/20.jpg",
+        "images/queens/compressed/21.jpg",
+        "images/queens/compressed/22.jpg",
+        "images/queens/compressed/23.jpg",
+        "images/queens/compressed/24.jpg",
+        "images/queens/compressed/25.jpg",
+        "images/queens/compressed/26.jpg",
+        "images/queens/compressed/28.jpg",
+        "images/queens/compressed/28.jpg"
+        ];
+
+        function changeImage() {
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        photoReveal.style.backgroundImage = `url(${randomImage})`;
+        };
+
+        function changeImage() {
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        photoReveal.style.backgroundImage = `url(${randomImage})`;
+        }
+
+        // change image every animation loop
+        photoReveal.addEventListener("animationiteration", changeImage);
+
+        // set first image
+        changeImage();
     </script>
 </body>
 </html>

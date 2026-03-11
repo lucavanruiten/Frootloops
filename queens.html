@@ -1,0 +1,89 @@
+ <!--                                                                                          o__ __o                       o     o                             
+ <|>                                                                                         <|     v\                    _<|>_  <|>                            
+ / \                                                                                         / \     <\                          < >                            
+ \o/           o       o       __o__    o__ __o/       o      o     o__ __o/  \o__ __o       \o/     o/       o       o     o     |        o__  __o   \o__ __o  
+  |           <|>     <|>     />  \    /v     |       <|>    <|>   /v     |    |     |>       |__  _<|       <|>     <|>   <|>    o__/_   /v      |>   |     |> 
+ / \          < >     < >   o/        />     / \      < >    < >  />     / \  / \   / \       |       \      < >     < >   / \    |      />      //   / \   / \ 
+ \o/           |       |   <|         \      \o/       \o    o/   \      \o/  \o/   \o/      <o>       \o     |       |    \o/    |      \o    o/     \o/   \o/ 
+  |            o       o    \\         o      |         v\  /v     o      |    |     |        |         v\    o       o     |     o       v\  /v __o   |     |  
+ / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \  -->
+
+<!DOCTYPE html>
+<html id="html_messy_grid" lang="en" style="background-color: white">
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Luca van Ruiten, fotograaf, photographer, graphic design, graphic designer, Rotterdam, Nederland, Netherlands, Creative coder, programmeur, webdesign, kunst, kunstenaar, artist,">
+    <meta name="author" content="Luca van Ruiten">
+    <title>Queer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
+    <link href="styles/lightbox.css" rel="stylesheet" />
+    <script src="scripts/jquiry.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
+        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
+        <a id="port_btn" class="menu_btn" href="about.html">About</a>
+        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </div>
+    <div id="theme_toggle">
+        <div id="circle_btn" onclick="change_bck()">***</div>
+    </div>
+    <div class="container_collections_grid">
+        <a href="images/queens/uncompressed/1.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 40vw;" src="images/queens/compressed/1.jpg" id="img-0" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/2.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 30vw;" src="images/queens/compressed/2.jpg" id="img-1" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/3.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 20vw;" src="images/queens/compressed/3.jpg" id="img-2" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/4.jpg" data-lightbox="queer" data-title="2025"><image style="width: 20vw;" src="images/queens/compressed/4.jpg" id="img-3" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/5.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><image style="width: 60vw;" src="images/queens/compressed/5.jpg" id="img-4" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/6.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 30vw;" src="images/queens/compressed/6.jpg" id="img-5" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/7.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 30vw;" src="images/queens/compressed/7.jpg" id="img-6" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/8.jpg" data-lightbox="queer" data-title="2025"><image style="width: 60vw;" src="images/queens/compressed/8.jpg" id="img-7" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/9.jpg" data-lightbox="queer" data-title="2025"><image style="width: 30vw;" src="images/queens/compressed/9.jpg" id="img-8" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/10.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><image style="width: 20vw;" src="images/queens/compressed/10.jpg" id="img-9" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/11.jpg" data-lightbox="queer" data-title="2025"><image style="width: 20vw;" src="images/queens/compressed/11.jpg" id="img-10" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/12.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 30vw;" src="images/queens/compressed/12.jpg" id="img-11" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/13.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 40vw;" src="images/queens/compressed/13.jpg" id="img-12" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/14.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 20vw;" src="images/queens/compressed/14.jpg" id="img-13" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/15.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 30vw;" src="images/queens/compressed/15.jpg" id="img-14" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/16.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 60vw;" src="images/queens/compressed/16.jpg" id="img-15" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/17.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 40vw;" src="images/queens/compressed/17.jpg" id="img-16" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/18.jpg" data-lightbox="queer" data-title="2025"><image style="width: 40vw;" src="images/queens/compressed/18.jpg" id="img-12" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/19.jpg" data-lightbox="queer" data-title="2025"><image style="width: 20vw;" src="images/queens/compressed/19.jpg" id="img-13" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/20.jpg" data-lightbox="queer" data-title="2025, Rox Monroe and Cashmere"><image style="width: 30vw;" src="images/queens/compressed/20.jpg" id="img-14" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/21.jpg" data-lightbox="queer" data-title="2025"><image style="width: 60vw;" src="images/queens/compressed/21.jpg" id="img-15" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/22.jpg" data-lightbox="queer" data-title="2025"><image style="width: 40vw;" src="images/queens/compressed/22.jpg" id="img-16" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/23.jpg" data-lightbox="queer" data-title="2025"><image style="width: 40vw;" src="images/queens/compressed/23.jpg" id="img-12" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/24.jpg" data-lightbox="queer" data-title="2025"><image style="width: 20vw;" src="images/queens/compressed/24.jpg" id="img-13" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/25.jpg" data-lightbox="queer" data-title="2025"><image style="width: 30vw;" src="images/queens/compressed/25.jpg" id="img-14" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/26.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><image style="width: 60vw;" src="images/queens/compressed/26.jpg" id="img-15" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/27.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><image style="width: 40vw;" src="images/queens/compressed/27.jpg" id="img-16" class="collection_image"></image></a>
+        <a href="images/queens/uncompressed/28.jpg" data-lightbox="queer" data-title="2025"><image style="width: 40vw;" src="images/queens/compressed/28.jpg" id="img-16" class="collection_image"></image></a>
+    </div>
+    <div class="footer">
+        <p>© 2025 Portfolio Luca van Ruiten</p>
+    </div>
+    <script src="scripts/lightbox.js"></script>
+    <script>
+        var backdrop = document.getElementById("html_messy_grid");
+        var text_box_flexbox = document.getElementsByClassName("text_in_flexbox");
+
+        function change_bck() {
+            if (backdrop.style.backgroundColor == 'black') {
+                backdrop.style.backgroundColor = 'white';
+                for (var i = 0; i < text_box_flexbox.length; i++) {
+                    text_box_flexbox[i].style.color = 'black';
+                }
+            } else {
+                backdrop.style.backgroundColor = 'black';
+                for (var i = 0; i < text_box_flexbox.length; i++) {
+                    text_box_flexbox[i].style.color = 'white';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

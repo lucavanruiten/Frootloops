@@ -55,6 +55,7 @@ a:hover {
     animation-iteration-count: infinite;
     animation-timing-function: ease;
     animation-direction: alternate;
+    background-color: black;
 }
 
 .parent {
@@ -84,14 +85,31 @@ a:hover {
 }
 
 #name_box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    padding: 20px;
+    background-color: rgb(70, 51, 216);
+    border-radius: 30px;
+    font-family: VT323;
+    mix-blend-mode: exclusion;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#name_box_side {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 15px 0;
     font-family: VT323;
+    mix-blend-mode: exclusion;
+    z-index: 2;
+    border-radius: 0 0 15px 0;
 }
 
 #texture_layer {
@@ -122,6 +140,23 @@ a:hover {
     width: 100%;
     height: 100%;
     /* background-color: #6a03f2; */
+}
+
+#photo_reveal {
+    position: absolute;
+
+    width: 80vw;
+    height: 80vh;
+    z-index: 1;
+
+    animation: reveal_photo 6s infinite;
+    background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .portfolio_grid {
@@ -258,8 +293,8 @@ a:hover {
 
 #my_name {
     margin: 0;
-    padding-bottom: 5px;
-    font-size: 40px;
+    font-size: 150px;
+    mix-blend-mode: exclusion;
 }
 
 /* Projects page (don't know if this is the optimal version of this page but for now it's alright. */
@@ -453,16 +488,18 @@ a:hover {
     font-weight: 500;
 }
 
-#about_photo_holder {
-    box-sizing: border-box;
+#about_photo_holder > img {
+    width: 30vw;
+    max-width: 400px;
+    padding: 0 20px 0px 20px;
 }
 
-#about_photo_holder > img {
-    max-height: 60vh;
-    max-width: 40vw;
-    float: left;
-    text-align: center;
-    padding: 5px 10px 10px 0;
+#about_photo_holder {
+    float: right;
+}
+
+#about_photo_holder > p {
+    padding: 0 20px 0px 20px;
 }
 
 /* animations (I'm so thirsty) */
@@ -506,6 +543,13 @@ a:hover {
     100% {background-color: purple;}
 }
 
+@keyframes reveal_photo {
+    0% {height: 0; width: 0; border-radius: 50%;}
+    40% {height: 90vh; width: 90vw; border-radius: 0;}
+    60% {height: 90vh; width: 90vw; border-radius: 0;}
+    100% {height: 0; width: 0; border-radius: 50%;}
+}
+
 /* RESPONSIVE SECTION cuz people be lookin on phones these days*/
 
 @media only screen and (max-width: 1025px) {
@@ -527,6 +571,10 @@ a:hover {
         overflow-y: hidden;
     }
 
+    #name_box_side {
+        display: none;
+    }
+
     .portfolio_grid {
         flex-direction: column;
     }
@@ -540,16 +588,19 @@ a:hover {
         font-size: 10px;
     }
 
+    .footer {
+        bottom: 0;
+        right: 0;
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+
     #menu > a {
         padding: 5px;
         text-decoration: none;
         border-width: 1px;
         font-size: 20px;
         border-width: 1px;
-    }
-
-    .footer {
-        display: none;
     }
 
     .home_btn {
@@ -599,7 +650,11 @@ a:hover {
     }
 
     #name_box {
-        display: none;
+        width: auto;
+    }
+
+    #my_name {
+        font-size: 25px;
     }
 
     #home_btn_white_pages {
@@ -636,5 +691,8 @@ a:hover {
 
     .container_collections_grid {
         padding-top: 100px;
+    }
+    #about_photo_holder > p {
+    font-size: 10px;
     }
   }
