@@ -1,56 +1,104 @@
- <!--                                                                                          o__ __o                       o     o                             
+<!--
+  o                                                                                           o__ __o                       o     o                             
  <|>                                                                                         <|     v\                    _<|>_  <|>                            
- / \                                                                                         / \     <\                          < >                            
- \o/           o       o       __o__    o__ __o/       o      o     o__ __o/  \o__ __o       \o/     o/       o       o     o     |        o__  __o   \o__ __o  
-  |           <|>     <|>     />  \    /v     |       <|>    <|>   /v     |    |     |>       |__  _<|       <|>     <|>   <|>    o__/_   /v      |>   |     |> 
- / \          < >     < >   o/        />     / \      < >    < >  />     / \  / \   / \       |       \      < >     < >   / \    |      />      //   / \   / \ 
- \o/           |       |   <|         \      \o/       \o    o/   \      \o/  \o/   \o/      <o>       \o     |       |    \o/    |      \o    o/     \o/   \o/ 
-  |            o       o    \\         o      |         v\  /v     o      |    |     |        |         v\    o       o     |     o       v\  /v __o   |     |  
- / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \  -->
+ ...
+ -->
 
 <!DOCTYPE html>
 <html lang="en" style="background-color: #091035">
-    <!-- style="background-color: #091035;" -->
 <head>
-    <link rel="stylesheet" href="styles/main.css?v=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Luca van Ruiten, fotograaf, photographer, graphic design, graphic designer, Rotterdam, Nederland, Netherlands, Creative coder, programmeur, webdesign, kunst, kunstenaar, artist,">
+    <title>Projects — Photography Portfolio of Luca van Ruiten | Rotterdam</title>
+    <meta name="description" content="Browse the photography projects of Luca van Ruiten: queer documentary, drag portraiture, social documentary publications, and portrait series. Based in Rotterdam, Netherlands.">
     <meta name="author" content="Luca van Ruiten">
-    <title>Projects</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lucavanruiten.com/portfolio.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lucavanruiten.com/portfolio.html">
+    <meta property="og:title" content="Projects — Photography Portfolio of Luca van Ruiten">
+    <meta property="og:description" content="Queer documentary, drag portraiture, social documentary publications, and portrait series by Rotterdam photographer Luca van Ruiten.">
+    <meta property="og:image" content="https://lucavanruiten.com/images/queer/queer_cover.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects — Luca van Ruiten Photography">
+    <meta name="twitter:description" content="Queer documentary, drag portraiture, and portrait photography from Rotterdam.">
+    <meta name="twitter:image" content="https://lucavanruiten.com/images/queer/queer_cover.png">
+
+    <!-- Structured Data: ImageGallery -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Photography Projects — Luca van Ruiten",
+      "description": "Portfolio of photography projects by Luca van Ruiten, including queer documentary, drag portraiture, and portrait series.",
+      "url": "https://lucavanruiten.com/portfolio.html",
+      "author": {
+        "@type": "Person",
+        "name": "Luca van Ruiten",
+        "url": "https://lucavanruiten.com"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
-    <link href="styles/lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/main.css?v=1.1">
+    <link href="styles/lightbox.css" rel="stylesheet">
 </head>
 <body id="body_port">
-    <div id="menu">
-        <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
-        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
-        <a id="port_btn" class="menu_btn" href="about.html">About</a>
-        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
-    </div>
-    <div class="collection_container" style="display: none;">
-        <div class="collection_list" id="collection_list_port">
-            <a href="escape_s_b.html" class="collection">Escape the skinner box</a>
-            <hr>
-            <a href="escape_s_b.html" class="collection">Studio Portraits with Mandy McCandy</a>
-            <hr>
-            <a href="escape_s_b.html" class="collection">Queer nightlife</a>
-            <hr>
-            <a href="escape_s_b.html" class="collection">4x5 Sheet film</a>
-            <hr>
-        </div>
-    </div>
-    <div id="container_grid">
-        <div class="portfolio_grid">
-            <div><img src="images/escape_s_b/escape_s_b_cover.png" onclick="window.location.replace('escape_s_b.html')"><p>Escape the Skinner box</p></div>
-            <div><img src="images/queer/queer_cover.png" onclick="window.location.replace('queens.html')"><p>Queens</p></div>
-            <div style="padding-bottom: 40px;"><img src="images/people/people_cover.png" onclick="window.location.replace('people.html')"><p>People</p></div>
-        </div>
-    </div>
-    <div class="footer">
-        <p>© 2026 Portfolio Luca van Ruiten</p>
-    </div>
+    <nav id="menu" aria-label="Main navigation">
+        <a class="home_btn_link" href="index.html" aria-label="Home">
+            <img class="home_btn" src="images/logo_small-ezgif.com-optimize.gif" alt="Luca van Ruiten — home" width="64" height="64">
+        </a>
+        <a class="menu_btn" href="portfolio.html" aria-current="page">Projects</a>
+        <a class="menu_btn" href="about.html">About</a>
+        <a class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </nav>
+
+    <main id="container_grid">
+        <h1 class="seo-hidden">Photography Projects by Luca van Ruiten — Rotterdam</h1>
+        <section class="portfolio_grid" aria-label="Photography project collection">
+
+            <div>
+                <a href="escape_s_b.html" aria-label="View project: Escape the Skinner Box">
+                    <img 
+                        src="images/escape_s_b/escape_s_b_cover.png" 
+                        alt="Escape the Skinner Box — publication and photography project by Luca van Ruiten about social media addiction"
+                        loading="lazy">
+                </a>
+                <p>Escape the Skinner box</p>
+            </div>
+
+            <div>
+                <a href="queens.html" aria-label="View project: Queens — drag portraiture">
+                    <img 
+                        src="images/queer/queer_cover.png" 
+                        alt="Queens — drag portraiture photography series by Luca van Ruiten, Rotterdam queer photographer"
+                        loading="lazy">
+                </a>
+                <p>Queens</p>
+            </div>
+
+            <div style="padding-bottom: 40px;">
+                <a href="people.html" aria-label="View project: People — portrait series">
+                    <img 
+                        src="images/people/people_cover.png" 
+                        alt="People — portrait photography series by Luca van Ruiten"
+                        loading="lazy">
+                </a>
+                <p>People</p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Luca van Ruiten Photography — Rotterdam, Netherlands</p>
+    </footer>
 </body>
 </html>

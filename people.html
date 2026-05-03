@@ -1,59 +1,110 @@
- <!--                                                                                          o__ __o                       o     o                             
- <|>                                                                                         <|     v\                    _<|>_  <|>                            
- / \                                                                                         / \     <\                          < >                            
- \o/           o       o       __o__    o__ __o/       o      o     o__ __o/  \o__ __o       \o/     o/       o       o     o     |        o__  __o   \o__ __o  
-  |           <|>     <|>     />  \    /v     |       <|>    <|>   /v     |    |     |>       |__  _<|       <|>     <|>   <|>    o__/_   /v      |>   |     |> 
- / \          < >     < >   o/        />     / \      < >    < >  />     / \  / \   / \       |       \      < >     < >   / \    |      />      //   / \   / \ 
- \o/           |       |   <|         \      \o/       \o    o/   \      \o/  \o/   \o/      <o>       \o     |       |    \o/    |      \o    o/     \o/   \o/ 
-  |            o       o    \\         o      |         v\  /v     o      |    |     |        |         v\    o       o     |     o       v\  /v __o   |     |  
- / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \  -->
-
 <!DOCTYPE html>
 <html id="html_messy_grid" lang="en" style="background-color: white">
 <head>
-    <link rel="stylesheet" href="styles/main.css?v=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Luca van Ruiten, fotograaf, photographer, graphic design, graphic designer, Rotterdam, Nederland, Netherlands, Creative coder, programmeur, webdesign, kunst, kunstenaar, artist,">
+    <title>People — Portrait Photography Series by Luca van Ruiten | Rotterdam</title>
+    <meta name="description" content="People is an ongoing portrait photography series by Luca van Ruiten, documenting the personalities and aesthetics of individuals through collaborative, character-driven portraiture. Based in Rotterdam.">
     <meta name="author" content="Luca van Ruiten">
-    <title>People</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lucavanruiten.com/people.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lucavanruiten.com/people.html">
+    <meta property="og:title" content="People — Portrait Photography by Luca van Ruiten">
+    <meta property="og:description" content="An ongoing portrait series — collaborative, character-driven photography by Luca van Ruiten, based in Rotterdam, Netherlands.">
+    <meta property="og:image" content="https://lucavanruiten.com/images/people/COMOPRESSED/1.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="People — Portrait Photography by Luca van Ruiten">
+    <meta name="twitter:description" content="Ongoing portrait series by Rotterdam photographer Luca van Ruiten — collaborative, character-driven portraiture.">
+    <meta name="twitter:image" content="https://lucavanruiten.com/images/people/COMOPRESSED/1.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "People — Portrait Photography",
+      "description": "An ongoing portrait photography series documenting individuals through collaborative, character-driven portraiture. By Rotterdam photographer Luca van Ruiten.",
+      "url": "https://lucavanruiten.com/people.html",
+      "author": {
+        "@type": "Person",
+        "name": "Luca van Ruiten",
+        "url": "https://lucavanruiten.com"
+      },
+      "dateCreated": "2022",
+      "contentLocation": {
+        "@type": "Place",
+        "name": "Rotterdam, Netherlands"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
-    <link href="styles/lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/main.css?v=1.1">
+    <link href="styles/lightbox.css" rel="stylesheet">
     <script src="scripts/jquiry.js"></script>
 </head>
 <body>
-    <div id="menu">
-        <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
-        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
-        <a id="port_btn" class="menu_btn" href="about.html">About</a>
-        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
-    </div>
+    <nav id="menu" aria-label="Main navigation">
+        <a class="home_btn_link" href="index.html" aria-label="Home">
+            <img class="home_btn" src="images/logo_small-ezgif.com-optimize.gif" alt="Luca van Ruiten — home" width="64" height="64">
+        </a>
+        <a class="menu_btn" href="portfolio.html">Projects</a>
+        <a class="menu_btn" href="about.html">About</a>
+        <a class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </nav>
+
     <div id="theme_toggle">
-        <div id="circle_btn" onclick="change_bck()">***</div>
+        <div id="circle_btn" onclick="change_bck()" aria-label="Toggle dark/light background">***</div>
     </div>
-    <div class="container_collections_grid">
-        <div class="intro_text_container"><p class="text_in_flexbox">My photography involves people most of the time, this is a collection of images that showcase my ability and broad interest in portraiture.</p></div>
-        <a href="images/people/UNCOMPRESSED/1.jpg" data-lightbox="people" data-title="2024, Kees van Ruiten"><image style="width: 40vw;" src="images/people/COMOPRESSED/1.jpg" id="img-0" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/2.jpg" data-lightbox="people" data-title="2024, Liam Johnson"><image style="width: 30vw;" src="images/people/COMOPRESSED/2.jpg" id="img-1" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/3.jpg" data-lightbox="people" data-title="2022, Fenna Schrier, Marijn Bouwens, Marit Koets"><image style="width: 20vw;" src="images/people/COMOPRESSED/3.jpg" id="img-2" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/4.jpg" data-lightbox="people" data-title="2022, Frederique van Luijk"><image style="width: 35vw;" src="images/people/COMOPRESSED/4.jpg" id="img-3" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/5.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><image style="width: 40vw;" src="images/people/COMOPRESSED/5.jpg" id="img-4" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/6.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><image style="width: 50vw;" src="images/people/COMOPRESSED/6.jpg" id="img-5" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/7.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><image style="width: 40vw;" src="images/people/COMOPRESSED/7.jpg" id="img-6" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/8.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><image style="width: 20vw;" src="images/people/COMOPRESSED/8.jpg" id="img-7" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/9.jpg" data-lightbox="people" data-title="2024, Robin Meulens"><image style="width: 30vw;" src="images/people/COMOPRESSED/9.jpg" id="img-8" class="collection_image"></image></a>
-        <div class="text_box_flexbox"><p class="text_in_flexbox">Methods I use vary from person to person. I like collaborating with my models and collaboratively capturing their personalities and aesthetics.</p></div>
-        <a href="images/people/UNCOMPRESSED/10.jpg" data-lightbox="people" data-title="2024, Eva Verwijs"><image style="width: 20vw;" src="images/people/COMOPRESSED/10.jpg" id="img-9" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/11.jpg" data-lightbox="people" data-title="2024, Roos Glorius"><image style="width: 20vw;" src="images/people/COMOPRESSED/11.jpg" id="img-10" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/12.jpg" data-lightbox="people" data-title="2024, Mher, Kristupas Vabalas"><image style="width: 30vw;" src="images/people/COMOPRESSED/12.jpg" id="img-11" class="collection_image"></image></a>
-        <a href="images/people/UNCOMPRESSED/13.jpg" data-lightbox="people" data-title="2024, Dan"><image style="width: 50vw;" src="images/people/COMOPRESSED/13.jpg" id="img-12" class="collection_image"></image></a>
-        <div><h1 style="width: fit-content;">Ongoing and never ending</h1></div>
-    </div>
-    <div class="footer">
-        <p>© 2026 Portfolio Luca van Ruiten</p>
-    </div>
+
+    <main class="container_collections_grid" aria-label="People — portrait photography series">
+
+        <div class="intro_text_container">
+            <p class="text_in_flexbox">
+                People are at the heart of most of my photography. This is a collection of images that showcase my approach to portraiture — 
+                broad, honest, and always in collaboration with the subject.
+            </p>
+        </div>
+
+        <a href="images/people/UNCOMPRESSED/1.jpg" data-lightbox="people" data-title="2024, Kees van Ruiten"><img style="width: 40vw;" src="images/people/COMOPRESSED/1.jpg" id="img-0" class="collection_image" alt="Portrait of Kees van Ruiten, 2024 — photography by Luca van Ruiten, Rotterdam" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/2.jpg" data-lightbox="people" data-title="2024, Liam Johnson"><img style="width: 30vw;" src="images/people/COMOPRESSED/2.jpg" id="img-1" class="collection_image" alt="Portrait of Liam Johnson, 2024 — Luca van Ruiten photography, Rotterdam" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/3.jpg" data-lightbox="people" data-title="2022, Fenna Schrier, Marijn Bouwens, Marit Koets"><img style="width: 20vw;" src="images/people/COMOPRESSED/3.jpg" id="img-2" class="collection_image" alt="Group portrait of Fenna Schrier, Marijn Bouwens, and Marit Koets, 2022 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/4.jpg" data-lightbox="people" data-title="2022, Frederique van Luijk"><img style="width: 35vw;" src="images/people/COMOPRESSED/4.jpg" id="img-3" class="collection_image" alt="Portrait of Frederique van Luijk, 2022 — portrait photography by Luca van Ruiten" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/5.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><img style="width: 40vw;" src="images/people/COMOPRESSED/5.jpg" id="img-4" class="collection_image" alt="Portrait of Marijn Bouwens, 2024 — Luca van Ruiten portrait photography, Rotterdam" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/6.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><img style="width: 50vw;" src="images/people/COMOPRESSED/6.jpg" id="img-5" class="collection_image" alt="Marijn Bouwens — candid portrait 2024, Rotterdam — photography by Luca van Ruiten" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/7.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><img style="width: 40vw;" src="images/people/COMOPRESSED/7.jpg" id="img-6" class="collection_image" alt="Marijn Bouwens — portrait series 2024 — Luca van Ruiten photography" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/8.jpg" data-lightbox="people" data-title="2024, Marijn Bouwens"><img style="width: 20vw;" src="images/people/COMOPRESSED/8.jpg" id="img-7" class="collection_image" alt="Marijn Bouwens — close-up portrait 2024 — Luca van Ruiten, Rotterdam" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/9.jpg" data-lightbox="people" data-title="2024, Robin Meulens"><img style="width: 30vw;" src="images/people/COMOPRESSED/9.jpg" id="img-8" class="collection_image" alt="Portrait of Robin Meulens, 2024 — Luca van Ruiten portrait photography, Netherlands" loading="lazy"></a>
+
+        <div class="text_box_flexbox">
+            <p class="text_in_flexbox">
+                Methods vary from person to person. I like collaborating with my subjects and finding what feels true — 
+                capturing personality and aesthetic in a way that feels genuine.
+            </p>
+        </div>
+
+        <a href="images/people/UNCOMPRESSED/10.jpg" data-lightbox="people" data-title="2024, Eva Verwijs"><img style="width: 20vw;" src="images/people/COMOPRESSED/10.jpg" id="img-9" class="collection_image" alt="Portrait of Eva Verwijs, 2024 — collaborative portraiture by Luca van Ruiten" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/11.jpg" data-lightbox="people" data-title="2024, Roos Glorius"><img style="width: 20vw;" src="images/people/COMOPRESSED/11.jpg" id="img-10" class="collection_image" alt="Portrait of Roos Glorius, 2024 — Luca van Ruiten photography, Rotterdam" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/12.jpg" data-lightbox="people" data-title="2024, Mher, Kristupas Vabalas"><img style="width: 30vw;" src="images/people/COMOPRESSED/12.jpg" id="img-11" class="collection_image" alt="Portrait of Mher and Kristupas Vabalas, 2024 — Luca van Ruiten portrait series" loading="lazy"></a>
+        <a href="images/people/UNCOMPRESSED/13.jpg" data-lightbox="people" data-title="2024, Dan"><img style="width: 50vw;" src="images/people/COMOPRESSED/13.jpg" id="img-12" class="collection_image" alt="Portrait of Dan, 2024 — People series by Luca van Ruiten, Rotterdam photographer" loading="lazy"></a>
+
+        <div>
+            <h2 style="width: fit-content;">Ongoing and never ending</h2>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Luca van Ruiten Photography — Rotterdam, Netherlands</p>
+    </footer>
+
     <script src="scripts/lightbox.js"></script>
     <script>
         var backdrop = document.getElementById("html_messy_grid");

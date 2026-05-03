@@ -1,50 +1,94 @@
- <!--                                                                                          o__ __o                       o     o                             
- <|>                                                                                         <|     v\                    _<|>_  <|>                            
- / \                                                                                         / \     <\                          < >                            
- \o/           o       o       __o__    o__ __o/       o      o     o__ __o/  \o__ __o       \o/     o/       o       o     o     |        o__  __o   \o__ __o  
-  |           <|>     <|>     />  \    /v     |       <|>    <|>   /v     |    |     |>       |__  _<|       <|>     <|>   <|>    o__/_   /v      |>   |     |> 
- / \          < >     < >   o/        />     / \      < >    < >  />     / \  / \   / \       |       \      < >     < >   / \    |      />      //   / \   / \ 
- \o/           |       |   <|         \      \o/       \o    o/   \      \o/  \o/   \o/      <o>       \o     |       |    \o/    |      \o    o/     \o/   \o/ 
-  |            o       o    \\         o      |         v\  /v     o      |    |     |        |         v\    o       o     |     o       v\  /v __o   |     |  
- / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \  -->
-
 <!DOCTYPE html>
 <html lang="en" style="background-color: rgb(236, 231, 217);">
 <head>
-    <link rel="stylesheet" href="styles/main.css?v=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Luca van Ruiten, fotograaf, photographer, graphic design, graphic designer, Rotterdam, Nederland, Netherlands, Creative coder, programmeur, webdesign, kunst, kunstenaar, artist,">
+    <title>Escape the Skinner Box — Publication Design by Luca van Ruiten | Rotterdam</title>
+    <meta name="description" content="Escape the Skinner Box is a self-published photo-book and graphic design project by Luca van Ruiten exploring social media addiction and doomscrolling. A personal intervention through photography and publication design.">
     <meta name="author" content="Luca van Ruiten">
-    <title>Escape the skinner box</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lucavanruiten.com/escape_s_b.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lucavanruiten.com/escape_s_b.html">
+    <meta property="og:title" content="Escape the Skinner Box — Publication by Luca van Ruiten">
+    <meta property="og:description" content="A photo-book and graphic design project exploring social media addiction, doomscrolling, and digital behaviour — by Rotterdam artist Luca van Ruiten.">
+    <meta property="og:image" content="https://lucavanruiten.com/images/escape_s_b/escape_png.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Escape the Skinner Box — Luca van Ruiten">
+    <meta name="twitter:description" content="A photo-book exploring social media addiction by Rotterdam photographer and designer Luca van Ruiten.">
+    <meta name="twitter:image" content="https://lucavanruiten.com/images/escape_s_b/escape_png.png">
+
+    <!-- Structured Data: CreativeWork -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Escape the Skinner Box",
+      "description": "A self-published photo-book and graphic design project exploring social media addiction and digital behaviour, combining photography, graphic design, and desk research.",
+      "url": "https://lucavanruiten.com/escape_s_b.html",
+      "author": {
+        "@type": "Person",
+        "name": "Luca van Ruiten",
+        "url": "https://lucavanruiten.com"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Luca van Ruiten"
+      },
+      "inLanguage": "en"
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css?v=1.1">
 </head>
 <body>
-    <div id="menu">
-        <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
-        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
-        <a id="port_btn" class="menu_btn" href="about.html">About</a>
-        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
-    </div>
-    <div id="escape_s_b_info_grid">
-        <div class="info_box">
-            <h1 style="font-weight: 800;">Escape the Skinner box</h1>
-            <p style="font-weight: 600;">I’m addicted to social media, Instagram reels in particular seem to have a hold on my attention. Many times I have tried to keep myself from doomscrolling my days away on these apps, without much success unfortunately. After trying to reduce my screen time I often fall back into my bad habits with the philosophy that everyone does it anyway. This mindset itself is problematic when you think about it. Why is it that such a large portion of people spend so much time online?</p><br>
-            <p style="font-weight: 400;">I started this project as a form of personal intervention. Using graphic design, my photography archieve and desk research I created a reminder to myself on why I shouldn't spend my life online. My hopes are that people who struggle with similar situations can gain awareness from this publication.</p>
+    <nav id="menu" aria-label="Main navigation">
+        <a class="home_btn_link" href="index.html" aria-label="Home">
+            <img class="home_btn" src="images/logo_small-ezgif.com-optimize.gif" alt="Luca van Ruiten — home" width="64" height="64">
+        </a>
+        <a class="menu_btn" href="portfolio.html">Projects</a>
+        <a class="menu_btn" href="about.html">About</a>
+        <a class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </nav>
+
+    <main id="escape_s_b_info_grid" aria-label="Escape the Skinner Box — project overview">
+
+        <article class="info_box">
+            <h1 style="font-weight: 800;">Escape the Skinner Box</h1>
+            <p style="font-weight: 600;">
+                I'm addicted to social media — Instagram reels in particular seem to have a hold on my attention. 
+                Many times I've tried to break the habit of doomscrolling my days away, without much success. 
+                After repeatedly falling back into old patterns, I started questioning the mindset behind it: 
+                why does such a large portion of people spend so much time online?
+            </p><br>
+            <p style="font-weight: 400;">
+                I started this project as a form of personal intervention. Using graphic design, my photography archive, 
+                and desk research, I created a publication as a reminder to myself — and to others — 
+                of why it matters to reclaim your attention. My hope is that people who struggle with similar situations 
+                can gain some awareness from this work.
+            </p>
             <br>
-            <a href="https://online.fliphtml5.com/avfef/mepo/" target="_blank">Read the full publication</a>
-        </div>
+            <a href="https://online.fliphtml5.com/avfef/mepo/" target="_blank" rel="noopener" aria-label="Read the full Escape the Skinner Box publication online">Read the full publication →</a>
+        </article>
+
         <div class="info_box">
-            <img src="images/escape_s_b/escape_png.png">
+            <img 
+                src="images/escape_s_b/escape_png.png" 
+                alt="Cover of Escape the Skinner Box — self-published photo-book and graphic design project by Luca van Ruiten, Rotterdam"
+                loading="lazy">
         </div>
-        <!-- <div class="info_box">
-            <img src="images/escape_s_b/book_animation.gif">
-        </div> -->
-    </div>
-    <div class="footer">
-        <p>© 2026 Portfolio Luca van Ruiten</p>
-    </div>
-</body> 
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Luca van Ruiten Photography — Rotterdam, Netherlands</p>
+    </footer>
+</body>
 </html>

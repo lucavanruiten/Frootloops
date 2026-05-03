@@ -1,71 +1,107 @@
- <!--                                                                                          o__ __o                       o     o                             
- <|>                                                                                         <|     v\                    _<|>_  <|>                            
- / \                                                                                         / \     <\                          < >                            
- \o/           o       o       __o__    o__ __o/       o      o     o__ __o/  \o__ __o       \o/     o/       o       o     o     |        o__  __o   \o__ __o  
-  |           <|>     <|>     />  \    /v     |       <|>    <|>   /v     |    |     |>       |__  _<|       <|>     <|>   <|>    o__/_   /v      |>   |     |> 
- / \          < >     < >   o/        />     / \      < >    < >  />     / \  / \   / \       |       \      < >     < >   / \    |      />      //   / \   / \ 
- \o/           |       |   <|         \      \o/       \o    o/   \      \o/  \o/   \o/      <o>       \o     |       |    \o/    |      \o    o/     \o/   \o/ 
-  |            o       o    \\         o      |         v\  /v     o      |    |     |        |         v\    o       o     |     o       v\  /v __o   |     |  
- / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \  -->
-
 <!DOCTYPE html>
 <html id="html_messy_grid" lang="en" style="background-color: white">
 <head>
-    <link rel="stylesheet" href="styles/main.css?v=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Luca van Ruiten, fotograaf, photographer, graphic design, graphic designer, Rotterdam, Nederland, Netherlands, Creative coder, programmeur, webdesign, kunst, kunstenaar, artist,">
+    <title>Queens — Drag Portraiture by Luca van Ruiten | Rotterdam Photographer</title>
+    <meta name="description" content="Queens is a studio portraiture series by Rotterdam photographer Luca van Ruiten, documenting drag performers including Rox Monroe, Hyon Metz, and Faye Ferry. Gel lighting, studio portraiture, queer art.">
     <meta name="author" content="Luca van Ruiten">
-    <title>Queer</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lucavanruiten.com/queens.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lucavanruiten.com/queens.html">
+    <meta property="og:title" content="Queens — Drag Portraiture by Luca van Ruiten">
+    <meta property="og:description" content="A studio drag portraiture series photographed in Rotterdam — Rox Monroe, Hyon Metz, Faye Ferry, and more.">
+    <meta property="og:image" content="https://lucavanruiten.com/images/queens/compressed/1.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Queens — Drag Portraiture by Luca van Ruiten">
+    <meta name="twitter:description" content="Studio drag portraiture series from Rotterdam — queer photography by Luca van Ruiten.">
+    <meta name="twitter:image" content="https://lucavanruiten.com/images/queens/compressed/1.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Queens — Drag Portraiture",
+      "description": "A studio portraiture series documenting drag performers in Rotterdam. Shot with gel lighting by photographer Luca van Ruiten.",
+      "url": "https://lucavanruiten.com/queens.html",
+      "author": {
+        "@type": "Person",
+        "name": "Luca van Ruiten",
+        "url": "https://lucavanruiten.com"
+      },
+      "dateCreated": "2025",
+      "contentLocation": {
+        "@type": "Place",
+        "name": "Rotterdam, Netherlands"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
-    <link href="styles/lightbox.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/main.css?v=1.1">
+    <link href="styles/lightbox.css" rel="stylesheet">
     <script src="scripts/jquiry.js"></script>
 </head>
 <body>
-    <div id="menu">
-        <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
-        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
-        <a id="port_btn" class="menu_btn" href="about.html">About</a>
-        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
-    </div>
+    <nav id="menu" aria-label="Main navigation">
+        <a class="home_btn_link" href="index.html" aria-label="Home">
+            <img class="home_btn" src="images/logo_small-ezgif.com-optimize.gif" alt="Luca van Ruiten — home" width="64" height="64">
+        </a>
+        <a class="menu_btn" href="portfolio.html">Projects</a>
+        <a class="menu_btn" href="about.html">About</a>
+        <a class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </nav>
+
     <div id="theme_toggle">
-        <div id="circle_btn" onclick="change_bck()">***</div>
+        <div id="circle_btn" onclick="change_bck()" aria-label="Toggle dark/light background">***</div>
     </div>
-    <div class="container_collections_grid">
-        <a href="images/queens/uncompressed/1.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 40vw;" src="images/queens/compressed/1.jpg" id="img-0" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/2.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 30vw;" src="images/queens/compressed/2.jpg" id="img-1" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/3.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 20vw;" src="images/queens/compressed/3.jpg" id="img-2" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/4.jpg" data-lightbox="queer" data-title="2025"><image style="width: 20vw;" src="images/queens/compressed/4.jpg" id="img-3" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/5.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><image style="width: 60vw;" src="images/queens/compressed/5.jpg" id="img-4" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/6.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 30vw;" src="images/queens/compressed/6.jpg" id="img-5" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/7.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 30vw;" src="images/queens/compressed/7.jpg" id="img-6" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/8.jpg" data-lightbox="queer" data-title="2025"><image style="width: 60vw;" src="images/queens/compressed/8.jpg" id="img-7" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/9.jpg" data-lightbox="queer" data-title="2025"><image style="width: 30vw;" src="images/queens/compressed/9.jpg" id="img-8" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/10.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><image style="width: 20vw;" src="images/queens/compressed/10.jpg" id="img-9" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/11.jpg" data-lightbox="queer" data-title="2025"><image style="width: 20vw;" src="images/queens/compressed/11.jpg" id="img-10" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/12.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 30vw;" src="images/queens/compressed/12.jpg" id="img-11" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/13.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 40vw;" src="images/queens/compressed/13.jpg" id="img-12" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/14.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 20vw;" src="images/queens/compressed/14.jpg" id="img-13" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/15.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 30vw;" src="images/queens/compressed/15.jpg" id="img-14" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/16.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><image style="width: 60vw;" src="images/queens/compressed/16.jpg" id="img-15" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/17.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><image style="width: 40vw;" src="images/queens/compressed/17.jpg" id="img-16" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/18.jpg" data-lightbox="queer" data-title="2025"><image style="width: 40vw;" src="images/queens/compressed/18.jpg" id="img-12" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/19.jpg" data-lightbox="queer" data-title="2025"><image style="width: 20vw;" src="images/queens/compressed/19.jpg" id="img-13" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/20.jpg" data-lightbox="queer" data-title="2025, Rox Monroe and Cashmere"><image style="width: 30vw;" src="images/queens/compressed/20.jpg" id="img-14" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/21.jpg" data-lightbox="queer" data-title="2025"><image style="width: 60vw;" src="images/queens/compressed/21.jpg" id="img-15" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/22.jpg" data-lightbox="queer" data-title="2025"><image style="width: 40vw;" src="images/queens/compressed/22.jpg" id="img-16" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/23.jpg" data-lightbox="queer" data-title="2025"><image style="width: 40vw;" src="images/queens/compressed/23.jpg" id="img-12" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/24.jpg" data-lightbox="queer" data-title="2025"><image style="width: 20vw;" src="images/queens/compressed/24.jpg" id="img-13" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/25.jpg" data-lightbox="queer" data-title="2025"><image style="width: 30vw;" src="images/queens/compressed/25.jpg" id="img-14" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/26.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><image style="width: 60vw;" src="images/queens/compressed/26.jpg" id="img-15" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/27.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><image style="width: 40vw;" src="images/queens/compressed/27.jpg" id="img-16" class="collection_image"></image></a>
-        <a href="images/queens/uncompressed/28.jpg" data-lightbox="queer" data-title="2025"><image style="width: 40vw;" src="images/queens/compressed/28.jpg" id="img-16" class="collection_image"></image></a>
-    </div>
-    <div class="footer">
-        <p>© 2026 Portfolio Luca van Ruiten</p>
-    </div>
+
+    <main class="container_collections_grid" aria-label="Queens — drag portraiture photography series">
+
+        <!-- Drag performers: Rox Monroe -->
+        <a href="images/queens/uncompressed/1.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><img style="width: 40vw;" src="images/queens/compressed/1.jpg" id="img-0" class="collection_image" alt="Rox Monroe — drag performer studio portrait with gel lighting, Rotterdam 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/2.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><img style="width: 30vw;" src="images/queens/compressed/2.jpg" id="img-1" class="collection_image" alt="Rox Monroe — drag queen portrait, studio photography Rotterdam 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/3.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><img style="width: 20vw;" src="images/queens/compressed/3.jpg" id="img-2" class="collection_image" alt="Hyon Metz — drag performer portrait, gel lighting studio session Rotterdam 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/4.jpg" data-lightbox="queer" data-title="2025"><img style="width: 20vw;" src="images/queens/compressed/4.jpg" id="img-3" class="collection_image" alt="Drag performer portrait — Queens series 2025, Rotterdam — photography by Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/5.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><img style="width: 60vw;" src="images/queens/compressed/5.jpg" id="img-4" class="collection_image" alt="Faye Ferry — full-length drag queen portrait, studio photography Rotterdam 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/6.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><img style="width: 30vw;" src="images/queens/compressed/6.jpg" id="img-5" class="collection_image" alt="Rox Monroe — editorial drag portrait 2025, Rotterdam — Luca van Ruiten photography" loading="lazy"></a>
+        <a href="images/queens/uncompressed/7.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><img style="width: 30vw;" src="images/queens/compressed/7.jpg" id="img-6" class="collection_image" alt="Rox Monroe — drag queen studio portrait with coloured gels 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/8.jpg" data-lightbox="queer" data-title="2025"><img style="width: 60vw;" src="images/queens/compressed/8.jpg" id="img-7" class="collection_image" alt="Queens series — drag portrait with gel lighting, Rotterdam 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/9.jpg" data-lightbox="queer" data-title="2025"><img style="width: 30vw;" src="images/queens/compressed/9.jpg" id="img-8" class="collection_image" alt="Drag performer — studio portrait Queens series 2025, Rotterdam — photography by Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/10.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><img style="width: 20vw;" src="images/queens/compressed/10.jpg" id="img-9" class="collection_image" alt="Faye Ferry — close-up drag portrait 2025, Rotterdam — Luca van Ruiten photography" loading="lazy"></a>
+        <a href="images/queens/uncompressed/11.jpg" data-lightbox="queer" data-title="2025"><img style="width: 20vw;" src="images/queens/compressed/11.jpg" id="img-10" class="collection_image" alt="Drag queen portrait — Queens series 2025 — Luca van Ruiten, Rotterdam" loading="lazy"></a>
+        <a href="images/queens/uncompressed/12.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><img style="width: 30vw;" src="images/queens/compressed/12.jpg" id="img-11" class="collection_image" alt="Rox Monroe — drag performer portrait Queens series 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/13.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><img style="width: 40vw;" src="images/queens/compressed/13.jpg" id="img-12" class="collection_image" alt="Hyon Metz — studio drag portrait 2025, Rotterdam — photography by Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/14.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><img style="width: 20vw;" src="images/queens/compressed/14.jpg" id="img-13" class="collection_image" alt="Hyon Metz — drag queen close-up portrait 2025 — Luca van Ruiten photography" loading="lazy"></a>
+        <a href="images/queens/uncompressed/15.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><img style="width: 30vw;" src="images/queens/compressed/15.jpg" id="img-14" class="collection_image" alt="Hyon Metz — editorial drag portraiture 2025, Rotterdam — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/16.jpg" data-lightbox="queer" data-title="2025, Hyon Metz"><img style="width: 60vw;" src="images/queens/compressed/16.jpg" id="img-15" class="collection_image" alt="Hyon Metz — full-length drag queen portrait with gel lighting 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/17.jpg" data-lightbox="queer" data-title="2025, Rox Monroe"><img style="width: 40vw;" src="images/queens/compressed/17.jpg" id="img-16" class="collection_image" alt="Rox Monroe — dramatic drag portrait, studio session Rotterdam 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/18.jpg" data-lightbox="queer" data-title="2025"><img style="width: 40vw;" src="images/queens/compressed/18.jpg" id="img-17" class="collection_image" alt="Drag performer — Queens series 2025, Rotterdam — photography Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/19.jpg" data-lightbox="queer" data-title="2025"><img style="width: 20vw;" src="images/queens/compressed/19.jpg" id="img-18" class="collection_image" alt="Drag portrait — Queens series 2025 — Luca van Ruiten photography" loading="lazy"></a>
+        <a href="images/queens/uncompressed/20.jpg" data-lightbox="queer" data-title="2025, Rox Monroe and Cashmere"><img style="width: 30vw;" src="images/queens/compressed/20.jpg" id="img-19" class="collection_image" alt="Rox Monroe and Cashmere — duo drag portrait 2025, Rotterdam — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/21.jpg" data-lightbox="queer" data-title="2025"><img style="width: 60vw;" src="images/queens/compressed/21.jpg" id="img-20" class="collection_image" alt="Queens series — wide studio drag portrait 2025, Rotterdam — Luca van Ruiten photography" loading="lazy"></a>
+        <a href="images/queens/uncompressed/22.jpg" data-lightbox="queer" data-title="2025"><img style="width: 40vw;" src="images/queens/compressed/22.jpg" id="img-21" class="collection_image" alt="Drag queen portrait — Queens series 2025 — Luca van Ruiten, Rotterdam" loading="lazy"></a>
+        <a href="images/queens/uncompressed/23.jpg" data-lightbox="queer" data-title="2025"><img style="width: 40vw;" src="images/queens/compressed/23.jpg" id="img-22" class="collection_image" alt="Drag performer — studio portraiture Rotterdam 2025 — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/24.jpg" data-lightbox="queer" data-title="2025"><img style="width: 20vw;" src="images/queens/compressed/24.jpg" id="img-23" class="collection_image" alt="Queens series drag portrait 2025 — photography by Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/25.jpg" data-lightbox="queer" data-title="2025"><img style="width: 30vw;" src="images/queens/compressed/25.jpg" id="img-24" class="collection_image" alt="Drag queen portrait — Queens series 2025, Rotterdam — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/26.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><img style="width: 60vw;" src="images/queens/compressed/26.jpg" id="img-25" class="collection_image" alt="Faye Ferry — editorial drag portrait Queens series 2025, Rotterdam — Luca van Ruiten" loading="lazy"></a>
+        <a href="images/queens/uncompressed/27.jpg" data-lightbox="queer" data-title="2025, Faye Ferry"><img style="width: 40vw;" src="images/queens/compressed/27.jpg" id="img-26" class="collection_image" alt="Faye Ferry — drag performer close-up portrait 2025 — Luca van Ruiten photography" loading="lazy"></a>
+        <a href="images/queens/uncompressed/28.jpg" data-lightbox="queer" data-title="2025"><img style="width: 40vw;" src="images/queens/compressed/28.jpg" id="img-27" class="collection_image" alt="Queens series — drag portraiture 2025, Rotterdam — Luca van Ruiten" loading="lazy"></a>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Luca van Ruiten Photography — Rotterdam, Netherlands</p>
+    </footer>
+
     <script src="scripts/lightbox.js"></script>
     <script>
         var backdrop = document.getElementById("html_messy_grid");

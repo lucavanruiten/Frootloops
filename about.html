@@ -10,50 +10,132 @@
  / \ _\o__/_   <\__ __/>     _\o__</   <\__  / \         <\/>      <\__  / \  / \   / \      / \         <\   <\__ __/>    / \    <\__     <\/> __/>  / \   / \ 
  -->
 
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <link rel="stylesheet" href="styles/main.css?v=1.0">
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <meta name="keywords" content="Luca van Ruiten, fotograaf, photographer, graphic design, graphic designer, Rotterdam, Nederland, Netherlands, Creative coder, programmeur, webdesign, kunst, kunstenaar, artist,">
-     <meta name="author" content="Luca van Ruiten">
-     <title>About</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
- </head>
- <body>
-     <div id="menu">
-        <img class="home_btn" onclick="window.location.replace('index.html')" src="images/logo_small-ezgif.com-optimize.gif">
-        <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
-        <a id="port_btn" class="menu_btn" href="about.html">About</a>
-        <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
-     </div>
-     <div id="about_container">
-        <div id="about_text">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Luca van Ruiten, Portrait & Queer Photographer in Rotterdam</title>
+    <meta name="description" content="Luca van Ruiten (b. 2004) is a Rotterdam-based photographer working across portrait, documentary, and queer photography. Discover his background, practice, and approach to visual storytelling.">
+    <meta name="author" content="Luca van Ruiten">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lucavanruiten.com/about.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://lucavanruiten.com/about.html">
+    <meta property="og:title" content="About — Luca van Ruiten, Portrait & Queer Photographer in Rotterdam">
+    <meta property="og:description" content="Rotterdam-based photographer working across portrait, documentary, and queer photography. Analog, digital, bookbinding, publication design.">
+    <meta property="og:image" content="https://lucavanruiten.com/images/about/2.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About — Luca van Ruiten, Photographer">
+    <meta name="twitter:description" content="Rotterdam-based photographer working across portrait, documentary, and queer photography.">
+    <meta name="twitter:image" content="https://lucavanruiten.com/images/about/2.jpg">
+
+    <!-- Structured Data: Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Luca van Ruiten",
+      "url": "https://lucavanruiten.com",
+      "image": "https://lucavanruiten.com/images/about/2.jpg",
+      "jobTitle": "Photographer",
+      "birthDate": "2004",
+      "description": "Rotterdam-based photographer specialising in portrait, queer documentary, and editorial photography. Also works with analog film, bookbinding, and publication design.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rotterdam",
+        "addressRegion": "South Holland",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://www.instagram.com/lucavanruiten_photography/"
+      ],
+      "email": "inspirefilming99@gmail.com",
+      "knowsAbout": [
+        "portrait photography",
+        "queer documentary photography",
+        "editorial photography",
+        "analog film photography",
+        "darkroom printing",
+        "bookbinding",
+        "publication design",
+        "creative coding"
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css?v=1.1">
+</head>
+<body>
+    <nav id="menu" aria-label="Main navigation">
+        <a class="home_btn_link" href="index.html" aria-label="Home">
+            <img class="home_btn" src="images/logo_small-ezgif.com-optimize.gif" alt="Luca van Ruiten logo — home" width="64" height="64">
+        </a>
+        <a class="menu_btn" href="portfolio.html">Projects</a>
+        <a class="menu_btn" href="about.html" aria-current="page">About</a>
+        <a class="menu_btn" href="messy_grid.html">Visual diary</a>
+    </nav>
+
+    <main id="about_container">
+        <article id="about_text">
+
             <h1 style="font-weight: 700; font-family: VT323; font-size: 60px">Luca van Ruiten</h1>
-            <h2 style="margin: 0">(2004, Based in Rotterdam)</h2><br><br>
+            <h2 style="margin: 0;">(b. 2004 — Based in Rotterdam, Netherlands)</h2><br><br>
+
             <div id="about_photo_holder">
-                <img src="images/about/2.jpg">
-                                <p>image by: Rik Versteeg</p>
+                <img 
+                    src="images/about/2.jpg" 
+                    alt="Portrait of Luca van Ruiten, Rotterdam-based photographer, photographed by Rik Versteeg"
+                    width="400"
+                    loading="lazy">
+                <p>Image by: Rik Versteeg</p>
             </div>
-            <p>Photography has always been a part of my life. As a child, I was fascinated by cameras, video editing, and photo manipulation. Anything that allowed me to capture and create. My work is broad and ever evolving, that is why I am not ready to exactly pinpoint my practice yet. I enjoy capturing strong, iconic portraits that reflect the personality of my subjects (Kees van Ruiten, 2024), but I also experiment with landscapes, social documentary, and commercial photography as seen in my visual diary. Whether working digitally or embracing analog film and printing techniques, I am constantly learning, refining, and expanding my creative practice.<br><br>
 
-                As a queer artist, my work is often personal. Photography has become a way to document my journey of self-acceptance and explore themes of identity. Growing up queer in a small town has shaped my perspective and fueled my interest in art that challenges norms. While my work leans more toward cinematic storytelling than activism, I hope to create projects in the future that spark conversation.<br><br>
+            <p>Photography has always been a part of my life. As a child, I was fascinated by cameras, video editing, and photo manipulation — anything that allowed me to capture and create. My work is broad and ever evolving, which is why I resist a single label. I enjoy capturing strong, iconic portraits that reflect the personality of my subjects, but I also work with landscape, social documentary, and commercial photography, as seen in my visual diary. Whether working digitally or embracing analog film and darkroom printing techniques, I am constantly learning, refining, and expanding my creative practice.<br><br>
 
-                I bring a broad creative skillset to my work, ranging from studio and outdoor photography to film development, creative coding, bookbinding, and publication design. I want potential clients to see the value in my aesthetic and way of working. While I’m adaptable to commercial work, I strive to collaborate with those who appreciate my artistic vision.<br>
-                <hr>
+            As a queer artist based in Rotterdam, my work is often personal. Photography has become a way to document my journey of self-acceptance and to explore themes of identity and belonging. Growing up queer in a small town shaped my perspective and fueled my interest in imagery that challenges norms. While my work leans more toward cinematic storytelling than activism, I aim to create projects that spark genuine conversation.<br><br>
 
-            </p>
-            <h1 style="margin: 0; color: #091035">Let's get in touch!</h1><br>
-            <h2 class="contact_info" style="font-weight: 700; margin: 0;">Location: Rotterdam, Netherlands</h2>
-            <h2 class="contact_info" style="margin: 0; font-weight: 700;"><a href="https://www.instagram.com/lucavanruiten_photography/?hl=en" target="_blank" style="color: #6a03f2">Instagram</a></h2>
-            <h2 class="contact_info" style="margin: 0; font-weight: 700; margin: 0;"><a style="color: #6a03f2" href="mailto:inspirefilming99@gmail.com">inspirefilming99@gmail.com</a></h1><br><br>
-        </div>
-     </div>
-     <div class="footer">
-         <p>© 2026 Portfolio Luca van Ruiten</p>
-     </div>
- </body>
- </html>
+            I bring a broad creative skillset: studio and outdoor photography, analog film development, darkroom printing, creative coding, bookbinding, and publication design. I want potential clients and collaborators to see the value in my aesthetic and way of working. While I'm adaptable to commercial briefs, I thrive when collaborating with people who appreciate artistic vision.<br>
+            <hr></p>
+
+            <!-- ===== CONTACT SECTION (also local SEO) ===== -->
+            <section aria-label="Contact information">
+                <h2 style="margin: 0; color: #091035">Let's get in touch</h2><br>
+                <h3 class="contact_info" style="font-weight: 700; margin: 0;">
+                    📍 Rotterdam, Netherlands
+                </h3>
+                <h3 class="contact_info" style="margin: 0; font-weight: 700;">
+                    <a href="https://www.instagram.com/lucavanruiten_photography/" target="_blank" rel="noopener" style="color: #6a03f2" aria-label="Instagram profile of Luca van Ruiten">Instagram: @lucavanruiten_photography</a>
+                </h3>
+                <h3 class="contact_info" style="margin: 0; font-weight: 700;">
+                    <a style="color: #6a03f2" href="mailto:inspirefilming99@gmail.com" aria-label="Email Luca van Ruiten">inspirefilming99@gmail.com</a>
+                </h3>
+                <br><br>
+
+                <!-- Internal links — good for crawlability -->
+                <nav aria-label="Portfolio navigation">
+                    <p style="font-weight: 600;">Explore the work: 
+                        <a href="portfolio.html" style="color: #6a03f2">Projects</a> · 
+                        <a href="queer.html" style="color: #6a03f2">Queer documentary</a> · 
+                        <a href="queens.html" style="color: #6a03f2">Queens — drag portraiture</a> · 
+                        <a href="people.html" style="color: #6a03f2">People — portraits</a> · 
+                        <a href="messy_grid.html" style="color: #6a03f2">Visual diary</a>
+                    </p>
+                </nav>
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Luca van Ruiten Photography — Rotterdam, Netherlands</p>
+    </footer>
+</body>
+</html>

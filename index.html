@@ -13,130 +13,134 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color: #FAF9F6;">
 <head>
-    <link rel="stylesheet" href="styles/main.css?v=1.0">
+    <!-- ===================== BASIC META ===================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Luca van Ruiten, fotograaf, photographer, graphic design, graphic designer, Rotterdam, Nederland, Netherlands, Creative coder, programmeur, webdesign, kunst, kunstenaar, artist,">
+    <title>Luca van Ruiten — Photographer & Visual Artist, Rotterdam</title>
+    <meta name="description" content="Luca van Ruiten is a Rotterdam-based photographer specialising in portrait, queer documentary, and editorial photography. Available for commissions in the Netherlands and beyond.">
     <meta name="author" content="Luca van Ruiten">
-    <title>Luca van Ruiten</title>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lucavanruiten.com/">
+
+    <!-- ===================== OPEN GRAPH ===================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lucavanruiten.com/">
+    <meta property="og:title" content="Luca van Ruiten — Photographer & Visual Artist, Rotterdam">
+    <meta property="og:description" content="Portrait, queer documentary, and editorial photography. Based in Rotterdam, Netherlands.">
+    <meta property="og:image" content="https://lucavanruiten.com/images/og-image.jpg">
+    <meta property="og:locale" content="en_NL">
+    <meta property="og:site_name" content="Luca van Ruiten Photography">
+
+    <!-- ===================== TWITTER CARD ===================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Luca van Ruiten — Photographer & Visual Artist, Rotterdam">
+    <meta name="twitter:description" content="Portrait, queer documentary, and editorial photography. Based in Rotterdam, Netherlands.">
+    <meta name="twitter:image" content="https://lucavanruiten.com/images/og-image.jpg">
+
+    <!-- ===================== STRUCTURED DATA ===================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Luca van Ruiten",
+      "url": "https://lucavanruiten.com",
+      "image": "https://lucavanruiten.com/images/about/2.jpg",
+      "jobTitle": "Photographer",
+      "description": "Rotterdam-based photographer specialising in portrait, queer documentary, and editorial photography.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rotterdam",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://www.instagram.com/lucavanruiten_photography/"
+      ],
+      "email": "inspirefilming99@gmail.com",
+      "knowsAbout": ["portrait photography", "documentary photography", "queer photography", "editorial photography", "analog photography"]
+    }
+    </script>
+
+    <!-- ===================== FONTS ===================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400..700&family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css?v=1.1">
     <style>
-        :root {
-            --background_rnd: #000000;
-        }
+        :root { --background_rnd: #000000; }
     </style>
 </head>
 <body style="color: white;">
-    <div id="menu">
+
+    <!-- ===================== NAV ===================== -->
+    <nav id="menu" aria-label="Main navigation">
         <a id="port_btn" class="menu_btn" href="portfolio.html">Projects</a>
         <a id="port_btn" class="menu_btn" href="about.html">About</a>
         <a id="port_btn" class="menu_btn" href="messy_grid.html">Visual diary</a>
-    </div>
-    <div id="name_box_side">
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <div id="name_box_side" aria-hidden="true">
         <h2 style="margin: 0;">Photographer</h2>
         <h2 style="margin: 0;">graphic-designer</h2>
         <h2 style="margin: 0;">creative coder</h2>
     </div>
+
     <div id="name_box">
         <h1 id="my_name">Luca van Ruiten</h1>
     </div>
-    <div id="background-container">
-    </div>
-    <div id="photo_reveal"></div>
-    <!-- <div class="logo_box"></div>
-    <div id="texture_layer" onclick="setrandomColor()"></div> -->
-    <div class="footer">
-        <p>© 2026 Portfolio Luca van Ruiten</p>
-    </div>
+
+    <!-- Visually hidden but crawlable context for Google -->
+    <p class="seo-hidden">
+        Portrait and documentary photographer based in Rotterdam, Netherlands. 
+        Specialising in queer photography, editorial portraiture, and artistic visual storytelling.
+    </p>
+
+    <div id="background-container" aria-hidden="true"></div>
+    <div id="photo_reveal" role="img" aria-label="Portfolio preview — portrait and queer documentary photography by Luca van Ruiten"></div>
+
+    <footer class="footer">
+        <p>© 2026 Luca van Ruiten Photography — Rotterdam, Netherlands</p>
+    </footer>
+
     <script>
-        var backdrop = document.getElementById("background-container");
-        var colors = ['#fb5543', '#C7150E', '#33cfc3', '#C42F72'];
-    
-        function setrandomColor() {
-            let i = Math.floor(Math.random() * colors.length);
-            let r = colors[i];
-            backdrop.style.backgroundColor = r;
-            console.log(r);
-        }
-        // setrandomColor();
-
         const photoReveal = document.getElementById("photo_reveal");
-
         const images = [
-        // "images/messy%20grid/COMPRESSED/1.jpg",
-        // "images/messy%20grid/COMPRESSED/2.jpg",
-        // "images/messy%20grid/COMPRESSED/3.jpg",
-        // "images/messy%20grid/COMPRESSED/4.jpg",
-        // "images/messy%20grid/COMPRESSED/5.jpg",
-        // "images/messy%20grid/COMPRESSED/6.jpg",
-        // "images/messy%20grid/COMPRESSED/7.jpg",
-        // "images/messy%20grid/COMPRESSED/8.jpg",
-        // "images/messy%20grid/COMPRESSED/9.jpg",
-        // "images/messy%20grid/COMPRESSED/10.jpg",
-        // "images/messy%20grid/COMPRESSED/11.jpg",
-        // "images/messy%20grid/COMPRESSED/12.jpg",
-        // "images/messy%20grid/COMPRESSED/13.jpg",
-        // "images/messy%20grid/COMPRESSED/14.jpg",
-        // "images/messy%20grid/COMPRESSED/15.jpg",
-        // "images/messy%20grid/COMPRESSED/16.jpg",
-        // "images/messy%20grid/COMPRESSED/17.jpg",
-        // "images/messy%20grid/COMPRESSED/18.jpg",
-        // "images/messy%20grid/COMPRESSED/19.jpg",
-        // "images/messy%20grid/COMPRESSED/20.jpg",
-        // "images/messy%20grid/COMPRESSED/21.jpg",
-        // "images/messy%20grid/COMPRESSED/22.jpg",
-        // "images/messy%20grid/COMPRESSED/23.jpg",
-        // "images/messy%20grid/COMPRESSED/24.jpg"
-        "images/queens/compressed/1.jpg",
-        "images/queens/compressed/2.jpg",
-        "images/queens/compressed/3.jpg",
-        "images/queens/compressed/4.jpg",
-        "images/queens/compressed/5.jpg",
-        "images/queens/compressed/6.jpg",
-        "images/queens/compressed/7.jpg",
-        "images/queens/compressed/8.jpg",
-        "images/queens/compressed/9.jpg",
-        "images/queens/compressed/10.jpg",
-        "images/queens/compressed/11.jpg",
-        "images/queens/compressed/12.jpg",
-        "images/queens/compressed/13.jpg",
-        "images/queens/compressed/14.jpg",
-        "images/queens/compressed/15.jpg",
-        "images/queens/compressed/16.jpg",
-        "images/queens/compressed/17.jpg",
-        "images/queens/compressed/18.jpg",
-        "images/queens/compressed/19.jpg",
-        "images/queens/compressed/16.jpg",
-        "images/queens/compressed/17.jpg",
-        "images/queens/compressed/18.jpg",
-        "images/queens/compressed/19.jpg",
-        "images/queens/compressed/20.jpg",
-        "images/queens/compressed/21.jpg",
-        "images/queens/compressed/22.jpg",
-        "images/queens/compressed/23.jpg",
-        "images/queens/compressed/24.jpg",
-        "images/queens/compressed/25.jpg",
-        "images/queens/compressed/26.jpg",
-        "images/queens/compressed/28.jpg",
-        "images/queens/compressed/28.jpg"
+            "images/queens/compressed/1.jpg",
+            "images/queens/compressed/2.jpg",
+            "images/queens/compressed/3.jpg",
+            "images/queens/compressed/4.jpg",
+            "images/queens/compressed/5.jpg",
+            "images/queens/compressed/6.jpg",
+            "images/queens/compressed/7.jpg",
+            "images/queens/compressed/8.jpg",
+            "images/queens/compressed/9.jpg",
+            "images/queens/compressed/10.jpg",
+            "images/queens/compressed/11.jpg",
+            "images/queens/compressed/12.jpg",
+            "images/queens/compressed/13.jpg",
+            "images/queens/compressed/14.jpg",
+            "images/queens/compressed/15.jpg",
+            "images/queens/compressed/16.jpg",
+            "images/queens/compressed/17.jpg",
+            "images/queens/compressed/18.jpg",
+            "images/queens/compressed/19.jpg",
+            "images/queens/compressed/20.jpg",
+            "images/queens/compressed/21.jpg",
+            "images/queens/compressed/22.jpg",
+            "images/queens/compressed/23.jpg",
+            "images/queens/compressed/24.jpg",
+            "images/queens/compressed/25.jpg",
+            "images/queens/compressed/26.jpg",
+            "images/queens/compressed/28.jpg"
         ];
 
         function changeImage() {
-        const randomImage = images[Math.floor(Math.random() * images.length)];
-        photoReveal.style.backgroundImage = `url(${randomImage})`;
-        };
-
-        function changeImage() {
-        const randomImage = images[Math.floor(Math.random() * images.length)];
-        photoReveal.style.backgroundImage = `url(${randomImage})`;
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            photoReveal.style.backgroundImage = `url(${randomImage})`;
         }
 
-        // change image every animation loop
         photoReveal.addEventListener("animationiteration", changeImage);
-
-        // set first image
         changeImage();
     </script>
 </body>
