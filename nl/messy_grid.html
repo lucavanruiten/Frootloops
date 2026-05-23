@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="nl" id="html_messy_grid" style="background-color: #FAF9F6;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visueel Dagboek — Luca van Ruiten, Fotograaf | Rotterdam & Wereldwijd</title>
+    <meta name="description" content="Een visueel dagboek van Rotterdamse fotograaf Luca van Ruiten — candid fotografie vanuit Bali, Rotterdam, Kreta, Spanje, Oostenrijk en verder. Analoge en digitale fotografie van 2021 tot 2025.">
+    <meta name="author" content="Luca van Ruiten">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lucavanruiten.com/nl/messy_grid.html">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://lucavanruiten.com/messy_grid.html">
+    <link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/messy_grid.html">
+    <link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/messy_grid.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lucavanruiten.com/nl/messy_grid.html">
+    <meta property="og:title" content="Visueel Dagboek — Luca van Ruiten Fotografie">
+    <meta property="og:description" content="Candid fotografie vanuit Bali, Rotterdam, Kreta, Spanje, Oostenrijk en verder — een doorlopend visueel dagboek door Luca van Ruiten.">
+    <meta property="og:image" content="https://lucavanruiten.com/images/messy grid/COMPRESSED/1.jpg">
+    <meta property="og:locale" content="nl_NL">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Visueel Dagboek — Luca van Ruiten Fotografie">
+    <meta name="twitter:description" content="Candid fotografie van over de hele wereld — een doorlopend visueel dagboek door Rotterdamse fotograaf Luca van Ruiten.">
+    <meta name="twitter:image" content="https://lucavanruiten.com/images/messy grid/COMPRESSED/1.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css?v=1.1">
+    <link href="../styles/lightbox.css" rel="stylesheet">
+    <script src="../scripts/jquiry.js"></script>
+</head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const container = document.querySelector("#messy_grid");
+    const items = Array.from(container.children);
+
+    for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+    }
+
+    items.forEach(item => {
+        const randomWidth = Math.random() * (20 - 4) + 4;
+        const img = item.querySelector("img");
+        if (img) {
+            img.style.width = randomWidth + "vw";
+            img.style.maxWidth = "300px";
+            img.style.minWidth = "140px";
+        }
+        container.appendChild(item);
+    });
+});
+</script>
+
+<body>
+    <nav id="menu" aria-label="Hoofdnavigatie">
+        <a class="home_btn_link" href="index.html" aria-label="Home">
+            <img class="home_btn" src="../images/logo_small-ezgif.com-optimize.gif" alt="Luca van Ruiten — home" width="64" height="64">
+        </a>
+        <a class="menu_btn" href="portfolio.html">Projecten</a>
+        <a class="menu_btn" href="about.html">Over</a>
+        <a class="menu_btn" href="messy_grid.html" aria-current="page">Visueel dagboek</a>
+    </nav>
+
+    <div id="theme_toggle">
+        <div id="circle_btn" onclick="change_bck()" aria-label="Schakel tussen donkere en lichte achtergrond">***</div>
+    </div>
+
+    <main id="messy_grid" aria-label="Visueel dagboek — candid fotografieverzameling door Luca van Ruiten">
+        <div><a href="../images/messy grid/UNCOMPRESSED/1.jpg" data-lightbox="messy_grid" data-title="2024, Bali Indonesië"><img style="width: 35vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/1.jpg" alt="Candid foto vanuit Bali, Indonesië 2024 — Luca van Ruiten visueel dagboek" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/2.jpg" data-lightbox="messy_grid" data-title="2024, Bali Indonesië"><img style="width: 39vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/2.jpg" alt="Bali, Indonesië 2024 — fotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/3.jpg" data-lightbox="messy_grid" data-title="2022, Rotterdam Nederland"><img style="width: 20vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/3.jpg" alt="Straatfoto, Rotterdam Nederland 2022 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/4.jpg" data-lightbox="messy_grid" data-title="2021, Valencia Spanje"><img style="width: 60vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/4.jpg" alt="Valencia, Spanje 2021 — fotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/5.jpg" data-lightbox="messy_grid" data-title="2024, Flachau Oostenrijk"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/5.jpg" alt="Flachau, Oostenrijk 2024 — Luca van Ruiten visueel dagboek" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/6.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland"><img style="width: 39vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/6.jpg" alt="Rotterdam, Nederland 2024 — straatfotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/7.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland"><img style="width: 20vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/7.jpg" alt="Rotterdam 2024 — candid foto door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/8.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland — Marijn Bouwens"><img style="width: 25vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/8.jpg" alt="Portret van Marijn Bouwens, Rotterdam 2024 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/9.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland"><img style="width: 40vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/9.jpg" alt="Rotterdam, Nederland 2024 — fotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/10.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland — Marijn Bouwens"><img style="width: 27vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/10.jpg" alt="Marijn Bouwens — portret in Rotterdam 2024 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/11.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland"><img style="width: 15vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/11.jpg" alt="Rotterdam, Nederland 2024 — Luca van Ruiten fotografie" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/12.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland — Marijn Bouwens"><img style="width: 38vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/12.jpg" alt="Marijn Bouwens — Rotterdam portret 2024 — fotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/13.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland"><img style="width: 40vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/13.jpg" alt="Straatscène, Rotterdam Nederland 2024 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/14.jpg" data-lightbox="messy_grid" data-title="2024, Vlissingen Nederland — Fe van Ruiten"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/14.jpg" alt="Portret van Fe van Ruiten, Vlissingen Nederland 2024 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/15.jpg" data-lightbox="messy_grid" data-title="2024, Vlissingen Nederland"><img style="width: 60vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/15.jpg" alt="Vlissingen, Nederland 2024 — landschapsfoto door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/16.jpg" data-lightbox="messy_grid" data-title="2024, Bali Indonesië"><img style="width: 40vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/16.jpg" alt="Bali, Indonesië 2024 — reisfotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/17.jpg" data-lightbox="messy_grid" data-title="2024, Flachau Oostenrijk"><img style="width: 20vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/17.jpg" alt="Flachau, Oostenrijk 2024 — winterlandschap door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/18.jpg" data-lightbox="messy_grid" data-title="2024"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/18.jpg" alt="Visueel dagboek foto 2024 — Luca van Ruiten fotografie" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/19.jpg" data-lightbox="messy_grid" data-title="2025"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/19.jpg" alt="Visueel dagboek foto 2025 — Luca van Ruiten fotografie" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/20.jpg" data-lightbox="messy_grid" data-title="2024, Rotterdam Nederland — zelfportret"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/20.jpg" alt="Zelfportret van Luca van Ruiten, Rotterdam Nederland 2024" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/21.jpg" data-lightbox="messy_grid" data-title="2025, Kreta Griekenland — Jop Dekker"><img style="width: 50vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/21.jpg" alt="Portret van Jop Dekker, Kreta Griekenland 2025 — reisfotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/22.jpg" data-lightbox="messy_grid" data-title="2025, Kreta Griekenland"><img style="width: 40vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/22.jpg" alt="Kreta, Griekenland 2025 — reisfoto door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/23.jpg" data-lightbox="messy_grid" data-title="2025, Kreta Griekenland"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/23.jpg" alt="Kreta, Griekenland 2025 — landschapsfotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/24.jpg" data-lightbox="messy_grid" data-title="2025, Spanje"><img style="width: 40vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/24.jpg" alt="Spanje 2025 — reisfotografie door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/25.jpg" data-lightbox="messy_grid" data-title="2025, Spanje"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/25.jpg" alt="Spanje 2025 — candid foto door Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/26.jpg" data-lightbox="messy_grid" data-title="2025, Spanje"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/26.jpg" alt="Spanje 2025 — Luca van Ruiten fotografie" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/27.jpg" data-lightbox="messy_grid" data-title="2026, Rotterdam Nederland"><img style="width: 35vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/27.jpg" alt="Flashfoto van drag queen, Rotterdam Nederland 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/28.jpg" data-lightbox="messy_grid" data-title="2026, Rotterdam Nederland"><img style="width: 25vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/28.jpg" alt="Backstage portret van drag queen, Rotterdam 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/29.jpg" data-lightbox="messy_grid" data-title="2026, Rotterdam Nederland"><img style="width: 40vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/29.jpg" alt="Drag queen op het podium, Rotterdam 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/30.jpg" data-lightbox="messy_grid" data-title="2026, Maastricht Nederland"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/30.jpg" alt="Sfeervolle foto van een bank, Maastricht Nederland 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/31.jpg" data-lightbox="messy_grid" data-title="2026, Maastricht Nederland"><img style="width: 20vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/31.jpg" alt="Queer performer van achteren gefotografeerd, Maastricht Nederland 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/32.jpg" data-lightbox="messy_grid" data-title="2026, Maastricht Nederland"><img style="width: 38vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/32.jpg" alt="Intieme backstage foto, queer optreden Maastricht 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/33.jpg" data-lightbox="messy_grid" data-title="2026, Maastricht Nederland"><img style="width: 45vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/33.jpg" alt="Queer kunstenaar dansend op het podium, Maastricht Nederland 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/34.jpg" data-lightbox="messy_grid" data-title="2026, Utrecht Nederland — Dice Spiders"><img style="width: 30vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/34.jpg" alt="Intiem portret van Dice Spiders, Utrecht Nederland 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/35.jpg" data-lightbox="messy_grid" data-title="2026, Utrecht Nederland — Dice Spiders"><img style="width: 40vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/35.jpg" alt="Dice Spiders optredend op het podium, Utrecht Nederland 2026 — Luca van Ruiten" loading="lazy"></a></div>
+        <div><a href="../images/messy grid/UNCOMPRESSED/36.jpg" data-lightbox="messy_grid" data-title="2026, Amsterdam Nederland"><img style="width: 25vw" class="messy_grid_img" src="../images/messy grid/COMPRESSED/36.jpg" alt="Portret uit de Amsterdamse kinky scene, Amsterdam Nederland 2026 — Luca van Ruiten" loading="lazy"></a></div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Luca van Ruiten Fotografie — Rotterdam, Nederland</p>
+    </footer>
+
+    <script src="../scripts/lightbox.js"></script>
+    <script>
+        var backdrop = document.getElementById("html_messy_grid");
+
+        function change_bck() {
+            if (backdrop.style.backgroundColor == 'black') {
+                backdrop.style.backgroundColor = '#FAF9F6';
+            } else {
+                backdrop.style.backgroundColor = 'black';
+            }
+        }
+    </script>
+</body>
+</html>
