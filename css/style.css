@@ -1,0 +1,1078 @@
+/* ==========================================================================
+   Luca van Ruiten — Photography Portfolio
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------------------------------------------------------------------
+   Tokens
+   --------------------------------------------------------------------- */
+:root{
+  /* ======================================================================
+     THEME — change just these two to restyle the whole site.
+     Everything else on the page is derived from them automatically.
+     ====================================================================== */
+  --bg: #040000;       /* page background: near-white, not pure white */ /* #f6f2ec */
+  --accent: #fa550e;   /* accent color: hovers, links, small highlights *//* #5b46ff */
+
+  /* ---- derived automatically from --bg / --accent, no need to edit ---- */
+  --bg-raised: color-mix(in srgb, var(--bg) 92%, #000 8%);
+  --accent-deep: color-mix(in srgb, var(--accent) 78%, #000 22%);
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, #fff 88%);
+
+  /* --ink: #1e1a17; */
+  --ink: rgb(239, 239, 239);
+  --ink-soft: #6f665c;
+  --line: rgba(30,26,23,.14);
+  --line-strong: rgba(30,26,23,.28);
+
+  --display: "Space Grotesk", "Arial Black", sans-serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --container: 1480px;
+  --pad: clamp(1.25rem, 4vw, 3rem);
+  --gap: clamp(1rem, 2vw, 1.75rem);
+
+  --nav-h: 84px;
+  --ease: cubic-bezier(.16,.84,.34,1);
+  --ease-soft: cubic-bezier(.4,0,.2,1);
+
+  /* Dump-page polaroid frame — needs its own tokens because a plain white
+     card with a dark drop-shadow (right for a light backdrop) all but
+     disappears against a dark one; dark mode gets an off-white frame with
+     a thin light-edge glow instead so it still reads as a lifted card. */
+  --frame-bg: #efece6;
+  --frame-shadow: 0 14px 34px -12px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.07);
+  --frame-shadow-hover: 0 24px 48px -14px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.12);
+}
+
+/* ---------------------------------------------------------------------
+   Reset
+   --------------------------------------------------------------------- */
+*, *::before, *::after{ box-sizing:border-box; }
+html{
+  -webkit-text-size-adjust:100%;
+  scroll-behavior:smooth;
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,video{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; margin:0; padding:0; }
+h1,h2,h3,h4,p,figure{ margin:0; }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; padding:0; }
+::selection{ background:var(--accent); color:#fff; }
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *, *::before, *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   View Transitions — page-to-page slide + fade
+   Progressive enhancement: unsupported browsers (Safari, older Chrome/FF)
+   just ignore these selectors and do a normal instant navigation.
+   --------------------------------------------------------------------- */
+::view-transition-group(root){
+  animation-duration:.6s;
+  animation-timing-function: var(--ease-soft);
+}
+::view-transition-old(root){
+  animation: lvr-page-out .6s var(--ease-soft) both;
+}
+::view-transition-new(root){
+  animation: lvr-page-in .6s var(--ease-soft) both;
+}
+@keyframes lvr-page-out{
+  from{ opacity:1; transform:translateX(0) scale(1); }
+  to{ opacity:0; transform:translateX(-3%) scale(.985); }
+}
+@keyframes lvr-page-in{
+  from{ opacity:0; transform:translateX(3%) scale(1.01); }
+  to{ opacity:1; transform:translateX(0) scale(1); }
+}
+
+/* ---------------------------------------------------------------------
+   Layout helpers
+   --------------------------------------------------------------------- */
+.container{
+  max-width:var(--container);
+  margin-inline:auto;
+  padding-inline:var(--pad);
+}
+.visually-hidden{
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap; border:0; padding:0; margin:-1px;
+}
+.skip-link{
+  position:fixed; top:-100%; left:1rem; z-index:1000;
+  background:var(--ink); color:var(--bg); padding:.75rem 1.25rem;
+  font-size:.85rem; letter-spacing:.06em; text-transform:uppercase;
+  transition:top .2s var(--ease-soft);
+}
+.skip-link:focus{ top:1rem; }
+
+.eyebrow{
+  display:block;
+  font-family:var(--sans);
+  font-size:.78rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+  margin-bottom:1rem;
+}
+
+.link-underline{
+  background-image:linear-gradient(currentColor,currentColor);
+  background-position:0 100%;
+  background-repeat:no-repeat;
+  background-size:0% 1px;
+  transition:background-size .4s var(--ease-soft);
+  padding-bottom:2px;
+}
+.link-underline:hover,
+.link-underline:focus-visible{ background-size:100% 1px; }
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-size:.82rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  padding:1.05rem 1.7rem;
+  border:1px solid var(--ink);
+  transition:background-color .35s var(--ease-soft), color .35s var(--ease-soft), border-color .35s var(--ease-soft);
+}
+.btn:hover, .btn:focus-visible{
+  background:var(--ink);
+  color:var(--bg);
+}
+.btn--accent{ border-color:var(--accent); color:var(--accent); }
+.btn--accent:hover{ background:var(--accent); color:#fff; }
+.btn svg{ width:1em; height:1em; transition:transform .35s var(--ease-soft); }
+.btn:hover svg{ transform:translateX(3px); }
+
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+
+/* ---------------------------------------------------------------------
+   Custom cursor
+   --------------------------------------------------------------------- */
+.cursor-dot,
+.cursor-ring{
+  position:fixed;
+  top:0; left:0;
+  pointer-events:none;
+  z-index:9999;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  mix-blend-mode:difference;
+  will-change:transform;
+}
+.cursor-dot{
+  width:8px; height:8px;
+  background:var(--accent);
+}
+.cursor-ring{
+  width:42px; height:42px;
+  border:1px solid var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:width .3s var(--ease-soft), height .3s var(--ease-soft), background-color .3s var(--ease-soft), border-color .3s var(--ease-soft);
+}
+.cursor-ring span{
+  opacity:0;
+  color:var(--accent);
+  font-size:.6rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  font-weight:600;
+  transition:opacity .25s var(--ease-soft);
+  white-space:nowrap;
+}
+body.cursor-active .cursor-ring{
+  width:78px; height:78px;
+  background:color-mix(in srgb, var(--accent) 12%, transparent);
+}
+body.cursor-active .cursor-ring span{ opacity:1; }
+body.cursor-active .cursor-dot{ opacity:0; }
+
+@media (hover:none), (pointer:coarse){
+  .cursor-dot, .cursor-ring{ display:none; }
+}
+
+/* Replace the native OS cursor entirely on devices that get the custom one —
+   only the designed dot+ring should ever be visible. */
+@media (hover:hover) and (pointer:fine){
+  *{ cursor:none !important; }
+}
+
+/* ---------------------------------------------------------------------
+   Page loader — covers the page on every load (initial visit and every
+   cross-document navigation, since it's the first thing painted in each
+   HTML file) and fades out once the page has actually finished loading.
+   Masks slow/"buffering" connections instead of showing a half-loaded
+   page. Text-only + CSS animation on purpose: no image/font dependency,
+   so it still appears fast on the exact bad-wifi conditions it's for.
+   --------------------------------------------------------------------- */
+.page-loader{
+  position:fixed;
+  inset:0;
+  z-index:9500;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1.4rem;
+  background:var(--bg);
+  transition:opacity .5s var(--ease-soft), visibility 0s linear .5s;
+}
+.page-loader.is-hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+.page-loader__mark{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.8rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--ink);
+  animation:loader-pulse 1.6s ease-in-out infinite;
+}
+.page-loader__bar{
+  width:130px;
+  height:2px;
+  background:var(--line);
+  overflow:hidden;
+  position:relative;
+}
+.page-loader__bar::after{
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:35%;
+  height:100%;
+  background:var(--accent);
+  animation:loader-sweep 1.3s ease-in-out infinite;
+}
+@keyframes loader-pulse{
+  0%, 100%{ opacity:.35; }
+  50%{ opacity:1; }
+}
+@keyframes loader-sweep{
+  0%{ transform:translateX(-100%); }
+  100%{ transform:translateX(385%); }
+}
+
+/* ---------------------------------------------------------------------
+   Nav
+   --------------------------------------------------------------------- */
+.site-nav{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:500;
+  height:var(--nav-h);
+  display:flex;
+  align-items:center;
+  color:#fff;
+  mix-blend-mode:difference;
+  transition:transform .5s var(--ease-soft);
+}
+.site-nav.nav-hidden{ transform:translateY(-100%); }
+.site-nav .container{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.nav-brand{
+  position:relative;
+  display:inline-block;
+  font-family:var(--display);
+  font-size:1.1rem;
+  font-weight:700;
+  letter-spacing:-.01em;
+  transition:letter-spacing .4s var(--ease-soft);
+}
+.nav-brand::after{
+  content:"";
+  position:absolute;
+  left:0; right:100%;
+  bottom:-3px;
+  height:2px;
+  background:currentColor;
+  transition:right .45s var(--ease-soft);
+}
+.nav-brand:hover,
+.nav-brand:focus-visible{ letter-spacing:.04em; }
+.nav-brand:hover::after,
+.nav-brand:focus-visible::after{ right:0; }
+.nav-links{
+  display:flex;
+  gap:2.2rem;
+}
+.nav-links a{
+  font-size:.8rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+.nav-links a[aria-current="page"]{ opacity:.5; }
+.nav-toggle{ display:none; }
+.lang-switch{ opacity:.55; }
+.lang-switch:hover,
+.lang-switch:focus-visible{ opacity:1; }
+
+@media (max-width: 680px){
+  .nav-links{
+    position:fixed;
+    inset:0;
+    height:100dvh;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    gap:1.8rem;
+    padding-inline:var(--pad);
+    background:var(--accent);
+    color:#fff;
+    mix-blend-mode:normal;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-12px);
+    transition:opacity .4s var(--ease-soft), transform .4s var(--ease-soft), visibility 0s linear .4s;
+  }
+  .nav-links a{ font-size:2rem; font-family:var(--display); font-weight:700; text-transform:none; letter-spacing:0; }
+  .nav-links a[aria-current="page"]{ opacity:.6; }
+  body.nav-open .nav-links{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+    transition:opacity .4s var(--ease-soft), transform .4s var(--ease-soft);
+  }
+  .nav-toggle{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    z-index:600;
+    position:relative;
+  }
+  .nav-toggle span{
+    width:22px; height:2px; background:currentColor;
+    transition:transform .3s var(--ease-soft), opacity .3s var(--ease-soft);
+  }
+  body.nav-open .site-nav{ mix-blend-mode:normal; color:#fff; }
+  body.nav-open .nav-toggle span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  body.nav-open .nav-toggle span:nth-child(2){ opacity:0; }
+  body.nav-open .nav-toggle span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
+
+/* ---------------------------------------------------------------------
+   Marquee
+   --------------------------------------------------------------------- */
+.marquee{
+  overflow:hidden;
+  background:var(--ink);
+  color:var(--bg);
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.marquee__track{
+  display:flex;
+  width:max-content;
+  animation:marquee 32s linear infinite;
+}
+.marquee__group{
+  display:flex;
+  align-items:center;
+  flex-shrink:0;
+}
+.marquee span.item{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+  font-family:var(--display);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  font-size:clamp(1rem, 2.2vw, 1.6rem);
+  padding-inline:1.4rem;
+}
+.marquee span.item::after{
+  content:"—";
+  margin-left:1.4rem;
+  color:var(--accent);
+  font-style:normal;
+}
+@keyframes marquee{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce){
+  .marquee__track{ animation:none; }
+}
+
+/* ---------------------------------------------------------------------
+   Hero (landing)
+   --------------------------------------------------------------------- */
+.hero{
+  position:relative;
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding-top:var(--nav-h);
+}
+.hero-float{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  isolation:isolate; /* contains child z-index (drag-to-front) so it can never beat .hero-content */
+}
+.float-img{
+  position:absolute;
+  overflow:hidden;
+  box-shadow:0 30px 60px -20px rgba(30,26,23,.35);
+  will-change:translate;
+  cursor:grab;
+  touch-action:none;
+}
+.float-img:active{ cursor:grabbing; }
+.float-img img{
+  width:100%; height:100%; object-fit:cover;
+  -webkit-user-drag:none;
+  user-select:none;
+  pointer-events:none;
+}
+
+/* Per-image position/size/rotation used to live here as hand-authored .f1..f9
+   classes, one per image. initHeroImages() in main.js now generates however
+   many figures HERO_IMAGE_COUNT_DESKTOP/_MOBILE ask for and writes their
+   position/size/rotation as inline styles instead, since a fixed set of CSS
+   classes can't scale to an arbitrary, easily-tweakable count. */
+.float-img--mobile{ opacity:.55; }
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  pointer-events:none;
+  padding-inline:1rem;
+}
+.hero-name{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(2.6rem, 10vw, 7.6rem);
+  line-height:.95;
+  letter-spacing:-.02em;
+}
+.hero-name em{
+  font-style:normal;
+  font-weight:700;
+  color:var(--accent);
+}
+.hero-sub{
+  margin-top:1.4rem;
+  font-size:clamp(.85rem, 1.4vw, 1.05rem);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.hero-sub span{ color:var(--accent); }
+
+.scroll-cue{
+  position:absolute;
+  bottom:2.2rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.6rem;
+  font-size:.7rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.scroll-cue i{
+  width:1px; height:34px;
+  background:var(--line-strong);
+  position:relative;
+  overflow:hidden;
+}
+.scroll-cue i::after{
+  content:"";
+  position:absolute;
+  top:-100%; left:0; width:100%; height:100%;
+  background:var(--accent);
+  animation:cue 1.8s ease-in-out infinite;
+}
+@keyframes cue{
+  0%{ top:-100%; }
+  60%{ top:100%; }
+  100%{ top:100%; }
+}
+
+
+/* ---------------------------------------------------------------------
+   Sections generic
+   --------------------------------------------------------------------- */
+section{ position:relative; }
+.section{ padding-block:clamp(4rem,9vw,8rem); }
+.section-head{
+  max-width:56rem;
+  margin-bottom:clamp(2.5rem,5vw,4.5rem);
+}
+.section-title{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(2.2rem, 5vw, 4rem);
+  line-height:1.05;
+}
+.section-title em{ font-style:normal; color:var(--accent); font-weight:700; }
+.section-lede{
+  margin-top:1.2rem;
+  font-size:clamp(1rem,1.4vw,1.2rem);
+  color:var(--ink-soft);
+  max-width:42rem;
+  line-height:1.7;
+}
+/* Attribution under a project text written by someone else (e.g. Restrained, but couture) */
+.text-credit{
+  margin-top:1.4rem;
+  padding-top:1rem;
+  border-top:1px solid var(--line);
+  max-width:42rem;
+  font-size:.8rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+.text-credit strong{ color:var(--accent); font-weight:700; }
+
+.page-hero{
+  padding-top:calc(var(--nav-h) + clamp(3rem,7vw,6rem));
+  padding-bottom:clamp(2.5rem,5vw,4rem);
+}
+
+/* Project pages with a lot of intro copy (queer-scene, people) pair it with the project's
+   cover image on wide screens, where text alone leaves the right half of the viewport empty.
+   Mobile stays text-only — .page-hero__figure is display:none below the breakpoint, so the
+   image is never even requested there. */
+.page-hero--split{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2rem,5vw,4rem);
+  align-items:center;
+}
+.page-hero__figure{ display:none; }
+@media (min-width:900px){
+  .page-hero--split{ grid-template-columns:1.15fr .85fr; }
+  .page-hero__figure{
+    display:block;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    background:var(--bg-raised);
+  }
+  .page-hero__figure img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+}
+
+[data-reveal]{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .8s var(--ease-soft), transform .8s var(--ease-soft);
+}
+[data-reveal].is-visible{ opacity:1; transform:none; }
+
+/* ---------------------------------------------------------------------
+   Intro / statement section
+   --------------------------------------------------------------------- */
+.statement{
+  display:grid;
+  grid-template-columns:.9fr 1.6fr;
+  gap:clamp(2rem,6vw,6rem);
+  align-items:start;
+}
+.statement p{
+  font-family:var(--display);
+  font-size:clamp(1.2rem,2.4vw,2rem);
+  line-height:1.4;
+  font-weight:500;
+}
+@media (max-width: 860px){
+  .statement{ grid-template-columns:1fr; }
+}
+
+/* ---------------------------------------------------------------------
+   Project cards
+   --------------------------------------------------------------------- */
+.project-list{
+  display:flex;
+  flex-direction:column;
+}
+.project-card{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:clamp(1.5rem,4vw,4rem);
+  align-items:center;
+  padding-block:clamp(2.5rem,6vw,4.5rem);
+  border-top:1px solid var(--line);
+}
+.project-list .project-card:last-child{ border-bottom:1px solid var(--line); }
+.project-card__figure{
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:4/3;
+  background:var(--bg-raised);
+}
+.project-card__figure img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .8s var(--ease-soft);
+}
+.project-card:hover .project-card__figure img{ transform:scale(1.06); }
+.project-card__index{
+  font-family:var(--display);
+  font-weight:700;
+  color:var(--accent);
+  font-size:1rem;
+  margin-bottom:.8rem;
+  display:block;
+}
+.project-card__title{
+  font-family:var(--display);
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:700;
+  line-height:1.05;
+}
+.project-card__desc{
+  margin-top:1rem;
+  color:var(--ink-soft);
+  max-width:32rem;
+  line-height:1.7;
+}
+.project-card__tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin-top:1.4rem;
+}
+.project-card__tags span{
+  font-size:.72rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:.4rem .7rem;
+  border:1px solid var(--line-strong);
+  color:var(--ink-soft);
+}
+.project-card__link{
+  margin-top:1.6rem;
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-size:.8rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+.project-card__link svg{ width:1em; height:1em; transition:transform .4s var(--ease-soft); }
+.project-card:hover .project-card__link svg{ transform:translateX(5px); }
+
+@media (max-width: 780px){
+  .project-card{ grid-template-columns:1fr; }
+  .project-card__figure{ order:-1; }
+}
+
+/* alternate figure/text side */
+.project-card:nth-child(even) .project-card__figure{ order:2; }
+@media (max-width: 780px){
+  .project-card:nth-child(even) .project-card__figure{ order:-1; }
+}
+
+/* ---------------------------------------------------------------------
+   Masonry gallery
+   --------------------------------------------------------------------- */
+.gallery-section{ padding-block:clamp(2rem,5vw,3rem) clamp(5rem,9vw,8rem); }
+.gallery-grid{
+  column-count:4;
+  column-gap:var(--gap);
+}
+.grid-item{
+  break-inside:avoid;
+  margin-bottom:var(--gap);
+  overflow:hidden;
+  cursor:none;
+  position:relative;
+}
+.grid-item img{
+  width:100%;
+  height:auto;          /* keeps the width/height attributes from stretching the image; they only reserve space while loading */
+  display:block;
+  transition:transform .7s var(--ease-soft), filter .5s var(--ease-soft);
+}
+.grid-item:hover img{ transform:scale(1.035); }
+
+@media (max-width:1150px){ .gallery-grid{ column-count:3; } }
+@media (max-width:760px){ .gallery-grid{ column-count:2; } }
+@media (max-width:460px){ .gallery-grid{ column-count:1; } }
+
+/* Small series (e.g. Restrained, but couture — 6 images): 3 columns on desktop so it fills two
+   even rows instead of an unbalanced 2-2-1-1. Same 2 / 1 column fallbacks as the base grid. */
+@media (min-width:761px){ .gallery-grid--three{ column-count:3; } }
+
+.gallery-subhead{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  margin:clamp(3rem,6vw,5rem) 0 1.5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--line);
+}
+.gallery-subhead h3{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.3rem,2.4vw,1.8rem);
+}
+.gallery-subhead span{
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  white-space:nowrap;
+}
+
+/* ---------------------------------------------------------------------
+   Dump page — scattered pinboard (see initDumpScatter() in main.js)
+   Every .dump-item's width/height/left/top/--r (rotation) is written as
+   an inline style by JS, randomized fresh on every page load, so this
+   is the pile shape only — position/size/angle live in JS, not here.
+   --------------------------------------------------------------------- */
+.dump-scatter{
+  position:relative;
+}
+.dump-item{
+  position:absolute;
+  overflow:hidden;
+  background:var(--frame-bg);
+  box-shadow:var(--frame-shadow);
+  padding:.5rem .5rem 1.3rem;
+  opacity:0;
+  transform:rotate(var(--r, 0deg));
+  will-change:translate;
+  touch-action:none;
+  transition:opacity .5s var(--ease-soft), transform .3s var(--ease-soft), box-shadow .3s var(--ease-soft), background-color .3s var(--ease-soft);
+}
+.dump-item.is-placed{ opacity:1; }
+.dump-item:hover{
+  transform:rotate(0deg) translateY(-6px) scale(1.03);
+  box-shadow:var(--frame-shadow-hover);
+}
+.dump-item img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  -webkit-user-drag:none;
+  user-select:none;
+  pointer-events:none;
+}
+
+/* ---------------------------------------------------------------------
+   Lightbox
+   --------------------------------------------------------------------- */
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:900;
+  background:rgba(20,17,15,.96);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .4s var(--ease-soft);
+  cursor:none;
+}
+.lightbox.is-open{ opacity:1; visibility:visible; }
+.lightbox__frame{
+  position:relative;
+  max-width:min(92vw, 1400px);
+  max-height:88vh;
+}
+.lightbox__frame img{
+  max-width:92vw;
+  max-height:88vh;
+  width:auto;
+  height:auto;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .45s var(--ease-soft), transform .45s var(--ease-soft);
+}
+.lightbox.is-open .lightbox__frame img.is-shown{ opacity:1; transform:none; }
+.lightbox__close,
+.lightbox__prev,
+.lightbox__next{
+  position:fixed;
+  color:#f6f2ec;
+  z-index:2;
+}
+.lightbox__close{ top:1.8rem; right:2rem; font-size:1.6rem; }
+.lightbox__prev{ top:50%; left:1.5rem; transform:translateY(-50%); }
+.lightbox__next{ top:50%; right:1.5rem; transform:translateY(-50%); }
+.lightbox__prev svg, .lightbox__next svg{ width:2rem; height:2rem; }
+.lightbox__count{
+  position:fixed;
+  bottom:1.8rem; left:50%; transform:translateX(-50%);
+  color:rgba(246,242,236,.65);
+  font-size:.78rem;
+  letter-spacing:.12em;
+}
+
+/* ---------------------------------------------------------------------
+   About / Contact page
+   --------------------------------------------------------------------- */
+.about-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:clamp(2rem,6vw,5rem);
+  align-items:start;
+}
+/* min-width:0 overrides the grid default (min-width:auto), which otherwise lets a long
+   unbroken string in .about-copy (e.g. the @handle/email in .contact-block) blow past its
+   1.15fr share and crush the portrait column down to a sliver on wide viewports. */
+.about-portrait{ position:relative; min-width:0; }
+.about-portrait img{ width:100%; display:block; }
+.photo-credit{
+  margin-top:.6rem;
+  font-size:.78rem;
+  color:var(--ink-soft);
+  opacity:.7;
+}
+.photo-credit a{ color:inherit; }
+.photo-credit a:hover,
+.photo-credit a:focus-visible{ color:var(--accent); }
+.about-copy{ min-width:0; }
+.about-copy p{
+  font-size:clamp(1rem,1.3vw,1.15rem);
+  line-height:1.85;
+  color:var(--ink-soft);
+  margin-bottom:1.3rem;
+}
+.about-copy p:first-of-type{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:clamp(1.15rem,1.8vw,1.45rem);
+  color:var(--ink);
+  line-height:1.6;
+}
+@media (max-width: 860px){
+  .about-grid{ grid-template-columns:1fr; }
+}
+
+/* A row-per-item list rather than a 3-across grid: a full email address and a full
+   Instagram handle side by side by "Rotterdam, NL" never fit three-abreast at normal
+   desktop widths without an ugly mid-word wrap, since neither string has a natural
+   break point. Giving each item its own full-width row leaves enough room that the
+   value only wraps on genuinely narrow screens. */
+.contact-block{
+  margin-top:clamp(3rem,6vw,5rem);
+  padding:clamp(2rem,5vw,3.5rem);
+  background:var(--bg-raised);
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  display:flex;
+  flex-direction:column;
+}
+.contact-item{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  column-gap:1.5rem;
+  padding-block:1.1rem;
+  border-bottom:1px solid var(--line);
+}
+.contact-item:first-child{ padding-top:0; }
+.contact-item:last-child{ padding-bottom:0; border-bottom:0; }
+.contact-item h4{
+  flex:0 0 auto;
+  width:7rem;
+  font-size:.75rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:700;
+}
+.contact-item a, .contact-item p{
+  flex:1 1 auto;
+  min-width:0;
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.2rem,2.4vw,1.7rem);
+  overflow-wrap:anywhere; /* last-resort safety net on genuinely narrow screens */
+}
+.contact-item a{
+  transition:color .3s var(--ease-soft);
+}
+.contact-item a:hover,
+.contact-item a:focus-visible{ color:var(--accent); }
+
+/* ---------------------------------------------------------------------
+   Escape project — publication link block
+   --------------------------------------------------------------------- */
+.escape-hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,4rem);
+  align-items:center;
+  margin-bottom:clamp(3rem,7vw,6rem);
+}
+.escape-hero img{ width:100%; }
+.escape-quote{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.3rem,2.6vw,2rem);
+  line-height:1.3;
+}
+.publication-cta{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,4rem);
+  align-items:center;
+  background:var(--bg);
+  border:1px solid var(--line);
+  padding:clamp(2rem,4vw,3.5rem);
+}
+.publication-cta img{ width:100%; box-shadow:0 30px 60px -24px rgba(30,26,23,.4); }
+.publication-cta h3{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.5rem,3vw,2.2rem);
+  margin-bottom:1rem;
+}
+.publication-cta p{ color:var(--ink-soft); line-height:1.7; margin-bottom:1.8rem; }
+@media (max-width: 780px){
+  .escape-hero, .publication-cta{ grid-template-columns:1fr; }
+}
+
+/* ---------------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------------- */
+.site-footer{
+  background:var(--bg-raised);
+  border-top:1px solid var(--line);
+  padding-block:clamp(2.5rem,5vw,4rem);
+}
+.site-footer .container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:2rem;
+  align-items:center;
+  justify-content:space-between;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.footer-logo{
+  width:52px; height:auto;
+  animation:spin 12s linear infinite;
+}
+@media (prefers-reduced-motion: reduce){ .footer-logo{ animation:none; } }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+.footer-brand__link{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:1rem;
+  transition:color .3s var(--ease-soft);
+}
+.footer-brand__link:hover,
+.footer-brand__link:focus-visible{ color:var(--accent); }
+.footer-links{
+  display:flex;
+  gap:1.8rem;
+  font-size:.8rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.footer-meta{
+  font-size:.78rem;
+  color:var(--ink-soft);
+  letter-spacing:.04em;
+}
+
+/* ---------------------------------------------------------------------
+   Utility: alt bg band
+   --------------------------------------------------------------------- */
+.band{ background:var(--bg-raised); }
+
+/* ---------------------------------------------------------------------
+   ☀️ LIGHT MODE — the site ships dark by default (see :root above);
+   this restores the original warm, light palette. Toggled by the
+   floating button (bottom-right, injected by main.js). Every color on
+   the site is a variable, so overriding them here on html.light-mode
+   re-themes the whole site with no other changes.
+   --------------------------------------------------------------------- */
+html.light-mode{
+  --bg: #f6f2ec;
+  --bg-raised: color-mix(in srgb, var(--bg) 92%, #000 8%);
+  --accent: #ff46ac;
+  --accent-deep: color-mix(in srgb, var(--accent) 78%, #000 22%);
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, #fff 88%);
+  --ink: #1e1a17;
+  --ink-soft: #6f665c;
+  --line: rgba(30,26,23,.14);
+  --line-strong: rgba(30,26,23,.28);
+  --frame-bg: #fff;
+  --frame-shadow: 0 12px 30px -14px rgba(30,26,23,.28);
+  --frame-shadow-hover: 0 22px 40px -16px rgba(30,26,23,.34);
+}
+html body{ transition:background-color .3s var(--ease-soft), color .3s var(--ease-soft); }
+
+.theme-toggle{
+  position:fixed;
+  right:1.2rem;
+  bottom:1.2rem;
+  z-index:800;
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.8rem 1.1rem;
+  background:var(--ink);
+  color:var(--bg);
+  border:1px solid var(--line-strong);
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:0 12px 30px -12px rgba(0,0,0,.4);
+  transition:background-color .3s var(--ease-soft), color .3s var(--ease-soft), transform .3s var(--ease-soft);
+}
+.theme-toggle:hover{ transform:translateY(-2px); }
+@media (max-width:600px){
+  .theme-toggle{ right:.8rem; bottom:.8rem; padding:.7rem .9rem; font-size:.65rem; }
+}

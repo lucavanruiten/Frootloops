@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ==================== MAIN HOME / INDEX ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/"/>
+  </url>
+  <url>
+    <loc>https://lucavanruiten.com/nl/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/"/>
+  </url>
+
+  <!-- ==================== ABOUT ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/about.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/about.html"/>
+  </url>
+  <url>
+    <loc>https://lucavanruiten.com/nl/about.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/about.html"/>
+  </url>
+
+  <!-- ==================== PORTFOLIO ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/portfolio.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/portfolio.html"/>
+  </url>
+  <url>
+    <loc>https://lucavanruiten.com/nl/portfolio.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/portfolio.html"/>
+  </url>
+
+  <!-- ==================== QUEER ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/queer.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/queer.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/queer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/queer.html"/>
+  </url>
+  <url>
+    <loc>https://lucavanruiten.com/nl/queer.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/queer.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/queer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/queer.html"/>
+  </url>
+
+  <!-- ==================== QUEENS ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/queens.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/queens.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/queens.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/queens.html"/>
+  </url>
+  <url>
+    <loc>https://lucavanruiten.com/nl/queens.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/queens.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/queens.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/queens.html"/>
+  </url>
+
+  <!-- ==================== PEOPLE ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/people.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/people.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/people.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/people.html"/>
+  </url>
+  <url>
+    <loc>https://lucavanruiten.com/nl/people.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/people.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/people.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/people.html"/>
+  </url>
+
+  <!-- ==================== MESSY GRID ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/messy_grid.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/messy_grid.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/messy_grid.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/messy_grid.html"/>
+  </url>
+  <url>
+    <loc>https://lucavanruiten.com/nl/messy_grid.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/messy_grid.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/messy_grid.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/messy_grid.html"/>
+  </url>
+
+  <!-- ==================== ESCAPE SKINNER BOX ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/escape_s_b.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/escape_s_b.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/escape_s_b.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/escape_s_b.html"/>
+  </url>
+  <url>
+    <loc>https://lucavanruiten.com/nl/escape_s_b.html</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucavanruiten.com/escape_s_b.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/escape_s_b.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/escape_s_b.html"/>
+  </url>
+
+</urlset>
