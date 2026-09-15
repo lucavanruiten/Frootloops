@@ -1013,7 +1013,8 @@ section{ position:relative; }
 .footer-brand__link:focus-visible{ color:var(--accent); }
 .footer-links{
   display:flex;
-  gap:1.8rem;
+  flex-wrap:wrap;              /* never wider than the screen, even between the phone and desktop layouts */
+  gap:.8rem 1.8rem;
   font-size:.8rem;
   letter-spacing:.1em;
   text-transform:uppercase;
@@ -1022,6 +1023,45 @@ section{ position:relative; }
   font-size:.78rem;
   color:var(--ink-soft);
   letter-spacing:.04em;
+}
+
+/* Phones: stack the footer into a column — brand on top, the links as full-width rows with
+   large tap targets (the email address alone is too long to share a line with the others),
+   and the copyright line last, with room below it so the floating theme toggle never covers it.
+   CSS only, so the footer markup stays identical on every page. */
+@media (max-width:720px){
+  .site-footer{ padding-bottom:calc(clamp(2.5rem,5vw,4rem) + 3.5rem); }
+  .site-footer .container{
+    flex-direction:column;
+    align-items:stretch;
+    gap:1.6rem;
+  }
+  .footer-links{
+    flex-direction:column;
+    flex-wrap:nowrap;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .footer-links a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    min-height:3.25rem;
+    border-bottom:1px solid var(--line);
+    background-image:none;     /* no hover underline on full-width rows */
+    padding-bottom:0;
+    overflow-wrap:anywhere;
+  }
+  .footer-links a::after{
+    content:"→";
+    color:var(--accent);
+    font-size:1rem;
+    letter-spacing:0;
+    transition:transform .3s var(--ease-soft);
+  }
+  .footer-links a:active::after{ transform:translateX(4px); }
+  .footer-links a[href^="mailto:"]{ text-transform:none; letter-spacing:.02em; font-size:.9rem; }
 }
 
 /* ---------------------------------------------------------------------
