@@ -763,6 +763,11 @@ section{ position:relative; }
   color:var(--ink-soft);
   white-space:nowrap;
 }
+.gallery-credit{
+  margin-top:1.4rem;
+  font-size:.85rem;
+  color:var(--ink-soft);
+}
 
 /* ---------------------------------------------------------------------
    Dump page — scattered pinboard (see initDumpScatter() in main.js)
