@@ -314,10 +314,16 @@
     const imgs = Array.from(hero.querySelectorAll(".float-img"));
     if (!imgs.length) return;
 
-    const maxRadius = 200;      // how far an image may drift from its resting spot
-    const wanderStrength = 46;  // how eagerly it curves off in a new direction
+    // Phones get a calmer, looser version: the name fills most of a phone-width hero, so
+    // constantly pushing images away from it (plus 200px of wander on a ~375px screen)
+    // shoved every image out of frame within seconds. Mobile images are already
+    // semi-transparent (.float-img--mobile), so there they may simply drift behind the
+    // text, and they stay much closer to their resting spot.
+    const isMobile = window.innerWidth <= HERO_MOBILE_BREAKPOINT;
+    const maxRadius = isMobile ? 45 : 200;      // how far an image may drift from its resting spot
+    const wanderStrength = isMobile ? 22 : 46;  // how eagerly it curves off in a new direction
     const headingDrift = 0.05;  // how quickly its heading curves — small = smooth loops
-    const textPushStrength = 260; // how hard an image is steered away from the name/subtitle
+    const textPushStrength = isMobile ? 0 : 260; // how hard an image is steered away from the name/subtitle (off on phones)
     const textPushMargin = 20;    // px of buffer added around the text box before pushing starts
     const navPushStrength = 260;  // how hard an image is steered out from behind the fixed nav
     const navPushMargin = 12;     // px of buffer below the nav before pushing starts
@@ -449,7 +455,7 @@
         // box (not just a one-off kick) for as long as the image's current
         // position — resting spot plus wherever wander/a throw has carried
         // it — is inside it, so this holds even mid-drift, not only at load
-        if (textBox){
+        if (textBox && textPushStrength){
           const cx = item.restX + item.x;
           const cy = item.restY + item.y;
           // rectangle-vs-rectangle, not point-vs-rectangle — a large image

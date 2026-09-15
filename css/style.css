@@ -875,13 +875,15 @@ section{ position:relative; }
 .photo-credit a:hover,
 .photo-credit a:focus-visible{ color:var(--accent); }
 .about-copy{ min-width:0; }
-.about-copy p{
+/* direct children only — otherwise these also restyle the <p> inside .contact-block
+   (it was picking up the intro-paragraph font/size as a "first-of-type" paragraph) */
+.about-copy > p{
   font-size:clamp(1rem,1.3vw,1.15rem);
   line-height:1.85;
   color:var(--ink-soft);
   margin-bottom:1.3rem;
 }
-.about-copy p:first-of-type{
+.about-copy > p:first-of-type{
   font-family:var(--sans);
   font-weight:600;
   font-size:clamp(1.15rem,1.8vw,1.45rem);
@@ -905,20 +907,24 @@ section{ position:relative; }
   border-left:3px solid var(--accent);
   display:flex;
   flex-direction:column;
+  container-type:inline-size;   /* rows decide stacked vs. side-by-side from the block's own width */
 }
+/* Every row uses the same layout at the same time: label above value when the block is
+   narrow, label column + value when it's wide. (The old flex-wrap version wrapped each row
+   independently, so a short value like "Rotterdam, NL" stayed inline while the long email
+   and handle dropped below their labels.) Values scale with the block width (cqi) so the
+   Instagram handle fits on one line instead of breaking mid-word. */
 .contact-item{
-  display:flex;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:1fr;
+  row-gap:.4rem;
   align-items:baseline;
-  column-gap:1.5rem;
   padding-block:1.1rem;
   border-bottom:1px solid var(--line);
 }
 .contact-item:first-child{ padding-top:0; }
 .contact-item:last-child{ padding-bottom:0; border-bottom:0; }
 .contact-item h4{
-  flex:0 0 auto;
-  width:7rem;
   font-size:.75rem;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -926,12 +932,21 @@ section{ position:relative; }
   font-weight:700;
 }
 .contact-item a, .contact-item p{
-  flex:1 1 auto;
   min-width:0;
+  margin:0;
   font-family:var(--display);
   font-weight:700;
-  font-size:clamp(1.2rem,2.4vw,1.7rem);
+  font-size:clamp(1rem, 6.2cqi, 1.7rem);
+  line-height:1.25;
+  color:var(--ink);
   overflow-wrap:anywhere; /* last-resort safety net on genuinely narrow screens */
+}
+@container (min-width: 36rem){
+  .contact-item{
+    grid-template-columns:10rem minmax(0, 1fr);
+    column-gap:1.5rem;
+  }
+  .contact-item a, .contact-item p{ font-size:clamp(1.2rem, 4.3cqi, 1.7rem); }
 }
 .contact-item a{
   transition:color .3s var(--ease-soft);
