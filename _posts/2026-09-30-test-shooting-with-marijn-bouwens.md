@@ -55,4 +55,5 @@ sections:
       - /images/blog/uploads/muoi1tht-cl6z2hlh.jpg
       - /images/blog/test-shooting-with-marijn-bouwens/muoi1qzy-t3u5dqmj.webp
       - /images/blog/test-shooting-with-marijn-bouwens/muoi1jcx-rf3hs3ao.webp
+      - /images/blog/uploads/muoiq8hg-1mt0u3o1.jpg
 ---
