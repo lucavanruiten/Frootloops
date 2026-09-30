@@ -1,0 +1,72 @@
+# Builds and deploys the site on every push to main.
+# 1. Compresses any blog photos uploaded through Pages CMS and commits the result
+#    back to main (so the repo and the editor see the compressed versions).
+# 2. Builds the site with GitHub's own Jekyll build (the same one "Deploy from a
+#    branch" uses) and deploys it.
+# Requires Settings → Pages → Build and deployment → Source: "GitHub Actions".
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for new blog photos
+        id: uploads
+        run: |
+          if ls images/blog/uploads/* >/dev/null 2>&1; then echo "found=true" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/setup-python@v5
+        if: steps.uploads.outputs.found == 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Compress blog photos
+        if: steps.uploads.outputs.found == 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq webp
+          pip install --quiet Pillow pillow-heif
+          python .github/scripts/optimize_blog_photos.py
+
+      - name: Commit compressed photos
+        if: steps.uploads.outputs.found == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A _posts _data images/blog
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Compress blog photos"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

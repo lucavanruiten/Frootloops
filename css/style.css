@@ -1085,6 +1085,120 @@ section{ position:relative; }
 }
 
 /* ---------------------------------------------------------------------
+   Blog — overview (blog/index.html) and posts (_layouts/post.html)
+   The overview reuses .project-card; posts are built from .post-* below.
+   Each .post-photo carries --ratio (width / height, from _data/blog_photos.json)
+   so photos in one row share a height without being cropped.
+   --------------------------------------------------------------------- */
+.blog-list-section{ padding-bottom:clamp(5rem,9vw,8rem); }
+.blog-empty{ color:var(--ink-soft); padding-block:2rem 4rem; }
+
+.post-hero__back{ display:inline-block; }
+.post-hero__date{
+  margin-top:1.1rem;
+  font-size:.8rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+
+.post-photo{
+  margin:0;
+  aspect-ratio:var(--ratio);
+  background:var(--bg-raised);
+}
+.post-photo img{ width:100%; height:100%; object-fit:cover; }
+
+/* a single photo (and the cover) spans the column, but never gets taller than the screen */
+.post-cover .post-photo,
+.post-photos--1 .post-photo{
+  width:100%;
+  max-width:calc(85vh * var(--ratio));
+  margin-inline:auto;
+}
+
+.post-section{ padding-block:clamp(2.5rem,5vw,4.5rem) 0; }
+.post-section:last-child{ padding-bottom:clamp(4rem,8vw,7rem); }
+
+.post-text{
+  max-width:42rem;
+  font-size:clamp(1rem,1.2vw,1.12rem);
+  line-height:1.75;
+}
+.post-text > * + *{ margin-top:1.1em; }
+.post-text h2, .post-text h3, .post-text h4{
+  font-family:var(--display);
+  font-weight:700;
+  line-height:1.15;
+  margin-top:1.8em;
+}
+.post-text h2{ font-size:clamp(1.5rem,2.6vw,2.1rem); }
+.post-text h3{ font-size:clamp(1.25rem,2vw,1.6rem); }
+.post-text h4{ font-size:1.1rem; }
+.post-text > :first-child{ margin-top:0; }
+.post-text a{ color:var(--accent); text-decoration:underline; text-underline-offset:3px; }
+.post-text em{ font-style:normal; color:var(--accent); }   /* no italics on this site */
+.post-text strong{ font-weight:700; }
+.post-text ul{ list-style:disc; padding-left:1.3em; }
+.post-text ol{ padding-left:1.3em; }
+.post-text li + li{ margin-top:.35em; }
+.post-text blockquote{
+  margin:1.6em 0;
+  padding-left:1.2rem;
+  border-left:2px solid var(--accent);
+  font-family:var(--display);
+  font-size:1.25em;
+  line-height:1.45;
+}
+.post-text hr{ border:0; border-top:1px solid var(--line); margin:2em 0; }
+
+.post-photos{
+  display:flex;
+  flex-direction:column;
+  gap:var(--gap);
+  margin-top:clamp(1.8rem,3.5vw,2.8rem);
+}
+.post-text + .post-photos{ margin-top:clamp(1.8rem,3.5vw,2.8rem); }
+.post-section > .post-photos:first-child{ margin-top:0; }
+.post-photos__row{
+  display:flex;
+  gap:var(--gap);
+  align-items:flex-start;
+  width:100%;
+  /* --row-ratio = the row's summed aspect ratios, so the row is never taller than 85vh */
+  max-width:calc(85vh * var(--row-ratio, 99) + var(--gap) * 2);
+  margin-inline:auto;
+}
+.post-photos__row .post-photo{ flex:var(--ratio) 1 0; min-width:0; }
+.post-photos--1 .post-photos__row .post-photo{ flex:none; }
+@media (max-width:600px){
+  /* phones: 3 or 4 photos stack full-width instead of shrinking to thumbnails */
+  .post-photos--3 .post-photos__row,
+  .post-photos--count-4 .post-photos__row{ flex-direction:column; max-width:none; }
+  .post-photos--3 .post-photos__row .post-photo,
+  .post-photos--count-4 .post-photos__row .post-photo{ flex:none; width:100%; }
+}
+
+.post-nav__inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--gap);
+}
+.post-nav__link{ display:block; }
+.post-nav__link--next{ text-align:right; }
+.post-nav__title{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.2rem,2.4vw,1.8rem);
+  line-height:1.15;
+}
+.post-nav__link:hover .post-nav__title{ background-size:100% 1px; }
+@media (max-width:600px){
+  .post-nav__inner{ grid-template-columns:1fr; }
+  .post-nav__link--next{ text-align:left; }
+}
+
+/* ---------------------------------------------------------------------
    Utility: alt bg band
    --------------------------------------------------------------------- */
 .band{ background:var(--bg-raised); }

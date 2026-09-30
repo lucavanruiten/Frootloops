@@ -1,0 +1,30 @@
+# Jekyll is only used for the blog. Every page without front matter (the whole
+# rest of the site) is copied to the output unchanged. See CLAUDE.md → Blog.
+title: Luca van Ruiten Photography
+url: https://lucavanruiten.com
+baseurl: ""
+timezone: Europe/Amsterdam
+lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+permalink: /blog/:title/
+future: true   # a post dated later today still shows up straight away
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - CLAUDE.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

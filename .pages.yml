@@ -1,0 +1,64 @@
+# Pages CMS (https://app.pagescms.org) — the web editor for the blog.
+# Photos are uploaded to images/blog/uploads/ as-is; the "Build and deploy"
+# GitHub workflow then compresses them and rewrites the post to point at the
+# compressed versions. See CLAUDE.md → Blog.
+media:
+  input: images/blog/uploads
+  output: /images/blog/uploads
+  categories: [image]
+  rename: random
+
+content:
+  - name: posts
+    label: Blog
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{title}.md"
+    format: yaml-frontmatter
+    view:
+      fields: [title, date]
+      primary: title
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: cover
+        label: Cover photo
+        type: image
+        required: true
+        description: Shown at the top of the post and on the blog overview.
+      - name: intro
+        label: Intro
+        type: text
+        required: true
+        description: One or two sentences. Shown under the title and on the blog overview.
+      - name: sections
+        label: Sections
+        type: object
+        description: Each section is a block of text followed by its photos. Add as many as you like.
+        list:
+          min: 1
+          collapsible:
+            collapsed: false
+            summary: "Section {index}"
+        fields:
+          - name: text
+            label: Text
+            type: rich-text
+          - name: images
+            label: Photos
+            type: image
+            description: "1 photo = full width · 2 or 3 = side by side · 4 = two rows of two"
+            options:
+              multiple:
+                max: 4

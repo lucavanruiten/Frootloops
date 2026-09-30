@@ -1,0 +1,21 @@
+{%- comment -%}
+  One blog photo, opening in the lightbox (data-full).
+  include.src   — the path stored in the post. After the "Build and deploy" workflow has run it is
+                  /images/blog/<post>/<name>.webp (2400px), with <name>-800.webp and <name>-1600.webp
+                  next to it and its size in _data/blog_photos.json. A photo that hasn't been
+                  processed yet (still in /images/blog/uploads/) is shown as-is.
+  include.alt, include.sizes, include.eager (true for the cover), include.class
+{%- endcomment -%}
+{%- assign src = include.src -%}
+{%- assign dims = site.data.blog_photos[src] -%}
+{%- assign ratio = 1.5 -%}
+{%- if dims -%}{%- assign ratio = dims[0] | times: 1.0 | divided_by: dims[1] -%}{%- endif -%}
+<figure class="grid-item post-photo {{ include.class }}" style="--ratio:{{ ratio | round: 4 }}"{% if include.reveal %} data-reveal{% endif %}>
+  {%- if src contains "/images/blog/uploads/" or dims == nil %}
+  <img src="{{ src | relative_url }}" data-full="{{ src | relative_url }}" alt="{{ include.alt | escape }}"{% unless include.eager %} loading="lazy"{% endunless %} decoding="async">
+  {%- else -%}
+  {%- assign base_len = src.size | minus: 5 -%}
+  {%- assign base = src | slice: 0, base_len | relative_url %}
+  <img src="{{ base }}-1600.webp" srcset="{{ base }}-800.webp 800w, {{ base }}-1600.webp 1600w, {{ src | relative_url }} {{ dims[0] }}w" sizes="{{ include.sizes | default: '100vw' }}" width="{{ dims[0] }}" height="{{ dims[1] }}" data-full="{{ src | relative_url }}" alt="{{ include.alt | escape }}"{% if include.eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">
+  {%- endif %}
+</figure>

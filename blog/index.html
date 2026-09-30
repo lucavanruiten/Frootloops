@@ -1,0 +1,45 @@
+---
+layout: blog
+title: Blog
+meta_title: Blog — Luca van Ruiten
+description: Stories behind the photographs by Luca van Ruiten, a queer photographer in Rotterdam — shoots, projects and everything in between.
+---
+<section class="page-hero container">
+  <span class="eyebrow" data-reveal>Blog</span>
+  <h1 class="section-title" data-reveal>Behind the <em>work</em>.</h1>
+  <p class="section-lede" data-reveal>Stories behind the photographs: shoots, projects and everything in between.</p>
+</section>
+
+<section class="container blog-list-section">
+  {%- if site.posts.size > 0 %}
+  <div class="project-list">
+    {%- for post in site.posts %}
+    <article class="project-card blog-card" data-reveal>
+      <a href="{{ post.url | relative_url }}" class="project-card__figure" data-cursor="Read" tabindex="-1" aria-hidden="true">
+        {%- assign src = post.cover -%}
+        {%- assign dims = site.data.blog_photos[src] -%}
+        {%- assign processed = false -%}
+        {%- if dims -%}{%- unless src contains "/images/blog/uploads/" -%}{%- assign processed = true -%}{%- endunless -%}{%- endif -%}
+        {%- if processed %}
+        {%- assign base_len = src.size | minus: 5 -%}
+        {%- assign base = src | slice: 0, base_len | relative_url %}
+        <img src="{{ base }}-800.webp" srcset="{{ base }}-800.webp 800w, {{ base }}-1600.webp 1600w" sizes="(max-width:780px) 92vw, 50vw" alt="" loading="lazy" decoding="async">
+        {%- elsif src %}
+        <img src="{{ src | relative_url }}" alt="" loading="lazy" decoding="async">
+        {%- endif %}
+      </a>
+      <div class="project-card__body">
+        <time class="project-card__index" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B %Y" }}</time>
+        <h2 class="project-card__title"><a href="{{ post.url | relative_url }}" class="link-underline">{{ post.title | escape }}</a></h2>
+        {%- if post.intro %}
+        <p class="project-card__desc">{{ post.intro | escape }}</p>
+        {%- endif %}
+        <a href="{{ post.url | relative_url }}" class="project-card__link link-underline">Read post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <p class="blog-empty" data-reveal>The first post is on its way.</p>
+  {%- endif %}
+</section>

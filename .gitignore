@@ -1,0 +1,4 @@
+# Jekyll build output (local preview only; GitHub builds its own)
+_site/
+.jekyll-cache/
+.jekyll-metadata

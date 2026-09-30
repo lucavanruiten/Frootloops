@@ -1,0 +1,92 @@
+---
+layout: blog
+---
+{%- comment -%}
+  One blog post. Fields come from the post's front matter (edited in Pages CMS, see .pages.yml):
+  title, date, cover, intro, sections[] → { text (markdown), images[] (1–4 photos) }.
+  Photos in a row are shown at equal height without cropping (flex-grow = aspect ratio).
+{%- endcomment -%}
+{%- assign photo_no = 0 -%}
+<article class="post" data-lightbox-group="post">
+  <header class="page-hero container post-hero">
+    <a href="{{ '/blog/' | relative_url }}" class="eyebrow post-hero__back link-underline" data-reveal>Blog</a>
+    <h1 class="section-title" data-reveal>{{ page.title | escape }}</h1>
+    <p class="post-hero__date" data-reveal><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %B %Y" }}</time></p>
+    {%- if page.intro %}
+    <p class="section-lede" data-reveal>{{ page.intro | escape }}</p>
+    {%- endif %}
+  </header>
+
+  {%- if page.cover %}
+  <div class="container post-cover" data-reveal>
+    {%- include blog-photo.html src=page.cover alt=page.title eager=true sizes="(max-width:1480px) 92vw, 1380px" %}
+  </div>
+  {%- endif %}
+
+  {%- for section in page.sections %}
+  <section class="container post-section">
+    {%- if section.text and section.text != "" %}
+    <div class="post-text" data-reveal>
+      {{ section.text | markdownify }}
+    </div>
+    {%- endif %}
+
+    {%- assign imgs = section.images -%}
+    {%- if imgs and imgs != "" -%}
+      {%- if imgs.first == nil -%}{%- assign imgs = imgs | split: "|||" -%}{%- endif -%}
+      {%- assign n = imgs | size -%}
+      {%- if n == 4 -%}{%- assign per_row = 2 -%}{%- elsif n > 4 -%}{%- assign per_row = 3 -%}{%- else -%}{%- assign per_row = n -%}{%- endif -%}
+      {%- case per_row -%}
+        {%- when 1 -%}{%- assign sizes = "(max-width:1480px) 92vw, 1380px" -%}
+        {%- when 2 -%}{%- assign sizes = "(max-width:1480px) 46vw, 690px" -%}
+        {%- else -%}{%- assign sizes = "(max-width:600px) 92vw, (max-width:1480px) 31vw, 460px" -%}
+      {%- endcase %}
+    <div class="post-photos post-photos--{{ per_row }} post-photos--count-{{ n }}">
+      {%- for img in imgs %}
+        {%- assign photo_no = photo_no | plus: 1 -%}
+        {%- assign alt = "Photo " | append: photo_no | append: " from “" | append: page.title | append: "”" -%}
+        {%- assign row_start = forloop.index0 | modulo: per_row -%}
+        {%- if row_start == 0 -%}
+          {%- comment -%} sum of this row's aspect ratios → CSS caps the row's height at 85vh {%- endcomment -%}
+          {%- assign row_ratio = 0 -%}
+          {%- for r in imgs offset: forloop.index0 limit: per_row -%}
+            {%- assign d = site.data.blog_photos[r] -%}
+            {%- if d -%}{%- assign row_ratio = d[0] | times: 1.0 | divided_by: d[1] | plus: row_ratio -%}{%- else -%}{%- assign row_ratio = row_ratio | plus: 1.5 -%}{%- endif -%}
+          {%- endfor %}
+      <div class="post-photos__row" style="--row-ratio:{{ row_ratio | round: 4 }}">
+        {%- endif %}
+        {%- include blog-photo.html src=img alt=alt sizes=sizes reveal=true %}
+        {%- assign row_end = forloop.index | modulo: per_row -%}
+        {%- if row_end == 0 or forloop.last %}
+      </div>
+        {%- endif %}
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </section>
+  {%- endfor %}
+</article>
+
+<nav class="section band post-nav" aria-label="More posts">
+  <div class="container post-nav__inner">
+    {%- if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="post-nav__link post-nav__link--prev" data-reveal>
+      <span class="eyebrow">Older post</span>
+      <span class="post-nav__title link-underline">{{ page.previous.title | escape }}</span>
+    </a>
+    {%- else %}
+    <span></span>
+    {%- endif %}
+    {%- if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="post-nav__link post-nav__link--next" data-reveal>
+      <span class="eyebrow">Newer post</span>
+      <span class="post-nav__title link-underline">{{ page.next.title | escape }}</span>
+    </a>
+    {%- else %}
+    <span></span>
+    {%- endif %}
+  </div>
+  <div class="container" style="text-align:center; margin-top:clamp(2.5rem,5vw,4rem);" data-reveal>
+    <a href="{{ '/blog/' | relative_url }}" class="btn btn--accent">All posts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</nav>

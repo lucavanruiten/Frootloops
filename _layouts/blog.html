@@ -1,0 +1,112 @@
+<!doctype html>
+{%- comment -%}
+  Shell for every blog page (blog/index.html and each post via _layouts/post.html).
+  The loader, nav and footer below are copies of the ones in the hand-written pages;
+  if you change those, change them here too. Blog pages are English only, so the
+  language switch goes to the Dutch homepage instead of a Dutch counterpart.
+{%- endcomment -%}
+{%- assign page_title = page.title | append: " — Luca van Ruiten" -%}
+{%- if page.meta_title -%}{%- assign page_title = page.meta_title -%}{%- endif -%}
+{%- assign description = page.description | default: page.intro | strip_newlines | strip | truncate: 160 -%}
+{%- assign image = page.cover | default: page.image | default: "/images/covers/about-portrait.webp" -%}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="view-transition" content="same-origin">
+<title>{{ page_title | escape }}</title>
+<meta name="description" content="{{ description | escape }}">
+<meta name="author" content="Luca van Ruiten">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="alternate" type="application/rss+xml" title="Luca van Ruiten — Blog" href="{{ '/feed.xml' | absolute_url }}">
+
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:description" content="{{ description | escape }}">
+<meta property="og:image" content="{{ image | absolute_url }}">
+<meta property="og:locale" content="en_NL">
+<meta property="og:site_name" content="Luca van Ruiten Photography">
+{%- if page.layout == 'post' %}
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{%- endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | escape }}">
+<meta name="twitter:description" content="{{ description | escape }}">
+<meta name="twitter:image" content="{{ image | absolute_url }}">
+
+<script type="application/ld+json">
+{%- if page.layout == 'post' %}
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ description | jsonify }},
+  "image": {{ image | absolute_url | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "url": "{{ page.url | absolute_url }}",
+  "author": { "@type": "Person", "name": "Luca van Ruiten", "url": "https://lucavanruiten.com/" },
+  "publisher": { "@type": "Person", "name": "Luca van Ruiten", "url": "https://lucavanruiten.com/" },
+  "isPartOf": { "@type": "Blog", "name": "Luca van Ruiten — Blog", "url": "{{ '/blog/' | absolute_url }}" }
+}
+{%- else %}
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Luca van Ruiten — Blog",
+  "description": {{ description | jsonify }},
+  "url": "{{ page.url | absolute_url }}",
+  "author": { "@type": "Person", "name": "Luca van Ruiten", "url": "https://lucavanruiten.com/" }
+}
+{%- endif %}
+</script>
+
+<link rel="icon" href="{{ '/favicon.png' | relative_url }}" type="image/png">
+<link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+</head>
+<body>
+<div class="page-loader" role="status" aria-live="polite">
+  <span class="visually-hidden">Loading</span>
+  <p class="page-loader__mark" aria-hidden="true">Luca van Ruiten</p>
+  <div class="page-loader__bar" aria-hidden="true"></div>
+</div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="{{ '/' | relative_url }}" class="nav-brand" data-cursor="Home">Luca van Ruiten</a>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="{{ '/projects.html' | relative_url }}" class="link-underline">Work</a>
+      <a href="{{ '/dump.html' | relative_url }}" class="link-underline">Dump</a>
+      <a href="{{ '/blog/' | relative_url }}" class="link-underline" aria-current="page">Blog</a>
+      <a href="{{ '/contact.html' | relative_url }}" class="link-underline">Contact</a>
+      <a href="{{ '/nl/' | relative_url }}" class="link-underline lang-switch" hreflang="nl" lang="nl">NL</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+{{ content }}
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-brand">
+      <img src="{{ '/images/logo_small-optimised.gif' | relative_url }}" alt="" class="footer-logo" loading="lazy">
+      <a href="{{ '/' | relative_url }}" class="footer-brand__link" data-cursor="Home">Luca van Ruiten</a>
+    </div>
+    <div class="footer-links">
+      <a class="link-underline" href="https://www.instagram.com/lucavanruiten_photography/" target="_blank" rel="noopener">Instagram</a>
+      <a class="link-underline" href="mailto:info@lucavanruiten.com">info@lucavanruiten.com</a>
+      <a class="link-underline" href="{{ '/contact.html' | relative_url }}">Contact</a>
+    </div>
+    <p class="footer-meta">© <span id="year"></span> · Rotterdam, NL</p>
+  </div>
+</footer>
+
+<script src="{{ '/js/main.js' | relative_url }}"></script>
+</body>
+</html>

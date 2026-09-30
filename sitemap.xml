@@ -1,3 +1,7 @@
+---
+# Processed by Jekyll so blog posts are added automatically (see the BLOG section at the bottom).
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -161,5 +165,23 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://lucavanruiten.com/nl/contact.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lucavanruiten.com/contact.html"/>
   </url>
+
+  <!-- ==================== BLOG (English only; generated from _posts) ==================== -->
+  <url>
+    <loc>https://lucavanruiten.com/blog/</loc>
+    {%- if site.posts.size > 0 %}
+    <lastmod>{{ site.posts.first.date | date: "%Y-%m-%d" }}</lastmod>
+    {%- endif %}
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  {%- for post in site.posts %}
+  <url>
+    <loc>{{ post.url | absolute_url }}</loc>
+    <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  {%- endfor %}
 
 </urlset>
