@@ -1,7 +1,7 @@
 ---
 title: Test shooting with Marijn Bouwens
 date: 2026-09-30
-cover: /images/blog/uploads/muoi1qzy-t3u5dqmj.jpg
+cover: /images/blog/test-shooting-with-marijn-bouwens/muoi1qzy-t3u5dqmj.webp
 intro: A fashion shoot with Jules, an upcoming fashion designer based in Rotterdam.
 sections:
   - text: >-
@@ -53,6 +53,6 @@ sections:
       [julesbouwens.com](http://julesbouwens.com).
     images:
       - /images/blog/uploads/muoi1tht-cl6z2hlh.jpg
-      - /images/blog/uploads/muoi1qzy-t3u5dqmj.jpg
-      - /images/blog/uploads/muoi1jcx-rf3hs3ao.jpg
+      - /images/blog/test-shooting-with-marijn-bouwens/muoi1qzy-t3u5dqmj.webp
+      - /images/blog/test-shooting-with-marijn-bouwens/muoi1jcx-rf3hs3ao.webp
 ---
