@@ -52,8 +52,8 @@ sections:
       for the use of the studio. You can see more of Jules's work at
       [julesbouwens.com](http://julesbouwens.com).
     images:
-      - /images/blog/uploads/muoi1tht-cl6z2hlh.jpg
       - /images/blog/test-shooting-with-marijn-bouwens/muoi1qzy-t3u5dqmj.webp
       - /images/blog/test-shooting-with-marijn-bouwens/muoi1jcx-rf3hs3ao.webp
       - /images/blog/test-shooting-with-marijn-bouwens/muoiq8hg-1mt0u3o1.webp
+      - /images/blog/uploads/muoj1gkg-zg5toit1.jpg
 ---
