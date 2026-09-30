@@ -4,13 +4,17 @@ date: 2026-09-30
 cover: /images/blog/test-shooting-with-marijn-bouwens/muoi1qzy-t3u5dqmj.webp
 intro: A fashion shoot with Jules, an upcoming fashion designer based in Rotterdam.
 sections:
-  - text: >-
+  - {}
+  - text: >+
       Graduation is getting closer, and with it comes one big question: does my
       portfolio really show what I can do? It turns out I wasn't the only one
       asking that. Jules Bouwens, a fellow student at WDKA Rotterdam and an
       upcoming fashion designer and stylist, was in exactly the same headspace.
       So we decided to team up for a studio day with one clear goal: to push our
-      portfolios to a more professional level.
+      portfolios to a more professional level. 
+
+
+      ![](/images/blog/uploads/muoj9whq-cj1gxnnt.jpg)
 
 
       For this shoot, Jules focused purely on styling, putting together a series
@@ -37,6 +41,9 @@ sections:
       with the result.
 
 
+      ![](/images/blog/uploads/muoj9whp-502i34b4.jpg)
+
+
       **Back in the groove**
 
 
@@ -51,9 +58,10 @@ sections:
       A big thank you to Jules for the great collaboration, and to Rik Versteeg
       for the use of the studio. You can see more of Jules's work at
       [julesbouwens.com](http://julesbouwens.com).
+
+
+      ![](/images/blog/uploads/muoj9whq-wratgdw2.jpg)
+
     images:
-      - /images/blog/test-shooting-with-marijn-bouwens/muoi1qzy-t3u5dqmj.webp
-      - /images/blog/test-shooting-with-marijn-bouwens/muoi1jcx-rf3hs3ao.webp
-      - /images/blog/test-shooting-with-marijn-bouwens/muoiq8hg-1mt0u3o1.webp
       - /images/blog/test-shooting-with-marijn-bouwens/muoj1gkg-zg5toit1.webp
 ---
