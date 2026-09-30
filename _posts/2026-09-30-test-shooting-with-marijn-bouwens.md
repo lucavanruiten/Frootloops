@@ -14,7 +14,7 @@ sections:
       portfolios to a more professional level. 
 
 
-      ![](/images/blog/uploads/muoj9whq-cj1gxnnt.jpg)
+      ![](/images/blog/test-shooting-with-marijn-bouwens/muoj9whq-cj1gxnnt.webp)
 
 
       For this shoot, Jules focused purely on styling, putting together a series
@@ -41,7 +41,7 @@ sections:
       with the result.
 
 
-      ![](/images/blog/uploads/muoj9whp-502i34b4.jpg)
+      ![](/images/blog/test-shooting-with-marijn-bouwens/muoj9whp-502i34b4.webp)
 
 
       **Back in the groove**
@@ -60,7 +60,7 @@ sections:
       [julesbouwens.com](http://julesbouwens.com).
 
 
-      ![](/images/blog/uploads/muoj9whq-wratgdw2.jpg)
+      ![](/images/blog/test-shooting-with-marijn-bouwens/muoj9whq-wratgdw2.webp)
 
     images:
       - /images/blog/test-shooting-with-marijn-bouwens/muoj1gkg-zg5toit1.webp
