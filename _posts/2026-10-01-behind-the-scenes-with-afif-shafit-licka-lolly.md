@@ -1,7 +1,7 @@
 ---
 title: Behind the scenes with Afif Shafit (Licka Lolly)
 date: 2026-10-01
-cover: /images/blog/uploads/mupx2hd7-y8agymls.jpeg
+cover: /images/blog/behind-the-scenes-with-afif-shafit-licka-lolly/mupx2hd7-y8agymls.webp
 intro: Behind-the-scenes footage on how we made "Restrained, but couture"
 sections:
   - text: >-
@@ -25,7 +25,7 @@ sections:
       long, flowing train.
 
 
-      ![](/images/blog/uploads/mupwqa6x-a0q2n8bj.jpeg)
+      ![](/images/blog/behind-the-scenes-with-afif-shafit-licka-lolly/mupwqa6x-a0q2n8bj.webp)
 
 
       **Painting with red and blue**
@@ -61,7 +61,7 @@ sections:
       sure Afif could always free themselves from the ropes.
 
 
-      ![](/images/blog/uploads/mupwuzsh-m431q2ho.jpg)
+      ![](/images/blog/behind-the-scenes-with-afif-shafit-licka-lolly/mupwuzsh-m431q2ho.webp)
 
 
       **The team**
@@ -82,6 +82,6 @@ sections:
       the full series on the project page: [Restrained, but
       couture](https://lucavanruiten.com/project-restrained.html).
     images:
-      - /images/blog/uploads/mupwya9h-56miqhji.jpg
-      - /images/blog/uploads/mupx3ey4-pk8yf50o.jpeg
+      - /images/blog/behind-the-scenes-with-afif-shafit-licka-lolly/mupwya9h-56miqhji.webp
+      - /images/blog/behind-the-scenes-with-afif-shafit-licka-lolly/mupx3ey4-pk8yf50o.webp
 ---
