@@ -74,6 +74,4 @@ sections:
       These days I think a lot more before I take photos, but I’m still chasing
       the same thing I always was: good light. The difference is that now I know
       why.
-    images:
-      - /images/blog/finding-purpose-as-a-photographer/muzmfogr-z0sv3a9z.webp
 ---
