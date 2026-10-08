@@ -433,12 +433,18 @@ body.cursor-active .cursor-dot{ opacity:0; }
    --------------------------------------------------------------------- */
 .hero{
   position:relative;
-  min-height:100dvh;
+  /* Fills the screen, but capped: Google renders pages in a viewport thousands of
+     pixels tall, and an uncapped 100dvh hero pushed the name ~2500px down below an
+     empty black area in its render (seen in Search Console's URL Inspection). */
+  min-height:min(100dvh, 1400px);
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
   padding-top:var(--nav-h);
+}
+@media (max-width:780px){
+  .hero{ min-height:min(100dvh, 950px); }  /* no phone is taller than this */
 }
 .hero-float{
   position:absolute;

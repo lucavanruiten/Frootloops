@@ -93,6 +93,7 @@ All colors are CSS variables at the top of `css/style.css`. Retheming normally m
 - **Page transitions:** native View Transitions API (`<meta name="view-transition" content="same-origin">` in each `<head>` + the `lvr-page-out` / `lvr-page-in` keyframes). No JS; unsupported browsers just navigate normally.
 - **Page loader** (`.page-loader`, the first element in `<body>`): text + CSS only, so it appears instantly even on a slow connection, and hides on `window.load`.
 - **Custom cursor:** dot + ring, `mix-blend-mode:difference`, only on `(hover:hover) and (pointer:fine)`. There the native cursor is hidden (`*{cursor:none !important}`). Touch devices keep the system cursor.
+- **Hero height is capped** (`min(100dvh, 1400px)`, `950px` on phones). Googlebot renders pages in a viewport thousands of pixels tall. With a plain `100dvh` hero, Google's render (Search Console → URL Inspection → screenshot, 2026-10-08) showed an empty black page with the name 2,500px down, while the site wasn't ranking even for "Luca van Ruiten". Never use an uncapped `vh`/`dvh` height for anything above the content.
 - The fixed `.site-nav` also relies on `mix-blend-mode:difference` for legibility. That's why hero photos are kept out from behind it (see JS).
 - Reusable pieces: `.page-hero` (+ `.page-hero--split` with `__copy` / `__figure`, which puts a cover image beside the intro on ≥900px and hides it below that), `.section-title`, `.section-lede`, `.eyebrow`, `.project-card`, `.gallery-grid` (CSS-columns masonry: 4 → 3 → 2 → 1 columns; `.gallery-grid--three` = 3 columns on desktop), `.grid-item`, `.btn` / `.btn--accent`, `.link-underline`, `.band` (raised background section), `.text-credit`, `.gallery-credit`, `.photo-credit`, `[data-reveal]`.
 
@@ -175,6 +176,11 @@ Cover regeneration: `cwebp -q 82 -resize <width> 0 "<source.jpg>" -o "images/cov
 2. `[data-reveal]` content is `opacity:0` until scrolled into view, so wait or scroll before judging a screenshot.
 3. The Python servers can't render the blog (it shows raw Liquid). Jekyll 3.10 is installed for the system Ruby with `--user-install` (`~/.gem/ruby/2.6.0/bin/jekyll`; several dependencies are pinned to old versions for Ruby 2.6). Build into the scratchpad with `~/.gem/ruby/2.6.0/bin/jekyll build --destination <scratch>/_site`, then serve that folder with `python3 -m http.server --directory …`. A launch.json entry running Jekyll directly fails, because the Browser pane's launcher isn't allowed to read ~/Documents (macOS privacy), and Ruby calls `getcwd`. The user can run `jekyll serve` in their own terminal.
 4. To test the photo compression, copy the repo to the scratchpad, drop images into `images/blog/uploads/`, and reference them from a test post. Never add test posts or photos to the real repo.
+
+## SEO notes
+
+- As of 2026-10-08 Google had ~22 pages indexed, but the site didn't rank for "Luca van Ruiten" or even "lucavanruiten". The likely cause was the uncapped hero (see Design system), fixed on 2026-10-08. The homepage + contact JSON-LD now include a `WebSite` block (site name) and `sameAs` links to Instagram, Cherrydeck and Doka Rotterdam.
+- Search Console's "Page with redirect" (the old-URL stubs, `www`, `http`) and "Alternative page with proper canonical tag" are **expected, not errors**. Their "validation failed" just means they still redirect, as intended.
 
 ## Known issues / open items
 

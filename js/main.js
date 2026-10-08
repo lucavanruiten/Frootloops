@@ -243,7 +243,8 @@
 
       // sizeVw/left/right are already % of the hero's width (it's full-bleed),
       // but height needs converting from vw to a % of the hero's height
-      const heightPct = (((sizeVw / 100) * window.innerWidth) / aspect / window.innerHeight) * 100;
+      const heroH = heroEl ? heroEl.getBoundingClientRect().height : window.innerHeight; // the hero is capped (see .hero in style.css), so not always the window height
+      const heightPct = (((sizeVw / 100) * window.innerWidth) / aspect / heroH) * 100;
       const overlapsText = left + sizeVw > keepClear.left && left < keepClear.right
         && top + heightPct > keepClear.top && top < keepClear.bottom;
       if (overlapsText){
