@@ -1,7 +1,7 @@
 ---
 title: Finding purpose as a photographer
 date: 2026-10-08
-cover: /images/blog/uploads/muzmfogr-z0sv3a9z.jpeg
+cover: /images/blog/finding-purpose-as-a-photographer/muzmfogr-z0sv3a9z.webp
 intro: Over the past few years I've learned so much about photography, and I
   mean that in the broadest sense. Photography is not just taking good pictures,
   or having the right Lightroom preset. It's about intention, impact and
@@ -21,7 +21,7 @@ sections:
 
 
 
-      ![](/images/blog/uploads/muzmff5x-746e0mly.jpeg)
+      ![](/images/blog/finding-purpose-as-a-photographer/muzmff5x-746e0mly.webp)
 
 
 
@@ -37,7 +37,7 @@ sections:
 
 
 
-      ![](/images/blog/uploads/muzmftqf-lfkdrzrx.jpeg)
+      ![](/images/blog/finding-purpose-as-a-photographer/muzmftqf-lfkdrzrx.webp)
 
 
 
@@ -55,7 +55,7 @@ sections:
 
 
 
-      ![](/images/blog/uploads/muzmm3zd-9o0x8j71.jpeg)
+      ![](/images/blog/finding-purpose-as-a-photographer/muzmm3zd-9o0x8j71.webp)
 
 
 
@@ -75,5 +75,5 @@ sections:
       the same thing I always was: good light. The difference is that now I know
       why.
     images:
-      - /images/blog/uploads/muzmfogr-z0sv3a9z.jpeg
+      - /images/blog/finding-purpose-as-a-photographer/muzmfogr-z0sv3a9z.webp
 ---
