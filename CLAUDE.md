@@ -180,6 +180,7 @@ Cover regeneration: `cwebp -q 82 -resize <width> 0 "<source.jpg>" -o "images/cov
 ## SEO notes
 
 - As of 2026-10-08 Google had ~22 pages indexed, but the site didn't rank for "Luca van Ruiten" or even "lucavanruiten". The likely cause was the uncapped hero (see Design system), fixed on 2026-10-08. The homepage + contact JSON-LD now include a `WebSite` block (site name) and `sameAs` links to Instagram, Cherrydeck and Doka Rotterdam.
+- Links to a homepage use `./` / `../` / `nl/`, never `index.html` (changed 2026-10-18). `/index.html` is a duplicate URL that Google lists as "Alternative page with proper canonical tag"; internal links should point at the canonical URL.
 - Search Console's "Page with redirect" (the old-URL stubs, `www`, `http`) and "Alternative page with proper canonical tag" are **expected, not errors**. Their "validation failed" just means they still redirect, as intended.
 
 ## Known issues / open items
