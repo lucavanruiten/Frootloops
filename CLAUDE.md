@@ -14,7 +14,7 @@ Static portfolio site for **Luca van Ruiten**, a queer photographer based in Rot
 ## Structure
 
 ```
-index.html                  landing: floating hero photos, marquee, statement, 3 project cards
+index.html                  landing: floating hero photos, statement, 3 project cards
 projects.html               overview of all 4 projects
 project-queer-scene.html    01 "Dutch Queer Scene and its Beauty" — two sub-galleries (queens + queer)
 project-restrained.html     02 "Restrained, but couture" — studio series, 6 images, 3-column grid
@@ -73,7 +73,6 @@ Don't add these to `sitemap.xml`, and don't delete them. They keep old links and
 - **Every content page carries:** meta description, author, robots (`index, follow`; the 404 page is `noindex, follow`), a self-referencing canonical, `hreflang` alternates for `en`, `nl` and `x-default` (x-default = the English URL), Open Graph (`og:locale` `en_NL` / `nl_NL`), Twitter card tags, and JSON-LD (`Person` on index/contact, `CollectionPage` on projects, `ImageGallery` on the gallery pages and dump, `Book` on escape; restrained adds a `contributor`).
 - **Adding a page** means: an EN page + an NL page, switcher links both ways, canonical/hreflang on both, two `sitemap.xml` entries with alternates, and nav/footer links if it's a main section.
 - Dutch copy was originally translated by Claude. The user has since edited some of it themselves (e.g. `nl/contact.html`). The user's own wording is authoritative, in either language.
-- JS-generated UI text (the theme toggle label) is English on both language versions.
 
 ## Design system
 
@@ -87,7 +86,9 @@ All colors are CSS variables at the top of `css/style.css`. Retheming normally m
 }
 ```
 
-- **Light mode** (`html.light-mode`, near the bottom of `style.css`) restores the original warm palette (`--bg:#f6f2ec`, `--ink:#1e1a17`) but **hardcodes its own accent `#ff46ac` (pink)**. Switching to light mode therefore also changes the accent from orange to pink. **This is intended** (confirmed by the user, 2026-09-30); don't make light mode follow `:root`'s accent.
+- **Dark only.** The light mode and its floating toggle button were removed at the user's request (2026-10-19). Don't bring them back unasked.
+- **No marquee.** The landing page's scrolling text band was removed (2026-10-19; the user found it unprofessional).
+- **No sideways scrolling:** `html` and `body` have `overflow-x:clip`. iOS Safari ignores `overflow-x` on `body` alone, so hero photos and dump polaroids past the screen edge made the page wobble sideways on phones. Use `clip`, not `hidden`, on `html`: `hidden` would turn `body` into a scroll container and break the nav's scroll handling.
 - **Fonts:** Space Grotesk (headlines, labels, nav) + Inter (body), via a Google Fonts `@import`. The user rejected serifs: don't add serif or italic styling.
 - **No italics anywhere.** `<em>` in headings (`.hero-name em`, `.section-title em`) is styled `font-style:normal` in the accent color + bold. That's the site's emphasis style.
 - **Page transitions:** native View Transitions API (`<meta name="view-transition" content="same-origin">` in each `<head>` + the `lvr-page-out` / `lvr-page-in` keyframes). No JS; unsupported browsers just navigate normally.
@@ -101,7 +102,7 @@ All colors are CSS variables at the top of `css/style.css`. Retheming normally m
 
 One IIFE. `siteBase` is derived from the script's own URL at load, so the asset paths JS builds (the hero photos) work from root pages, `nl/` pages and `file://`. Use it for any new JS-built asset path, rather than hardcoding a path from the site root or relative to the page.
 
-Init order on `DOMContentLoaded`: `initPageLoader`, `initShuffle`, `initDumpScatter`, `initCursor`, `initNav`, `initReveal`, `initHeroImages`, `initHeroFloat`, `initLightbox`, `initThemeToggle`.
+Init order on `DOMContentLoaded`: `initPageLoader`, `initShuffle`, `initDumpScatter`, `initCursor`, `initNav`, `initReveal`, `initHeroImages`, `initHeroFloat`, `initLightbox`.
 
 - `initPageLoader()` — hides the loader on `load`, with a 400ms minimum display time and a 5s safety timeout.
 - `initCursor()` — hover targets are `a, button, .grid-item, [data-cursor]`. `data-cursor="Label"` shows a label in the ring.
@@ -111,7 +112,6 @@ Init order on `DOMContentLoaded`: `initPageLoader`, `initShuffle`, `initDumpScat
 - `initHeroFloat()` — physics for the hero photos: organic wander, a spring back to the resting spot (`maxRadius`), darting away from the cursor, drag-and-throw, a continuous push away from the name/subtitle box, and a push down out from behind the nav. The tunables are at the top of the function (the user has asked for tuning several times; adjust constants, don't rewrite). **On phones** it's deliberately calmer: a smaller radius and wander, and the text push is off (mobile photos are semi-transparent via `.float-img--mobile`, so they may drift behind the name). `.hero-float` has `isolation:isolate` so a dragged photo (`z-index:5`) can never render above `.hero-content`; don't remove it. Reduced motion: no wander, drag still works.
 - `initLightbox()` — one lightbox. Every `[data-lightbox-group]` container is its own prev/next sequence. It opens `img[data-full]` (full-res) while the grid shows the compressed `src`. Keys: Esc, ←, →.
 - `initShuffle()` + `initDumpScatter()` — see Dump page. The shuffle must run before the scatter.
-- `initThemeToggle()` — injects the floating `.theme-toggle` pill (bottom-right) and stores `lvr-theme` = `"light"` / `"dark"` in localStorage.
 
 ## Pages & content notes
 
@@ -128,7 +128,7 @@ Init order on `DOMContentLoaded`: `initPageLoader`, `initShuffle`, `initDumpScat
 `dump.html` is deliberately chaotic (the user: the rest of the site is neat, the dump can be messy). `.dump-scatter` holds 36 `<figure class="dump-item"><img data-full="..."></figure>`.
 - On every load, `initShuffle()` randomizes the DOM order, then `initDumpScatter()` gives each item a random size, aspect ratio, jittered grid position, rotation (±13°) and z-index, written as inline styles (rotation goes through the `--r` custom property, so `.dump-item:hover` can straighten it in CSS). There are three size tiers (<480, <780, desktop). There's no seed and no recompute on resize.
 - Every item is drag-and-throw, clamped to the stage, and coasts to a stop on its own short `requestAnimationFrame` loop; there's no idle animation. A dropped item goes on top (`topZ` counter starting at 100, below the nav's 500). A drag past 6px sets `data-suppress-click` so the lightbox doesn't open.
-- Polaroid-frame look: `--frame-bg`, `--frame-shadow`, `--frame-shadow-hover` in `:root` and in `html.light-mode`. Keep both in sync.
+- Polaroid-frame look: `--frame-bg`, `--frame-shadow`, `--frame-shadow-hover` in `:root`.
 
 ## Blog
 

@@ -736,28 +736,6 @@
     });
   }
 
-  /* -------------------------------------------------- dark / light theme toggle */
-  function initThemeToggle(){
-    const STORAGE_KEY = "lvr-theme";
-    const root = document.documentElement;
-    if (localStorage.getItem(STORAGE_KEY) === "light") root.classList.add("light-mode");
-
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "theme-toggle";
-    btn.setAttribute("data-cursor", "Toggle");
-    const label = () => root.classList.contains("light-mode") ? "☀️ Light mode" : "\u{1F319} Dark mode";
-    btn.textContent = label();
-
-    btn.addEventListener("click", () => {
-      const isLight = root.classList.toggle("light-mode");
-      localStorage.setItem(STORAGE_KEY, isLight ? "light" : "dark");
-      btn.textContent = label();
-    });
-
-    document.body.appendChild(btn);
-  }
-
   /* -------------------------------------------------- init */
   document.addEventListener("DOMContentLoaded", () => {
     initPageLoader();
@@ -769,6 +747,5 @@
     initHeroImages();
     initHeroFloat();
     initLightbox();
-    initThemeToggle();
   });
 })();
