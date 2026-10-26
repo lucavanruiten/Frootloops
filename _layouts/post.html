@@ -9,16 +9,16 @@ layout: blog
 {%- assign photo_no = 0 -%}
 <article class="post" data-lightbox-group="post">
   <header class="page-hero container post-hero">
-    <a href="{{ '/blog/' | relative_url }}" class="eyebrow post-hero__back link-underline" data-reveal>Blog</a>
-    <h1 class="section-title" data-reveal>{{ page.title | escape }}</h1>
-    <p class="post-hero__date" data-reveal><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %B %Y" }}</time></p>
+    <a href="{{ '/blog/' | relative_url }}" class="eyebrow post-hero__back link-underline">Blog</a>
+    <h1 class="section-title">{{ page.title | escape }}</h1>
+    <p class="post-hero__date"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %B %Y" }}</time></p>
     {%- if page.intro %}
-    <p class="section-lede" data-reveal>{{ page.intro | escape }}</p>
+    <p class="section-lede">{{ page.intro | escape }}</p>
     {%- endif %}
   </header>
 
   {%- if page.cover %}
-  <div class="container post-cover" data-reveal>
+  <div class="container post-cover">
     {%- include blog-photo.html src=page.cover alt=page.title eager=true sizes="(max-width:1480px) 92vw, 1380px" %}
   </div>
   {%- endif %}
@@ -26,7 +26,7 @@ layout: blog
   {%- for section in page.sections %}
   <section class="container post-section">
     {%- if section.text and section.text != "" %}
-    <div class="post-text" data-reveal>
+    <div class="post-text">
       {{ section.text | markdownify }}
     </div>
     {%- endif %}
@@ -70,7 +70,7 @@ layout: blog
 <nav class="section band post-nav" aria-label="More posts">
   <div class="container post-nav__inner">
     {%- if page.previous %}
-    <a href="{{ page.previous.url | relative_url }}" class="post-nav__link post-nav__link--prev" data-reveal>
+    <a href="{{ page.previous.url | relative_url }}" class="post-nav__link post-nav__link--prev">
       <span class="eyebrow">Older post</span>
       <span class="post-nav__title link-underline">{{ page.previous.title | escape }}</span>
     </a>
@@ -78,7 +78,7 @@ layout: blog
     <span></span>
     {%- endif %}
     {%- if page.next %}
-    <a href="{{ page.next.url | relative_url }}" class="post-nav__link post-nav__link--next" data-reveal>
+    <a href="{{ page.next.url | relative_url }}" class="post-nav__link post-nav__link--next">
       <span class="eyebrow">Newer post</span>
       <span class="post-nav__title link-underline">{{ page.next.title | escape }}</span>
     </a>
@@ -86,7 +86,7 @@ layout: blog
     <span></span>
     {%- endif %}
   </div>
-  <div class="container" style="text-align:center; margin-top:clamp(2.5rem,5vw,4rem);" data-reveal>
-    <a href="{{ '/blog/' | relative_url }}" class="btn btn--accent">All posts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="container next-block__action" style="margin-top:clamp(2.5rem,5vw,4rem);">
+    <a href="{{ '/blog/' | relative_url }}" class="btn">All posts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </nav>

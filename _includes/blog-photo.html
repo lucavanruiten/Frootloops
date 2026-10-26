@@ -10,7 +10,7 @@
 {%- assign dims = site.data.blog_photos[src] -%}
 {%- assign ratio = 1.5 -%}
 {%- if dims -%}{%- assign ratio = dims[0] | times: 1.0 | divided_by: dims[1] -%}{%- endif -%}
-<figure class="grid-item post-photo {{ include.class }}" style="--ratio:{{ ratio | round: 4 }}"{% if include.reveal %} data-reveal{% endif %}>
+<figure class="grid-item post-photo {{ include.class }}" style="--ratio:{{ ratio | round: 4 }}">
   {%- if src contains "/images/blog/uploads/" or dims == nil %}
   <img src="{{ src | relative_url }}" data-full="{{ src | relative_url }}" alt="{{ include.alt | escape }}"{% unless include.eager %} loading="lazy"{% endunless %} decoding="async">
   {%- else -%}

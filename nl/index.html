@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="view-transition" content="same-origin">
 <title>Luca van Ruiten — Fotograaf, Rotterdam</title>
 <meta name="description" content="Luca van Ruiten is een queer fotograaf uit Rotterdam die werkt met portret-, studio-, analoge en sociaal-documentaire fotografie.">
 <meta name="author" content="Luca van Ruiten">
@@ -55,23 +54,18 @@
 </script>
 
 <link rel="icon" href="../favicon.png" type="image/png">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css?v=2026-10-27">
 </head>
 <body>
-<div class="page-loader" role="status" aria-live="polite">
-  <span class="visually-hidden">Laden</span>
-  <p class="page-loader__mark" aria-hidden="true">Luca van Ruiten</p>
-  <div class="page-loader__bar" aria-hidden="true"></div>
-</div>
 <a class="skip-link" href="#main">Naar de inhoud</a>
 
 <nav class="site-nav">
   <div class="container">
-    <a href="./" class="nav-brand" data-cursor="Home">Luca van Ruiten</a>
+    <a href="./" class="nav-brand">Luca van Ruiten</a>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links">
       <a href="projects.html" class="link-underline">Werk</a>
-      <a href="dump.html" class="link-underline">Dump</a>
+      <a href="dump.html" class="link-underline">Visueel dagboek</a>
       <a href="../blog/" class="link-underline">Blog</a>
       <a href="contact.html" class="link-underline">Contact</a>
       <a href="../" class="link-underline lang-switch" hreflang="en" lang="en">EN</a>
@@ -81,62 +75,56 @@
 
 <main id="main">
 
-  <section class="hero">
-    <div class="hero-float" aria-hidden="true">
-      <!-- populated by initHeroImages() in js/main.js — see HERO_IMAGE_COUNT_DESKTOP / _MOBILE there -->
+  <section class="intro container">
+    <figure class="intro__figure">
+      <!-- landscape on tablets/desktop, portrait on phones; sources in images/queens/uncompressed/5.jpg and images/queer/UNCOMPRESSED/8.webp -->
+      <picture>
+        <source media="(max-width:599px)" srcset="../images/covers/home-portrait-800.webp 800w, ../images/covers/home-portrait-1200.webp 1200w" sizes="92vw" width="800" height="1200">
+        <img src="../images/covers/home-landscape-1200.webp" srcset="../images/covers/home-landscape-1200.webp 1200w, ../images/covers/home-landscape-1800.webp 1800w" sizes="(min-width:1000px) 56vw, 92vw" width="1200" height="800" alt="Dragartiesten backstage, uit de serie Dutch Queer Scene and its Beauty" fetchpriority="high">
+      </picture>
+    </figure>
+    <div class="intro__copy">
+      <h1 class="intro__name">Luca van Ruiten</h1>
+      <p class="intro__role">Fotograaf, Rotterdam</p>
+      <p class="intro__text">Fotografie is al zo lang ik me kan herinneren een deel van mijn leven. Mijn werk richt zich vooral op de queer gemeenschap, in vormen als documentaire series of studioportretten. Ik werk zowel digitaal als met analoge film, en heb ervaring in de doka. Als queer kunstenaar is mijn focus het documenteren en archiveren van de Nederlandse queer gemeenschap, en het bewaren van haar schoonheid voor toekomstige generaties.</p>
     </div>
-    <div class="hero-content">
-      <h1 class="hero-name">Luca van <br><em>Ruiten</em></h1>
-      <p class="hero-sub">Portret <span>·</span> Studio <span>·</span> Analoog <span>·</span> Documentair — Rotterdam, NL</p>
-    </div>
-    <div class="scroll-cue"><i></i>Scroll</div>
   </section>
 
   <section class="section">
-    <div class="container statement">
-      <span class="eyebrow" data-reveal>Over het werk</span>
-      <p data-reveal>Fotografie is al zo lang ik me kan herinneren een deel van mijn leven. Mijn werk richt zich vooral op de queer gemeenschap, in vormen als documentaire series of studioportretten. Ik werk zowel digitaal als met analoge film, en heb ervaring in de doka. Als queer kunstenaar is mijn focus het documenteren en archiveren van de Nederlandse queer gemeenschap, en het bewaren van haar schoonheid voor toekomstige generaties.</p>
-    </div>
-  </section>
-
-  <section class="section band">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow" data-reveal>Uitgelicht werk</span>
-        <h2 class="section-title" data-reveal>Drie <em>projecten</em> in ontwikkeling.</h2>
-      </div>
+      <h2 class="eyebrow">Uitgelicht werk</h2>
 
       <div class="project-list">
-        <article class="project-card" data-reveal>
-          <a href="project-queer-scene.html" class="project-card__figure" data-cursor="View">
+        <article class="project-card">
+          <a href="project-queer-scene.html" class="project-card__figure">
             <img src="../images/covers/queer-scene.jpg" alt="Portret uit Dutch Queer Scene and its Beauty" loading="lazy">
           </a>
           <div class="project-card__body">
-            <span class="project-card__index">01</span>
+            <span class="project-card__index">01 — Documentaire</span>
             <h3 class="project-card__title"><a href="project-queer-scene.html" class="link-underline">Dutch Queer Scene and its Beauty</a></h3>
             <p class="project-card__desc">Een doorlopende documentaireserie over de diverse queer scene in Nederland. Drag queens, kings, pups en andere gemeenschappen, gemaakt in samenwerking met het Stadsarchief Rotterdam.</p>
             <a href="project-queer-scene.html" class="project-card__link link-underline">Bekijk project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </article>
 
-        <article class="project-card" data-reveal>
-          <a href="project-restrained.html" class="project-card__figure" data-cursor="View">
-            <img src="../images/covers/restrained.webp" alt="Portret met vastgebonden armen uit Restrained, but couture" loading="lazy">
+        <article class="project-card">
+          <a href="project-restrained.html" class="project-card__figure">
+            <img src="../images/covers/restrained-portrait.webp" alt="Portret met vastgebonden armen uit Restrained, but couture" loading="lazy">
           </a>
           <div class="project-card__body">
-            <span class="project-card__index">02</span>
+            <span class="project-card__index">02 — Studio</span>
             <h3 class="project-card__title"><a href="project-restrained.html" class="link-underline">Restrained, but couture</a></h3>
             <p class="project-card__desc">Een studioserie waarin drag en kink samenkomen: twee vormen van transformatie die beginnen bij fantasie en eindigen in overgave.</p>
             <a href="project-restrained.html" class="project-card__link link-underline">Bekijk project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </article>
 
-        <article class="project-card" data-reveal>
-          <a href="project-people.html" class="project-card__figure" data-cursor="View">
+        <article class="project-card">
+          <a href="project-people.html" class="project-card__figure">
             <img src="../images/covers/people.webp" alt="Studioportret uit de serie People" loading="lazy">
           </a>
           <div class="project-card__body">
-            <span class="project-card__index">03</span>
+            <span class="project-card__index">04 — Portret</span>
             <h3 class="project-card__title"><a href="project-people.html" class="link-underline">People</a></h3>
             <p class="project-card__desc">Een verzameling portretten — studio en op locatie, digitaal en analoog.</p>
             <a href="project-people.html" class="project-card__link link-underline">Bekijk project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -144,8 +132,8 @@
         </article>
       </div>
 
-      <div style="margin-top:3rem; text-align:center;" data-reveal>
-        <a href="projects.html" class="btn btn--accent">Alle projecten <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="next-block__action">
+        <a href="projects.html" class="btn">Alle projecten <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </section>
@@ -155,8 +143,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-brand">
-      <img src="../images/logo_small-optimised.gif" alt="" class="footer-logo" loading="lazy">
-      <a href="./" class="footer-brand__link" data-cursor="Home">Luca van Ruiten</a>
+      <a href="./" class="footer-brand__link">Luca van Ruiten</a>
     </div>
     <div class="footer-links">
       <a class="link-underline" href="https://www.instagram.com/lucavanruiten_photography/" target="_blank" rel="noopener">Instagram</a>
@@ -167,6 +154,6 @@
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
+<script src="../js/main.js?v=2026-10-27"></script>
 </body>
 </html>

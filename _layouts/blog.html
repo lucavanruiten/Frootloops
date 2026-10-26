@@ -13,7 +13,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="view-transition" content="same-origin">
 <title>{{ page_title | escape }}</title>
 <meta name="description" content="{{ description | escape }}">
 <meta name="author" content="Luca van Ruiten">
@@ -64,23 +63,18 @@
 </script>
 
 <link rel="icon" href="{{ '/favicon.png' | relative_url }}" type="image/png">
-<link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/css/style.css?v=2026-10-27' | relative_url }}">
 </head>
 <body>
-<div class="page-loader" role="status" aria-live="polite">
-  <span class="visually-hidden">Loading</span>
-  <p class="page-loader__mark" aria-hidden="true">Luca van Ruiten</p>
-  <div class="page-loader__bar" aria-hidden="true"></div>
-</div>
 <a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="site-nav">
   <div class="container">
-    <a href="{{ '/' | relative_url }}" class="nav-brand" data-cursor="Home">Luca van Ruiten</a>
+    <a href="{{ '/' | relative_url }}" class="nav-brand">Luca van Ruiten</a>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links">
       <a href="{{ '/projects.html' | relative_url }}" class="link-underline">Work</a>
-      <a href="{{ '/dump.html' | relative_url }}" class="link-underline">Dump</a>
+      <a href="{{ '/dump.html' | relative_url }}" class="link-underline">Visual Diary</a>
       <a href="{{ '/blog/' | relative_url }}" class="link-underline" aria-current="page">Blog</a>
       <a href="{{ '/contact.html' | relative_url }}" class="link-underline">Contact</a>
       <a href="{{ '/nl/' | relative_url }}" class="link-underline lang-switch" hreflang="nl" lang="nl">NL</a>
@@ -95,8 +89,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="footer-brand">
-      <img src="{{ '/images/logo_small-optimised.gif' | relative_url }}" alt="" class="footer-logo" loading="lazy">
-      <a href="{{ '/' | relative_url }}" class="footer-brand__link" data-cursor="Home">Luca van Ruiten</a>
+      <a href="{{ '/' | relative_url }}" class="footer-brand__link">Luca van Ruiten</a>
     </div>
     <div class="footer-links">
       <a class="link-underline" href="https://www.instagram.com/lucavanruiten_photography/" target="_blank" rel="noopener">Instagram</a>
@@ -107,6 +100,6 @@
   </div>
 </footer>
 
-<script src="{{ '/js/main.js' | relative_url }}"></script>
+<script src="{{ '/js/main.js?v=2026-10-27' | relative_url }}"></script>
 </body>
 </html>

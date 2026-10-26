@@ -5,17 +5,17 @@ meta_title: Blog — Luca van Ruiten
 description: Stories behind the photographs by Luca van Ruiten, a queer photographer in Rotterdam — shoots, projects and everything in between.
 ---
 <section class="page-hero container">
-  <span class="eyebrow" data-reveal>Blog</span>
-  <h1 class="section-title" data-reveal>Behind the <em>work</em>.</h1>
-  <p class="section-lede" data-reveal>Stories behind the photographs: shoots, projects and everything in between.</p>
+  <span class="eyebrow">Blog</span>
+  <h1 class="section-title">Behind the <em>work</em>.</h1>
+  <p class="section-lede">Stories behind the photographs: shoots, projects and everything in between.</p>
 </section>
 
 <section class="container blog-list-section">
   {%- if site.posts.size > 0 %}
   <div class="project-list">
     {%- for post in site.posts %}
-    <article class="project-card blog-card" data-reveal>
-      <a href="{{ post.url | relative_url }}" class="project-card__figure" data-cursor="Read" tabindex="-1" aria-hidden="true">
+    <article class="project-card blog-card">
+      <a href="{{ post.url | relative_url }}" class="project-card__figure" tabindex="-1" aria-hidden="true">
         {%- assign src = post.cover -%}
         {%- assign dims = site.data.blog_photos[src] -%}
         {%- assign processed = false -%}
@@ -40,6 +40,6 @@ description: Stories behind the photographs by Luca van Ruiten, a queer photogra
     {%- endfor %}
   </div>
   {%- else %}
-  <p class="blog-empty" data-reveal>The first post is on its way.</p>
+  <p class="blog-empty">The first post is on its way.</p>
   {%- endif %}
 </section>
