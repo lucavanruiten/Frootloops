@@ -76,14 +76,19 @@ Don't add these to `sitemap.xml`, and don't delete them. They keep old links and
 
 ## Design system
 
-**"White gallery" design** (2026-10-26, the user's choice "B" out of three proposals): white page, black type, thin grey hairlines, photos large and uncropped, no decorative motion. References the user gave: Foam magazine (foam.org/magazine) and Booooooom. The user found the previous dark, animated design "too playful" and wants to be taken seriously; keep it restrained.
+**"White gallery" design** (2026-10-26, the user's choice "B" out of three proposals): white page, black type, thin grey hairlines, photos large and uncropped, little motion (only the three animations below, which the user asked back for on 2026-10-27). References the user gave: Foam magazine (foam.org/magazine) and Booooooom. The user found the previous dark, animated design "too playful" and wants to be taken seriously; keep it restrained.
 
 Tokens at the top of `css/style.css`: `--bg #fff`, `--bg-raised #f5f5f4` (image placeholders), `--ink #111`, `--ink-soft #6b6b6b` (labels, dates, captions), `--line #e4e4e4` (hairlines), `--accent #c4161c` (red).
 
 - **Fonts (the user's choice, 2026-10-27):** titles in **Cormorant Garamond** (`--display`, weight 700 (Bold, the user asked for bolder titles on 2026-10-27): brand, h1–h3, section and card titles, gallery subheads, quotes), text in **Jost** (`--sans`, 400/500). Cormorant is small for its size, so titles are set larger than a sans would be.
 - **Red only on hover/focus:** every link turns `--accent` on hover (global `a:hover` rule); a project card's title turns red when the card is hovered; buttons, lightbox controls and focus outlines use it too. Don't use the red for static text or backgrounds.
 
-- **Removed on purpose (don't bring back unasked):** the floating draggable hero photos, the custom cursor, the page loader, scroll fade-ins (`data-reveal`), View Transitions, the spinning footer logo GIF, the dump page's scattered polaroids, orange accent words, the light/dark toggle (2026-10-19) and the marquee (2026-10-19).
+- **Removed on purpose (don't bring back unasked):** the floating draggable hero photos, the old cursor, the page loader, scroll fade-ins (`data-reveal`), the spinning footer logo GIF, the dump page's scattered polaroids, orange accent words, the light/dark toggle (2026-10-19) and the marquee (2026-10-19).
+- **Motion the user asked for (2026-10-27):**
+  - **Custom cursor** (`.cursor`, end of `style.css`; `initCursor()` in JS), in `--accent` red, built from two elements and animated with CSS transitions (the user gave PNG mockups and explicitly didn't want them used as cursor images). Rest: a 38px ring with a small dot inside. Over `a`, `button` or `img[data-full]` (`.is-hover`) the ring shrinks and fades while the dot grows to a 22px solid circle; it shrinks slightly on mousedown. Only on devices with `(hover:hover) and (pointer:fine)`; `html.has-cursor` hides the native cursor. Its position is saved in `sessionStorage` on `pagehide`, so it doesn't vanish between pages. z-index 1000 (above the lightbox).
+  - **Page transitions:** CSS only. In every browser `main` and the footer fade in rising 12px on load (`page-in`, fill `backwards` so no transform lingers). Browsers with cross-document View Transitions (`@view-transition{navigation:auto}`; Chrome/Edge, Safari 18.2+, not Firefox yet) also fade the old page out; the header (`view-transition-name:site-nav`) and the cursor stay put. The fallback exists because the user's own Safari (17.6) showed no transition at all.
+  - **Phone menu:** the panel fades in and the links rise one by one (staggered `transition-delay`), the burger lines turn into the ✕.
+  - All of it is switched off or instant under `prefers-reduced-motion`.
 - **No italics.** `em` is `font-style:normal` everywhere (inside headings it just looks like the rest of the title). Serifs are fine now, but only Cormorant Garamond for titles.
 - **Header:** sticky, white, name left, links right, 1px line underneath. Current page is underlined (`aria-current="page"`). Phones: a full-screen white menu with one link per row; it covers the header bar too (the user saw the name staying visible as a bug), only the close button stays on top.
 - **Home:** `.intro` = a featured photo (`.intro__figure`) with the h1 name, role line and statement beside it on ≥1000px. Below 1000px it stacks; on phones (<600px) the order is name + role, then the photo, then the statement (the user wanted text first, but the whole statement before the photo pushed it too far down; `.intro__copy` gets `display:contents` there so its children can be reordered). The photo is a `<picture>` chosen by the user (2026-10-27): landscape `images/covers/home-landscape-1200/1800.webp` (from `images/queens/uncompressed/5.jpg`) on ≥600px, portrait `images/covers/home-portrait-800/1200.webp` (from `images/queer/UNCOMPRESSED/8.webp`) on phones. Same WebP pipeline as the rest (q82, `-sharp_yuv`). Then "Selected work": `.project-card` tiles.
@@ -93,13 +98,14 @@ Tokens at the top of `css/style.css`: `--bg #fff`, `--bg-raised #f5f5f4` (image 
 - **Lightbox:** white background, black controls.
 - **No sideways scrolling:** `html` and `body` have `overflow-x:clip` (iOS Safari ignores it on `body` alone). Use `clip`, not `hidden`, on `html`.
 - **Never use an uncapped `vh`/`dvh` height above the content:** Googlebot renders in a viewport thousands of pixels tall (an uncapped 100dvh hero hid the name 2,500px down in its render in Oct 2026 while the site didn't rank).
-- **Cache-busting:** every page loads `css/style.css?v=…` and `js/main.js?v=…` (the date of the last big change, currently `2026-10-27d`; 16 pages + `404.html` + `_layouts/blog.html`). GitHub Pages caches for 10 minutes, so after a change that needs CSS and JS to match, bump the version everywhere.
+- **Cache-busting:** every page loads `css/style.css?v=…` and `js/main.js?v=…` (the date of the last big change, currently `2026-10-27f`; 16 pages + `404.html` + `_layouts/blog.html`). GitHub Pages caches for 10 minutes, so after a change that needs CSS and JS to match, bump the version everywhere.
 - Reusable pieces: `.page-hero` (+ `.page-hero--split`, cover beside the intro on ≥900px, hidden below), `.back-link`, `.eyebrow` (small grey label), `.section-title`, `.section-lede`, `.project-card`, `.gallery-grid` / `.grid-item`, `.gallery-subhead`, `.gallery-credit`, `.btn`, `.link-underline` (underline on hover), `.text-credit`, `.photo-credit`, `.cv` (contact page lists).
 
 ## JS (`js/main.js`)
 
 Deliberately small since the redesign: one IIFE that fills the footer year (`#year`) and, on `DOMContentLoaded`, runs:
 - `initNav()` — the phone menu button (`body.nav-open`, `aria-expanded`).
+- `initCursor()` — the custom cursor (see Design system).
 - `initLightbox()` — one lightbox. Every `[data-lightbox-group]` container is its own prev/next sequence. It opens `img[data-full]` (full-res) while the grid shows the compressed `src`. Clicking the image's parent opens it. Keys: Esc, ←, →.
 
 ## Pages & content notes

@@ -1,6 +1,6 @@
 /* Luca van Ruiten — Photography Portfolio — interactions
    Deliberately small since the 2026-10 "white gallery" redesign: the mobile menu,
-   the lightbox and the footer year. No decorative motion. */
+   the lightbox, the custom cursor and the footer year. Page transitions are pure CSS. */
 (() => {
   "use strict";
 
@@ -102,9 +102,48 @@
     });
   }
 
+  /* -------------------------------------------------- custom cursor (mouse only) */
+  function initCursor(){
+    if (!window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+
+    const cursor = document.createElement("div");
+    cursor.className = "cursor";
+    cursor.setAttribute("aria-hidden", "true");
+    cursor.innerHTML = '<span class="cursor__ring"></span><span class="cursor__dot"></span>';
+    document.body.appendChild(cursor);
+    document.documentElement.classList.add("has-cursor");
+
+    const HOVER = "a, button, img[data-full]";
+    let x = 0, y = 0, frame = 0;
+    const place = () => { frame = 0; cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`; };
+    const moveTo = (nx, ny) => {
+      x = nx; y = ny;
+      if (!frame) frame = requestAnimationFrame(place);
+      cursor.classList.add("is-visible");
+    };
+
+    // carry the position over from the previous page, so the cursor doesn't vanish until the mouse moves
+    try {
+      const last = JSON.parse(sessionStorage.getItem("cursor") || "null");
+      if (last) moveTo(last[0], last[1]);
+    } catch (e) {}
+    window.addEventListener("pagehide", () => {
+      try { sessionStorage.setItem("cursor", JSON.stringify([x, y])); } catch (e) {}
+    });
+
+    document.addEventListener("mousemove", (e) => moveTo(e.clientX, e.clientY), { passive: true });
+    document.addEventListener("mouseover", (e) => {
+      cursor.classList.toggle("is-hover", !!(e.target.closest && e.target.closest(HOVER)));
+    });
+    document.addEventListener("mousedown", () => cursor.classList.add("is-down"));
+    document.addEventListener("mouseup", () => cursor.classList.remove("is-down"));
+    document.documentElement.addEventListener("mouseleave", () => cursor.classList.remove("is-visible"));
+  }
+
   /* -------------------------------------------------- init */
   document.addEventListener("DOMContentLoaded", () => {
     initNav();
     initLightbox();
+    initCursor();
   });
 })();
